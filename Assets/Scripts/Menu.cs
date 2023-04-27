@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject creatorsScreen;
+    [SerializeField] private GameObject grayedOutScreen;
     void Start()
     {
         button = GetComponent<Button>();
@@ -20,7 +22,11 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
+        #if UNITY_EDITOR
+            EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     public void ShowAchievements()
@@ -44,5 +50,11 @@ public class Menu : MonoBehaviour
     {
         creatorsScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
+        grayedOutScreen.SetActive(false);
+    }
+
+    public void showExitMenu()
+    {
+        grayedOutScreen.SetActive(true);
     }
 }
