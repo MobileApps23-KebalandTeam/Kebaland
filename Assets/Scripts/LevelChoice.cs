@@ -53,6 +53,11 @@ public class LevelChoice : MonoBehaviour
         SceneManager.LoadScene("ClickerPlaceholder");
     }
 
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public static void UpdateLevel(bool nextLevel) 
     {
         if (nextLevel)
