@@ -7,6 +7,7 @@ public class LevelChoice : MonoBehaviour
 {
     private Dictionary<int, LockStatus> levelStatus = new Dictionary<int, LockStatus>();
     public static int CurrentLevel = 1;
+    public static int StartedLevel = 0;
     
     void Start()
     { 
@@ -21,26 +22,31 @@ public class LevelChoice : MonoBehaviour
 
     public void StartLevel1()
     {
+        StartedLevel = 1;
         SceneManager.LoadScene("Level1");
     }
     
     public void StartLevel2()
     {
+        StartedLevel = 2;
         SceneManager.LoadScene("Level2");
     }
     
     public void StartLevel3()
     {
+        StartedLevel = 3;
         SceneManager.LoadScene("Level3");
     }
     
     public void StartLevel4()
     {
+        StartedLevel = 4;
         SceneManager.LoadScene("Level4");
     }
     
     public void StartLevel5()
     {
+        StartedLevel = 5;
         SceneManager.LoadScene("Level5");
     }
     
@@ -68,7 +74,10 @@ public class LevelChoice : MonoBehaviour
     {
         if (nextLevel)
         {
-            CurrentLevel++;
+            if (StartedLevel == CurrentLevel)
+            {
+                CurrentLevel++;
+            }
         }
     }
 
