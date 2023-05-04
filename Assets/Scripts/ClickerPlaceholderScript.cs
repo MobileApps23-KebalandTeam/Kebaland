@@ -1,8 +1,9 @@
-
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelClickerPlaceholder : MonoBehaviour
+public class ClickerPlaceholderScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,20 +16,15 @@ public class LevelClickerPlaceholder : MonoBehaviour
     {
         
     }
-
-    public void LevelPassed()
+    
+    public void ClickerPassed()
     {
-        PushInfoToParent(true);
+        SceneManager.LoadScene("LevelPlaceholder");
     }
 
-    public void LevelFailed()
+    public void ClickerFailed()
     {
-        PushInfoToParent(false);
-    }
-
-    private static void PushInfoToParent(bool nextLevel)
-    {
-        LevelChoice.UpdateLevel(nextLevel);
+        LevelChoice.UpdateLevel(false);
         SceneManager.LoadScene("LevelsChoiceScene");
     }
 }

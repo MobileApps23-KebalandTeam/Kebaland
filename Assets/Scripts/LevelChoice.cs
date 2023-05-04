@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class LevelChoice : MonoBehaviour
 {
-    [SerializeField] private GameObject[] Planets;
-    [SerializeField] private GameObject[] LockPlanets;
+    [SerializeField] private GameObject[] planets;
+    [SerializeField] private GameObject[] lockPlanets;
     
     public static int CurrentLevel = 0;
     public static int StartedLevel = 0;
@@ -23,54 +23,34 @@ public class LevelChoice : MonoBehaviour
         SaveCurrentLevel();
     }
 
-    public void StartLevel1()
+    public void StartLevel0()
     {
         StartedLevel = 0;
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("ClickerPlaceholder");
+    }
+    
+    public void StartLevel1()
+    {
+        StartedLevel = 1;
+        SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel2()
     {
-        StartedLevel = 1;
-        SceneManager.LoadScene("Level2");
+        StartedLevel = 2;
+        SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel3()
     {
-        StartedLevel = 2;
-        SceneManager.LoadScene("Level3");
+        StartedLevel = 3;
+        SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel4()
     {
-        StartedLevel = 3;
-        SceneManager.LoadScene("Level4");
-    }
-    
-    public void StartLevel5()
-    {
         StartedLevel = 4;
-        SceneManager.LoadScene("Level5");
-    }
-    
-    public void StartClicker1()
-    {
-        SceneManager.LoadScene("Clicker1");
-    }
-    
-    public void StartClicker2()
-    {
-        SceneManager.LoadScene("Clicker2");
-    }
-    
-    public void StartClicker3()
-    {
-        SceneManager.LoadScene("Clicker3");
-    }
-    
-    public void StartClicker4()
-    {
-        SceneManager.LoadScene("Clicker4");
+        SceneManager.LoadScene("ClickerPlaceholder");
     }
 
     public static void UpdateLevel(bool nextLevel) 
@@ -88,22 +68,22 @@ public class LevelChoice : MonoBehaviour
     {
         // TODO: Read saved level ~ Krzychu
 
-        if (Planets == null || LockPlanets == null)
+        if (planets == null || lockPlanets == null)
         {
             return;
         }
         
-        for (int level = 0; level < Planets.Length; level++)
+        for (int level = 0; level < planets.Length; level++)
         {
             if (level <= CurrentLevel)
             {
-                Planets[level].SetActive(true);
-                LockPlanets[level].SetActive(false);
+                planets[level].SetActive(true);
+                lockPlanets[level].SetActive(false);
             }
             else
             {
-                Planets[level].SetActive(false);
-                LockPlanets[level].SetActive(true);
+                planets[level].SetActive(false);
+                lockPlanets[level].SetActive(true);
             }
         }
     }
