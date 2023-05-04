@@ -651,6 +651,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets: []
+  LockPlanets: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets: []
+  LockPlanets: []
 --- !u!1 &1111433132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1195,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets:
+  - {fileID: 1957239853}
+  - {fileID: 1045895211}
+  - {fileID: 1279214573}
+  - {fileID: 1874928323}
+  - {fileID: 962851091}
+  LockPlanets:
+  - {fileID: 749776046}
+  - {fileID: 1479634572}
+  - {fileID: 2104148064}
+  - {fileID: 2119432318}
+  - {fileID: 1528167448}
 --- !u!1 &1279214573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,6 +1354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets: []
+  LockPlanets: []
 --- !u!1 &1479634572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets: []
+  LockPlanets: []
 --- !u!1 &1957239853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,6 +2074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c50ad9129fd8f4780c6178630dfaf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Planets: []
+  LockPlanets: []
 --- !u!1 &1981183459
 GameObject:
   m_ObjectHideFlags: 0

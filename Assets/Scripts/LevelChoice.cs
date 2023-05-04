@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 
 public class LevelChoice : MonoBehaviour
 {
-    private Dictionary<int, LockStatus> levelStatus = new Dictionary<int, LockStatus>();
-    public static int CurrentLevel = 1;
+    [SerializeField] private GameObject[] Planets;
+    [SerializeField] private GameObject[] LockPlanets;
+    
+    public static int CurrentLevel = 0;
     public static int StartedLevel = 0;
     
     void Start()
@@ -22,31 +25,31 @@ public class LevelChoice : MonoBehaviour
 
     public void StartLevel1()
     {
-        StartedLevel = 1;
+        StartedLevel = 0;
         SceneManager.LoadScene("Level1");
     }
     
     public void StartLevel2()
     {
-        StartedLevel = 2;
+        StartedLevel = 1;
         SceneManager.LoadScene("Level2");
     }
     
     public void StartLevel3()
     {
-        StartedLevel = 3;
+        StartedLevel = 2;
         SceneManager.LoadScene("Level3");
     }
     
     public void StartLevel4()
     {
-        StartedLevel = 4;
+        StartedLevel = 3;
         SceneManager.LoadScene("Level4");
     }
     
     public void StartLevel5()
     {
-        StartedLevel = 5;
+        StartedLevel = 4;
         SceneManager.LoadScene("Level5");
     }
     
@@ -70,7 +73,7 @@ public class LevelChoice : MonoBehaviour
         SceneManager.LoadScene("Clicker4");
     }
 
-    public static void updateLevel(bool nextLevel) 
+    public static void UpdateLevel(bool nextLevel) 
     {
         if (nextLevel)
         {
@@ -85,28 +88,22 @@ public class LevelChoice : MonoBehaviour
     {
         // TODO: Read saved level ~ Krzychu
 
-        for (int level = 1; level <= 5; level++)
+        if (Planets == null || LockPlanets == null)
         {
-            
-            GameObject levelButton = GameObject.Find("Planet-" + level);
-            GameObject levelLockImage = GameObject.Find("LockPlanet-" + level);
-
-            if (levelButton == null || levelLockImage == null)
-            {
-                continue;
-            }
-            
+            return;
+        }
+        
+        for (int level = 0; level < Planets.Length; level++)
+        {
             if (level <= CurrentLevel)
             {
-                levelStatus[level] = LockStatus.UNLOCK;
-                levelButton.SetActive(true);
-                levelLockImage.SetActive(false);
+                Planets[level].SetActive(true);
+                LockPlanets[level].SetActive(false);
             }
             else
             {
-                levelStatus[level] = LockStatus.LOCK;
-                levelButton.SetActive(false);
-                levelLockImage.SetActive(true);
+                Planets[level].SetActive(false);
+                LockPlanets[level].SetActive(true);
             }
         }
     }

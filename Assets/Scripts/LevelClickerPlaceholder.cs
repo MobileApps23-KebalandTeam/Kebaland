@@ -28,7 +28,7 @@ public class LevelClickerPlaceholder : MonoBehaviour
 
     private static void PushInfoToParent(bool nextLevel)
     {
-        LevelChoice.updateLevel(nextLevel);
+        LevelChoice.UpdateLevel(nextLevel);
         SceneManager.LoadScene("LevelsChoiceScene");
     }
 }
