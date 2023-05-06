@@ -1,23 +1,19 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
-
 
 public class LevelChoice : MonoBehaviour
 {
     [SerializeField] private GameObject[] planets;
     [SerializeField] private GameObject[] lockPlanets;
-    
-    public static int CurrentLevel = 0;
-    public static int StartedLevel = 0;
+
+    private static int _currentLevelToPass;
+    private static int _startedLevel;
     
     void Start()
     { 
         ReadCurrentLevel();
     }
 
-    // Update is called once per frame
     void Update()
     {
         SaveCurrentLevel();
@@ -25,31 +21,31 @@ public class LevelChoice : MonoBehaviour
 
     public void StartLevel0()
     {
-        StartedLevel = 0;
+        _startedLevel = 0;
         SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel1()
     {
-        StartedLevel = 1;
+        _startedLevel = 1;
         SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel2()
     {
-        StartedLevel = 2;
+        _startedLevel = 2;
         SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel3()
     {
-        StartedLevel = 3;
+        _startedLevel = 3;
         SceneManager.LoadScene("ClickerPlaceholder");
     }
     
     public void StartLevel4()
     {
-        StartedLevel = 4;
+        _startedLevel = 4;
         SceneManager.LoadScene("ClickerPlaceholder");
     }
 
@@ -62,9 +58,10 @@ public class LevelChoice : MonoBehaviour
     {
         if (nextLevel)
         {
-            if (StartedLevel == CurrentLevel)
+            if (_startedLevel == _currentLevelToPass)
             {
-                CurrentLevel++;
+                StarshipMove.SetTargetPosition(_currentLevelToPass);
+                _currentLevelToPass++;
             }
         }
     }
@@ -77,10 +74,20 @@ public class LevelChoice : MonoBehaviour
         {
             return;
         }
+
+        if (_currentLevelToPass == 0)
+        {
+            StarshipMove.SetPositionForce(_currentLevelToPass); 
+        }
+        else
+        {
+            StarshipMove.SetPositionForce(_currentLevelToPass - 1);
+        }
+        
         
         for (int level = 0; level < planets.Length; level++)
         {
-            if (level <= CurrentLevel)
+            if (level <= _currentLevelToPass)
             {
                 planets[level].SetActive(true);
                 lockPlanets[level].SetActive(false);
