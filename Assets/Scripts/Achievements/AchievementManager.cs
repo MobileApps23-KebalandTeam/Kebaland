@@ -26,8 +26,8 @@ public class AchievementManager : MonoBehaviour
     {
         if (!achievementCreated && achievementsScreen.activeSelf)
         {
-            createAchievement("First Steps", "Start Playing", 0);
-            createAchievement("Masterpiece", "Finish First Level", 1);
+            createAchievement("Pierwsze kroki", "Zacznij grać", 0);
+            createAchievement("Arcydzieło", "Skończ pierwszy lewel", 1);
 
             achievementCreated = true;
         }
