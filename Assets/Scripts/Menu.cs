@@ -10,6 +10,7 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject creatorsScreen;
+    [SerializeField] private GameObject achievementsScreen;
     [SerializeField] private GameObject grayedOutScreen;
     void Start()
     {
@@ -22,17 +23,18 @@ public class Menu : MonoBehaviour
 
     public void ExitGame()
     {
-        #if UNITY_EDITOR
-            EditorApplication.isPlaying = false;
-        #else
+#if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
+#endif
     }
 
     public void ShowAchievements()
     {
-        //TODO
-        //LOAD ACHIEVEMENTS FRAGMENT OF SCENE MAIN MENU
+        //Loads Achievements Fragment
+        mainMenuScreen.SetActive(false);
+        achievementsScreen.SetActive(true);
     }
 
     public void ShowCreators()
@@ -49,6 +51,7 @@ public class Menu : MonoBehaviour
     public void BackToMainMenu()
     {
         creatorsScreen.SetActive(false);
+        achievementsScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
         grayedOutScreen.SetActive(false);
     }
