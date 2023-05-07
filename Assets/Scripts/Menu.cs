@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour
         //Loads Achievements Fragment
         mainMenuScreen.SetActive(false);
         achievementsScreen.SetActive(true);
+
     }
 
     public void ShowCreators()
