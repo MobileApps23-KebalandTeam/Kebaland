@@ -17,7 +17,8 @@ public class Menu : MonoBehaviour
     }
     public void PlayGame()
     {
-        SceneManager.LoadScene("LevelsChoiceScene");
+        // SceneManager.LoadScene("LevelsChoiceScene");
+        SceneManager.LoadScene("GameLoopScene");
     }
 
     public void ExitGame()
