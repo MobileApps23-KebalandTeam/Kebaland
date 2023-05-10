@@ -9,7 +9,7 @@ public class StarshipMove : MonoBehaviour
     private static bool _isFirstStart = true;
     private static Vector3 _rotation;
     
-    private const float Speed = 15f;
+    private const float Speed = 60f;
     private readonly Vector3 _shiftVector = new (30, 0, 0);
 
     void Start()

@@ -5,6 +5,7 @@ public class LevelChoice : MonoBehaviour
 {
     [SerializeField] private GameObject[] planets;
     [SerializeField] private GameObject[] lockPlanets;
+    [SerializeField] private GameObject spaceship;
 
     private static int _currentLevelToPass;
     private static int _startedLevel;
@@ -77,10 +78,12 @@ public class LevelChoice : MonoBehaviour
 
         if (_currentLevelToPass == 0)
         {
+            spaceship.SetActive(false);
             StarshipMove.SetPositionForce(_currentLevelToPass); 
         }
         else
         {
+            spaceship.SetActive(true);
             StarshipMove.SetPositionForce(_currentLevelToPass - 1);
         }
         
