@@ -18,7 +18,6 @@ public class PlatePanel : MonoBehaviour
         GameObject[] types = Resources.LoadAll<GameObject>("PlateIngredients");
         foreach (GameObject obj in types)
         {
-            Debug.LogError(obj.name);
             ingredientTypes.Add(obj.name, obj);
         }
 
@@ -37,9 +36,10 @@ public class PlatePanel : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        Debug.LogError(ingredient.Name());
         var newObj = Instantiate(ingredientTypes.GetValueOrDefault(ingredient.Name()), Vector2.zero, Quaternion.identity, transform);
-        Vector2 vect = new Vector2(ingredient.OffsetX(), ingredient.OffsetY() + actHeight);
+        float offsetX = Random.Range(-ingredient.OffsetX(), ingredient.OffsetX());
+        float offsetY = Random.Range(-ingredient.OffsetY(), ingredient.OffsetY());
+        Vector2 vect = new Vector2(offsetX, offsetY + actHeight);
         newObj.GetComponent<RectTransform>().offsetMin = vect;
         newObj.GetComponent<RectTransform>().offsetMax = vect;
         actHeight += ingredient.AddHeight();
@@ -67,6 +67,40 @@ public class PlatePanel : MonoBehaviour
         public override string Name() => "DoughIngredient" + (type + 1);
         public override int OffsetX() => 0;
         public override int OffsetY() => 0;
+
+    }
+
+
+    public class MeatIngredient : Ingredient
+    {
+        int type;
+
+        public MeatIngredient(int type)
+        {
+            this.type = type;
+        }
+
+        public override int AddHeight() => 1;
+        public override string Name() => "MeatIngredient" + (type + 1);
+        public override int OffsetX() => Screen.width / 10;
+        public override int OffsetY() => Screen.width / 64;
+
+    }
+
+
+    public class ExtraIngredient : Ingredient
+    {
+        int type;
+
+        public ExtraIngredient(int type)
+        {
+            this.type = type;
+        }
+
+        public override int AddHeight() => 1;
+        public override string Name() => "ExtraIngredient" + (type + 1);
+        public override int OffsetX() => Screen.width / 16;
+        public override int OffsetY() => Screen.width / 64;
 
     }
 

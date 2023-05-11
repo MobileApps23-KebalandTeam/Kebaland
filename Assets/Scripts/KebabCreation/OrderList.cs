@@ -78,7 +78,8 @@ public class OrderList : MonoBehaviour
                 // TODO lose game
                 //Time.timeScale = 1.0f;
                 //SceneManager.LoadScene("MainMenu");
-                Debug.LogError("YOU LOST!");
+                //Debug.LogError("YOU LOST!");
+                i++;
                 continue;
             }
             Slider slider = ord.obj.GetComponentInChildren<Slider>();
