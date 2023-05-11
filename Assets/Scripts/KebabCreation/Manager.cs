@@ -6,15 +6,17 @@ public class Manager : MonoBehaviour
 {
 
     public Background background;
-    public Plate plate;
     public GameObject plateObject;
     public GameObject[] mainDough;
     public GameObject[] dough;
     public PauseMenu pauseMenu;
+    public PlatePanel platePanel;
 
-    // colliders of dough element to check if it was clicked
+    // colliders of elements to check if it was clicked
     private BoxCollider[] mainDoughCollider;
     private Vector3[] defaultDoughPosition;
+
+    private BoxCollider plateCollider;
 
     // start click positions
     private Vector2 fromSwipe;
@@ -44,6 +46,9 @@ public class Manager : MonoBehaviour
             mainDoughCollider[i].size = new Vector3(hitbox, hitbox, 0);
             i++;
         }
+
+        plateCollider = plateObject.GetComponent<BoxCollider>();
+        plateCollider.size = new Vector3(Screen.width / 3, Screen.height / 8, 0);
     }
 
     void Update()
@@ -80,7 +85,10 @@ public class Manager : MonoBehaviour
             {
                 dough[isDraggingDough].SetActive(false);
                 dough[isDraggingDough].transform.position = defaultDoughPosition[isDraggingDough];
-                // TODO check if end was on plate and if so then add dough to plate
+                if (plateCollider.bounds.Contains(Input.touches[0].position))
+                {
+                    platePanel.AddIngredient(new PlatePanel.DoughIngredient(isDraggingDough));
+                }
                 isDraggingDough = -1;
             }
             else if (isClicked)
@@ -101,7 +109,7 @@ public class Manager : MonoBehaviour
                             background.Move(new Vector3(-1 * statesMoves[state], 0, 0));
                             if (state == 0)
                             {
-                                plate.Move(new Vector3(-1 * plateStateMove, 0, 0));
+                                platePanel.Move(new Vector3(-1 * plateStateMove, 0, 0));
                             }
                             state++;
                         }

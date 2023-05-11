@@ -76,8 +76,8 @@ public class OrderList : MonoBehaviour
             if (ord.timeLeft < 0)
             {
                 // TODO lose game
-                Time.timeScale = 1.0f;
-                SceneManager.LoadScene("MainMenu");
+                //Time.timeScale = 1.0f;
+                //SceneManager.LoadScene("MainMenu");
                 Debug.LogError("YOU LOST!");
                 continue;
             }
