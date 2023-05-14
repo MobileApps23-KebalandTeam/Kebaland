@@ -53,7 +53,7 @@ public class Manager : MonoBehaviour
     // distances for changing screens
     public int reqPixelMove = Screen.width / 2;
     public int reqMeatCut = Screen.height / 12;
-    private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width };
+    private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width };
     private int plateStateMove = Screen.width / 5;
 
 
@@ -90,7 +90,7 @@ public class Manager : MonoBehaviour
         // Initialize extras
         defaultExtrasPosition = new Vector3[mainDough.Length];
 
-        mainExtrasCollider = new BoxCollider[mainDough.Length];
+        mainExtrasCollider = new BoxCollider[mainExtras.Length];
         int k = 0;
         foreach (GameObject obj in mainExtras)
         {
@@ -107,7 +107,7 @@ public class Manager : MonoBehaviour
         // ON START CLICK
         if (Input.touches[0].phase == TouchPhase.Began)
         {
-            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null) return;
+            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null || isDraggingExtras >= 0) return;
 
             Vector2 touchPos = Input.touches[0].position;
             if (isDraggingDough < 0 && state == 1)
