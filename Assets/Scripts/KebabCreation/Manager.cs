@@ -22,6 +22,10 @@ public class Manager : MonoBehaviour
     public GameObject[] mainExtras;
     public GameObject[] extras;
 
+    public GameObject[] sauces;
+    public GameObject[] fakeSauces;
+    public GameObject sauceScale, sauceScaleLine;
+
     // colliders of elements to check if it was clicked
     private BoxCollider[] mainDoughCollider;
     private Vector3[] defaultDoughPosition;
@@ -29,9 +33,11 @@ public class Manager : MonoBehaviour
     private BoxCollider plateCollider;
     private BoxCollider[] meatCollider;
 
-    // colliders of elements to check if it was clicked
     private BoxCollider[] mainExtrasCollider;
     private Vector3[] defaultExtrasPosition;
+
+    private BoxCollider[] sauceCollider;
+    private Vector3 basicSaucePosition;
 
     // start click positions
     private Vector2 fromSwipe, fromCut;
@@ -47,6 +53,8 @@ public class Manager : MonoBehaviour
     private int draggingMeatId = -1;
     // id of actually dragged extras to plate
     private int isDraggingExtras = -1;
+    // id of actually dragged sauce to plate
+    private int isDraggingSauce = -1;
     // id of actual state (number of scene)
     private int state = 0;
 
@@ -56,6 +64,9 @@ public class Manager : MonoBehaviour
     private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width };
     private int plateStateMove = Screen.width / 5;
 
+    // sauce amount data
+    private int maxSauce = 200;
+    private int[] sauceAmount;
 
 
     void Start()
@@ -99,6 +110,17 @@ public class Manager : MonoBehaviour
             mainExtrasCollider[k].size = new Vector3(hitbox, hitbox, 0);
             k++;
         }
+
+        // Initialize sauces
+        sauceAmount = new int[sauces.Length];
+        sauceCollider = new BoxCollider[sauces.Length];
+        int l = 0;
+        foreach (GameObject obj in sauces)
+        {
+            sauceCollider[l] = obj.GetComponent<BoxCollider>();
+            sauceCollider[l].size = new Vector3(Screen.width / 5, Screen.height / 4, 0);
+            l++;
+        }
     }
 
     void Update()
@@ -107,7 +129,7 @@ public class Manager : MonoBehaviour
         // ON START CLICK
         if (Input.touches[0].phase == TouchPhase.Began)
         {
-            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null || isDraggingExtras >= 0) return;
+            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null || isDraggingExtras >= 0 || isDraggingSauce >= 0) return;
 
             Vector2 touchPos = Input.touches[0].position;
             if (isDraggingDough < 0 && state == 1)
@@ -171,6 +193,26 @@ public class Manager : MonoBehaviour
             }
             if (isDraggingExtras >= 0) return;
 
+            if (isDraggingSauce < 0 && state == 4)
+            {
+                for (int i = 0; i < sauceCollider.Length; i++)
+                {
+                    if (sauceCollider[i].bounds.Contains(touchPos))
+                    {
+                        isDraggingSauce = i;
+                        fakeSauces[i].transform.position = touchPos;
+                        fakeSauces[i].SetActive(true);
+                        sauces[i].SetActive(false);
+                        sauceScale.SetActive(true);
+                        sauceScale.transform.position = plateObject.transform.position + new Vector3(Screen.width / 4, 0, 0);
+                        basicSaucePosition = sauceScaleLine.transform.position;
+                        sauceScaleLine.transform.position -= sauceAmount[isDraggingSauce] * new Vector3(0, Screen.height / 1000, 0);
+                        break;
+                    }
+                }
+            }
+            if (isDraggingSauce >= 0) return;
+
             if (!isClicked)
             {
                 fromSwipe = touchPos;
@@ -225,6 +267,14 @@ public class Manager : MonoBehaviour
                 }
                 isDraggingExtras = -1;
             }
+            else if (isDraggingSauce >= 0)
+            {
+                fakeSauces[isDraggingSauce].SetActive(false);
+                sauces[isDraggingSauce].SetActive(true);
+                sauceScale.SetActive(false);
+                sauceScaleLine.transform.position = basicSaucePosition;
+                isDraggingSauce = -1;
+            }
             else if (isClicked)
             {
                 // Swipe right
@@ -275,6 +325,16 @@ public class Manager : MonoBehaviour
             {
                 extras[isDraggingExtras].transform.position = Input.touches[0].position;
             }
+            else if (isDraggingSauce >= 0)
+            {
+                Vector3 touchPos = Input.touches[0].position;
+                fakeSauces[isDraggingSauce].transform.position = touchPos;
+                if (sauceAmount[isDraggingSauce] < maxSauce && plateCollider.bounds.Contains(touchPos - new Vector3(0, Screen.height / 5, 0)) && Random.Range(0, 10) < 1)
+                {
+                    sauceAmount[isDraggingSauce]++;
+                    sauceScaleLine.transform.position -= new Vector3(0, Screen.height / 1000, 0);
+                }
+            }
         }
     }
 
@@ -282,6 +342,5 @@ public class Manager : MonoBehaviour
     {
         plateObject.SetActive(true);
     }
-
 
 }
