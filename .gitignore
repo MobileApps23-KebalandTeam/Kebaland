@@ -61,3 +61,8 @@ crashlytics-build.properties
 
 *.dwlt
 
+.vscode/settings.json
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+UserSettings/EditorUserSettings.asset
+ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+UserSettings/EditorUserSettings.asset
