@@ -8,18 +8,6 @@ namespace Core
 {
     public class AchievementService : ISerializationService
     {
-        public AchievementService()
-        {
-            try
-            {
-                Deserialize();
-            }
-            catch (FileNotFoundException e)
-            {
-                
-            }
-        }
-
         private List<MAchievement> _achievements = new();
 
         public List<MAchievement> GetCurrentAchievements()
@@ -33,37 +21,27 @@ namespace Core
             return Serialize();
         }
 
-        public bool Serialize()
+        override protected string fileName()
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(Application.persistentDataPath
-                                          + "/Achievements.dat");
-            bf.Serialize(file, _achievements);
-            file.Close();
-            return true;
+            return "Achievements.dat";
         }
 
-        public void Deserialize()
+        protected override object objectToSave()
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file =
-                File.Open(Application.persistentDataPath
-                          + "/" + fileName(), FileMode.Open);
-            List<MAchievement> list = (List<MAchievement>)bf.Deserialize(file);
-            file.Close();
-            if (list.Count > 0)
+            return _achievements;
+        }
+
+        protected override void handleLoad()
+        {
+            object deserialized = Deserialize<MAchievement>();
+            if (deserialized != null)
             {
-                _achievements = list;
+                _achievements = (List<MAchievement>)deserialized;
             }
             else
             {
                 _achievements = new();
             }
-        }
-
-        public string fileName()
-        {
-            return "Achievements.dat";
         }
     }
 }

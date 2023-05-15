@@ -3,13 +3,17 @@
 namespace Model
 {
     [Serializable]
-    public class MAchievement
+    public class MAchievement : AbstractModel
     {
         public MAchievement(string name, bool acquired, long date)
         {
             this.Name = name;
             this.AcquiredDate = date;
             this.Acquired = acquired;
+        }
+
+        public MAchievement()
+        {
         }
 
         public string Name;

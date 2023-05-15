@@ -7,30 +7,27 @@ namespace Core
     {
         private MGameState _gameState = null;
 
-        public GameStateService()
-        {
-            try
-            {
-                Deserialize();
-            }
-            catch (FileNotFoundException e)
-            {
-            }
-        }
-
-        public bool Serialize()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Deserialize()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string fileName()
+        override protected string fileName()
         {
             return "GameState.dat";
+        }
+
+        protected override object objectToSave()
+        {
+            return _gameState;
+        }
+
+        protected override void handleLoad()
+        {
+            object deserialized = Deserialize<MGameState>();
+            if (deserialized != null)
+            {
+                _gameState = (MGameState)deserialized;
+            }
+            else
+            {
+                _gameState = new MGameState();
+            }
         }
 
         public void saveProgress(MGameState gameState)
