@@ -104,4 +104,21 @@ public class PlatePanel : MonoBehaviour
 
     }
 
+
+    public class SauceIngredient : Ingredient
+    {
+        int type;
+
+        public SauceIngredient(int type)
+        {
+            this.type = type;
+        }
+
+        public override int AddHeight() => 0;
+        public override string Name() => "SauceIngredient" + (type + 1);
+        public override int OffsetX() => Screen.width / 16;
+        public override int OffsetY() => Screen.width / 64;
+
+    }
+
 }

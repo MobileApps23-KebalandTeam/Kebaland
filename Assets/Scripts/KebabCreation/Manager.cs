@@ -26,6 +26,8 @@ public class Manager : MonoBehaviour
     public GameObject[] fakeSauces;
     public GameObject sauceScale, sauceScaleLine;
 
+    public GameObject orders;
+
     // colliders of elements to check if it was clicked
     private BoxCollider[] mainDoughCollider;
     private Vector3[] defaultDoughPosition;
@@ -38,6 +40,9 @@ public class Manager : MonoBehaviour
 
     private BoxCollider[] sauceCollider;
     private Vector3 basicSaucePosition;
+
+    private BoxCollider ordersCollider;
+    private Vector3 basicPlatePosition;
 
     // start click positions
     private Vector2 fromSwipe, fromCut;
@@ -55,13 +60,14 @@ public class Manager : MonoBehaviour
     private int isDraggingExtras = -1;
     // id of actually dragged sauce to plate
     private int isDraggingSauce = -1;
+    private bool isDraggingPlate = false;
     // id of actual state (number of scene)
     private int state = 0;
 
     // distances for changing screens
     public int reqPixelMove = Screen.width / 2;
     public int reqMeatCut = Screen.height / 12;
-    private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width };
+    private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width * 61 / 100 };
     private int plateStateMove = Screen.width / 5;
 
     // sauce amount data
@@ -121,6 +127,10 @@ public class Manager : MonoBehaviour
             sauceCollider[l].size = new Vector3(Screen.width / 5, Screen.height / 4, 0);
             l++;
         }
+
+        // Initialize returning orders
+        ordersCollider = orders.GetComponent<BoxCollider>();
+        ordersCollider.size = new Vector3(Screen.width / 2, Screen.height, 0);
     }
 
     void Update()
@@ -129,7 +139,7 @@ public class Manager : MonoBehaviour
         // ON START CLICK
         if (Input.touches[0].phase == TouchPhase.Began)
         {
-            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null || isDraggingExtras >= 0 || isDraggingSauce >= 0) return;
+            if (isDraggingDough >= 0 || isCuttingMeat >= 0 || draggingMeat != null || isDraggingExtras >= 0 || isDraggingSauce >= 0 || isDraggingPlate) return;
 
             Vector2 touchPos = Input.touches[0].position;
             if (isDraggingDough < 0 && state == 1)
@@ -213,6 +223,17 @@ public class Manager : MonoBehaviour
             }
             if (isDraggingSauce >= 0) return;
 
+            if (!isDraggingPlate && state == 5)
+            {
+                if (plateCollider.bounds.Contains(touchPos))
+                {
+                    isDraggingPlate = true;
+                    basicPlatePosition = plateObject.transform.position;
+                    plateObject.transform.position = touchPos;
+                }
+            }
+            if (isDraggingPlate) return;
+
             if (!isClicked)
             {
                 fromSwipe = touchPos;
@@ -275,6 +296,18 @@ public class Manager : MonoBehaviour
                 sauceScaleLine.transform.position = basicSaucePosition;
                 isDraggingSauce = -1;
             }
+            else if (isDraggingPlate)
+            {
+                if (ordersCollider.bounds.Contains(touchPos))
+                {
+                    Debug.Log("ORDER RETURNED");
+                    plateObject.transform.position = basicPlatePosition;
+                }
+                else
+                {
+                    plateObject.transform.position = basicPlatePosition;
+                }
+            }
             else if (isClicked)
             {
                 // Swipe right
@@ -333,7 +366,12 @@ public class Manager : MonoBehaviour
                 {
                     sauceAmount[isDraggingSauce]++;
                     sauceScaleLine.transform.position -= new Vector3(0, Screen.height / 1000, 0);
+                    platePanel.AddIngredient(new PlatePanel.SauceIngredient(isDraggingSauce));
                 }
+            }
+            else if (isDraggingPlate)
+            {
+                plateObject.transform.position = Input.touches[0].position;
             }
         }
     }

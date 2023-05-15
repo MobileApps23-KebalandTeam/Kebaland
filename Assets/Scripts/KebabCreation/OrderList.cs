@@ -12,16 +12,18 @@ public class OrderList : MonoBehaviour
     {
         // main game object that contains ProgressBar to change
         public GameObject obj;
-        public string type;
+        public OrderType type;
         public float timeLeft;
         public float maxTime;
+        public int reward;
 
-        public SimpleOrder(GameObject obj, string type, float maxTime)
+        public SimpleOrder(GameObject obj, OrderType type, float maxTime, int reward)
         {
             this.obj = obj;
             this.type = type;
             this.timeLeft = maxTime;
             this.maxTime = maxTime;
+            this.reward = reward;
         }
 
     }
@@ -55,10 +57,10 @@ public class OrderList : MonoBehaviour
 
         // TODO remove - it's just example
         for (int _ = 0; _ < 15; _++)
-            AddKebabRequest("ExampleType", 100.0f);
-        AddKebabRequest("ExampleType", 20.0f);
-        AddKebabRequest("ExampleType", 5.0f);
-        RemoveKebabRequest("ExampleType");
+            AddKebabRequest(OrderType.Kebab1, 100.0f);
+        AddKebabRequest(OrderType.Kebab2, 20.0f);
+        AddKebabRequest(OrderType.Kebab3, 5.0f);
+        RemoveKebabRequest(OrderType.Kebab3);
 
     }
 
@@ -88,9 +90,9 @@ public class OrderList : MonoBehaviour
         }
     }
 
-    public void AddKebabRequest(string type, float maxSecs)
+    public void AddKebabRequest(OrderType type, float maxSecs)
     {
-        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(type), type, maxSecs);
+        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
         actList.Add(order);
         actList.Sort((x, y) => x.timeLeft.CompareTo(y.timeLeft));
         int i = 0;
@@ -106,7 +108,7 @@ public class OrderList : MonoBehaviour
         }
     }
 
-    public void RemoveKebabRequest(string type)
+    public void RemoveKebabRequest(OrderType type)
     {
         float minTime = Int32.MaxValue;
         SimpleOrder minOrder = null;
@@ -158,7 +160,7 @@ public class OrderList : MonoBehaviour
         {
             if (i >= maxAmount) break;
 
-            var newObj = Instantiate(kebabTypesMap.GetValueOrDefault(ord.type), Vector2.zero, Quaternion.identity, childs[i]);
+            var newObj = Instantiate(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(ord.type)), Vector2.zero, Quaternion.identity, childs[i]);
             newObj.GetComponent<RectTransform>().offsetMin = Vector2.zero;
             newObj.GetComponent<RectTransform>().offsetMax = Vector2.zero;
             objects[i] = newObj;
