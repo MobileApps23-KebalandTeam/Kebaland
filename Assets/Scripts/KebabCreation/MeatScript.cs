@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class MeatScript : MonoBehaviour
 {
-
     class SimpleMeat
     {
         public Vector2 target;
         public Vector2 from;
         public GameObject obj;
 
-        private int i = 0;
+        private float i = 0f;
 
-        private int states = 1000;
+        private float states = 2f;
 
         public SimpleMeat(Vector2 from, Vector2 target, GameObject obj)
         {
@@ -24,15 +23,14 @@ public class MeatScript : MonoBehaviour
 
         public Vector2 GetActualTarget()
         {
-            i++;
-            return from + (target - from) * i / states + new Vector2(0, i * (states - i) / 500); 
+            i += Time.deltaTime;
+            return from + (target - from) * i / states + new Vector2(0, i * (states - i) / 500);
         }
 
-        public bool isEnd()
+        public bool IsEnd()
         {
-            return i == states;
+            return i >= states;
         }
-
     }
 
     public class FinalMeat
@@ -59,8 +57,9 @@ public class MeatScript : MonoBehaviour
         for (int i = meatList.Count - 1; i >= 0; i--)
         {
             SimpleMeat meat = meatList[i];
-            meat.obj.transform.position = Vector3.MoveTowards(meat.obj.transform.position, meat.GetActualTarget(), moveSpeed * 1000);
-            if (meat.isEnd())
+            meat.obj.transform.position =
+                Vector3.MoveTowards(meat.obj.transform.position, meat.GetActualTarget(), moveSpeed * 1000);
+            if (meat.IsEnd())
             {
                 meatList.RemoveAt(i);
                 cutList.Add(new FinalMeat(meat.target, meat.obj));
@@ -74,7 +73,8 @@ public class MeatScript : MonoBehaviour
     {
         Vector2 from = fromPos + new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
         float xDiff = Screen.width / 8, yDiff = Screen.height / 30;
-        Vector2 target = (Vector2) boxObject.transform.position + new Vector2(Random.Range(-xDiff, xDiff), Random.Range(-yDiff, yDiff));
+        Vector2 target = (Vector2)boxObject.transform.position +
+                         new Vector2(Random.Range(-xDiff, xDiff), Random.Range(-yDiff, yDiff));
         var newObj = Instantiate(meatObject, from, Quaternion.identity, transform);
         meatList.Add(new SimpleMeat(from, target, newObj));
     }
@@ -95,13 +95,14 @@ public class MeatScript : MonoBehaviour
         {
             Destroy(meat.obj);
         }
+
         meatList.Clear();
 
         foreach (FinalMeat meat in cutList)
         {
             Destroy(meat.obj);
         }
+
         cutList.Clear();
     }
-
 }
