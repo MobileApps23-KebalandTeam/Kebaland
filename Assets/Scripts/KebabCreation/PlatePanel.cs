@@ -11,6 +11,8 @@ public class PlatePanel : MonoBehaviour
     private int actHeight = 0;
 
     public float moveSpeed;
+    public GameObject plate;
+
     private Vector3 target;
 
     private void Start()
@@ -39,9 +41,8 @@ public class PlatePanel : MonoBehaviour
         var newObj = Instantiate(ingredientTypes.GetValueOrDefault(ingredient.Name()), Vector2.zero, Quaternion.identity, transform);
         float offsetX = Random.Range(-ingredient.OffsetX(), ingredient.OffsetX());
         float offsetY = Random.Range(-ingredient.OffsetY(), ingredient.OffsetY());
-        Vector2 vect = new Vector2(offsetX, offsetY + actHeight);
-        newObj.GetComponent<RectTransform>().offsetMin = vect;
-        newObj.GetComponent<RectTransform>().offsetMax = vect;
+        Vector3 vect = new Vector3(offsetX, offsetY + actHeight, 0);
+        newObj.transform.position = plate.transform.position + vect;
         actHeight += ingredient.AddHeight();
         ingredients.Add(ingredient);
     }

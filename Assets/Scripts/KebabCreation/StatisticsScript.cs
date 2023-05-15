@@ -9,10 +9,13 @@ public class StatisticsScript : MonoBehaviour
     public GameObject pointsObject;
     public GameObject timeObject;
 
-    private int sumPoints;
+    private static GameObject points;
+
+    private static int sumPoints;
 
     private void Start()
     {
+        points = pointsObject;
         setPoints(0);
     }
 
@@ -34,15 +37,15 @@ public class StatisticsScript : MonoBehaviour
         timeObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Czas: " + min + ":" + sec;
     }
 
-    public void addPoints(int points)
+    public static void addPoints(int points)
     {
         setPoints(sumPoints + points);
     }
 
-    public void setPoints(int points)
+    public static void setPoints(int points)
     {
         sumPoints = points;
-        pointsObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
+        StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
     }
 
 }

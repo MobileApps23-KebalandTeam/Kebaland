@@ -24,7 +24,7 @@ public class MeatScript : MonoBehaviour
         public Vector2 GetActualTarget()
         {
             i += Time.deltaTime;
-            return from + (target - from) * i / states + new Vector2(0, i * (states - i) / 500);
+            return from + (target - from) * i / states + 300 * new Vector2(0, i * (states - i) * (i - states * 95 / 100) * (i - states * 95 / 100));
         }
 
         public bool IsEnd()
@@ -72,7 +72,7 @@ public class MeatScript : MonoBehaviour
     public void CutMeat(Vector2 fromPos)
     {
         Vector2 from = fromPos + new Vector2(Random.Range(-20, 20), Random.Range(-20, 20));
-        float xDiff = Screen.width / 8, yDiff = Screen.height / 30;
+        float xDiff = Screen.width / 7, yDiff = Screen.height / 28;
         Vector2 target = (Vector2)boxObject.transform.position +
                          new Vector2(Random.Range(-xDiff, xDiff), Random.Range(-yDiff, yDiff));
         var newObj = Instantiate(meatObject, from, Quaternion.identity, transform);

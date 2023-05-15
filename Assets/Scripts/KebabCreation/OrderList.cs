@@ -28,17 +28,20 @@ public class OrderList : MonoBehaviour
 
     }
 
-    public int maxAmount = 3;
-    public GameObject panel;
+    public static int maxAmount = 3;
+    public GameObject panelObj;
 
-    private Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
+    private static Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
 
-    private List<SimpleOrder> actList = new List<SimpleOrder>();
-    private GameObject[] objects;
-    private Transform[] childs;
+    private static List<SimpleOrder> actList = new List<SimpleOrder>();
+    private static GameObject[] objects;
+    private static Transform[] childs;
+    private static GameObject panel;
 
     void Start()
     {
+        panel = panelObj;
+
         GameObject[] types = Resources.LoadAll<GameObject>("KebabTypes");
         foreach (GameObject obj in types)
         {
@@ -70,17 +73,16 @@ public class OrderList : MonoBehaviour
         {
             ord.timeLeft -= Time.deltaTime;
         }
-        
+
+        List<SimpleOrder> toRemove = new List<SimpleOrder>();
         int i = 0;
         foreach (SimpleOrder ord in actList)
         {
             if (i >= maxAmount) break;
             if (ord.timeLeft < 0)
             {
-                // TODO lose game
-                //Time.timeScale = 1.0f;
-                //SceneManager.LoadScene("MainMenu");
-                //Debug.LogError("YOU LOST!");
+                StatisticsScript.addPoints(-ord.reward);
+                toRemove.Add(ord);
                 i++;
                 continue;
             }
@@ -88,9 +90,14 @@ public class OrderList : MonoBehaviour
             slider.value = ord.timeLeft / ord.maxTime;
             i++;
         }
+
+        foreach (SimpleOrder rem in toRemove)
+        {
+            RemoveKebabRequest(rem.type);
+        }
     }
 
-    public void AddKebabRequest(OrderType type, float maxSecs)
+    public static void AddKebabRequest(OrderType type, float maxSecs)
     {
         SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
         actList.Add(order);
@@ -108,7 +115,7 @@ public class OrderList : MonoBehaviour
         }
     }
 
-    public void RemoveKebabRequest(OrderType type)
+    public static void RemoveKebabRequest(OrderType type)
     {
         float minTime = Int32.MaxValue;
         SimpleOrder minOrder = null;
@@ -142,7 +149,7 @@ public class OrderList : MonoBehaviour
         }
     }
 
-    public void RefreshGUI()
+    public static void RefreshGUI()
     {
         foreach (GameObject obj in objects)
         {

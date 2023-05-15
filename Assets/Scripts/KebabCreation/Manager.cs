@@ -72,10 +72,10 @@ public class Manager : MonoBehaviour
     private int state = 0;
 
     // distances for changing screens
-    public int reqPixelMove = Screen.width / 2;
-    public int reqMeatCut = Screen.height / 12;
-    private int[] statesMoves = { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width * 61 / 100 };
-    private int plateStateMove = Screen.width / 5;
+    private int reqPixelMove;
+    private int reqMeatCut;
+    private int[] statesMoves;
+    private int plateStateMove;
 
     // sauce amount data
     private int maxSauce = 50;
@@ -86,6 +86,12 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
+        // Initialize distances
+        reqPixelMove = Screen.width / 2;
+        reqMeatCut = Screen.height / 4;
+        statesMoves = new int[] { Screen.width / 2, Screen.width, Screen.width, Screen.width, Screen.width * 61 / 100 };
+        plateStateMove = Screen.width / 5;
+
         // Initialize dough
         defaultDoughPosition = new Vector3[mainDough.Length];
         mainDoughCollider = new BoxCollider[mainDough.Length];
