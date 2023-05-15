@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Core
 {
-    public abstract class ISerializationService
+    public abstract class AbstractSerializationService
     {
-        public ISerializationService()
+        public AbstractSerializationService()
         {
             handleLoad();
         }
@@ -15,13 +15,13 @@ namespace Core
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create(Application.persistentDataPath
-                                          + "/Achievements.dat");
+                                          + "/" + fileName());
             bf.Serialize(file, objectToSave());
             file.Close();
             return true;
         }
 
-        protected T Deserialize<T>() where T: new()
+        protected T Deserialize<T>() where T : new()
         {
             try
             {

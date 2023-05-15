@@ -1,18 +1,17 @@
 using System.Collections.Generic;
-using Model;
 
 namespace Core
 {
     public static class ServiceLocator
     {
-        private static Dictionary<System.Type, ISerializationService> map = new();
+        private static Dictionary<System.Type, AbstractSerializationService> map = new();
 
-        public static void Register<T>(T service) where T : ISerializationService
+        public static void Register<T>(T service) where T : AbstractSerializationService
         {
             map.Add(typeof(T), service);
         }
 
-        public static T Get<T>() where T : ISerializationService
+        public static T Get<T>() where T : AbstractSerializationService
         {
             return (T)map[typeof(T)];
         }

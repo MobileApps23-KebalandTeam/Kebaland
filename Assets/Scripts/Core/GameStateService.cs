@@ -1,9 +1,8 @@
-using System.IO;
 using Model;
 
 namespace Core
 {
-    public class GameStateService : ISerializationService
+    public class GameStateService : AbstractSerializationService
     {
         private MGameState _gameState = null;
 

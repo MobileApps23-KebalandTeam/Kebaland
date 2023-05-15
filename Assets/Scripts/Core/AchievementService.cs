@@ -1,12 +1,9 @@
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Model;
-using UnityEngine;
 
 namespace Core
 {
-    public class AchievementService : ISerializationService
+    public class AchievementService : AbstractSerializationService
     {
         private List<MAchievement> _achievements = new();
 
@@ -33,7 +30,7 @@ namespace Core
 
         protected override void handleLoad()
         {
-            object deserialized = Deserialize<MAchievement>();
+            object deserialized = Deserialize<List<MAchievement>>();
             if (deserialized != null)
             {
                 _achievements = (List<MAchievement>)deserialized;
