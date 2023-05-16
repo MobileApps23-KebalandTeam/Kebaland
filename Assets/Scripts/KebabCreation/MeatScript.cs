@@ -45,6 +45,7 @@ public class MeatScript : MonoBehaviour
         }
     }
 
+    public Background background;
     public GameObject meatObject;
     public GameObject boxObject;
     public GameObject parentForMeat;
@@ -62,7 +63,7 @@ public class MeatScript : MonoBehaviour
             if (meat.IsEnd())
             {
                 meatList.RemoveAt(i);
-                cutList.Add(new FinalMeat(meat.target, meat.obj));
+                AddFinalMeat(new FinalMeat(meat.target, meat.obj));
                 meat.obj.GetComponent<BoxCollider>().size = new Vector2(Screen.width / 24, Screen.height / 24);
                 meat.obj.transform.SetParent(parentForMeat.transform);
             }
@@ -84,9 +85,16 @@ public class MeatScript : MonoBehaviour
         return cutList;
     }
 
+    public void AddFinalMeat(FinalMeat meat)
+    {
+        cutList.Add(meat);
+        background.AddMeat(meat);
+    }
+
     public void RemoveFinalMeat(FinalMeat meat)
     {
         cutList.Remove(meat);
+        background.RemoveMeat(meat);
     }
 
     public void RemoveRest()
@@ -97,12 +105,10 @@ public class MeatScript : MonoBehaviour
         }
 
         meatList.Clear();
+    }
 
-        foreach (FinalMeat meat in cutList)
-        {
-            Destroy(meat.obj);
-        }
-
-        cutList.Clear();
+    public List<FinalMeat> GetFinalMeatList()
+    {
+        return cutList;
     }
 }
