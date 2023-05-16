@@ -119,7 +119,7 @@ public class Manager : MonoBehaviour
         }
 
         // Initialize extras
-        defaultExtrasPosition = new Vector3[mainDough.Length];
+        defaultExtrasPosition = new Vector3[mainExtras.Length];
 
         mainExtrasCollider = new BoxCollider[mainExtras.Length];
         int k = 0;

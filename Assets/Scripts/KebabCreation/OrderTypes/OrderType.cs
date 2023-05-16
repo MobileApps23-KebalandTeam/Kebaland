@@ -9,14 +9,35 @@ public enum OrderType
  
 public static class OrderTypeMethods {
     
-    public static List<IngredientType> GetRequiredIngredients(OrderType type)
+    public static Dictionary<IngredientType, int> GetRequiredIngredients(OrderType type)
     {
+        Dictionary<IngredientType, int> dict = new Dictionary<IngredientType, int>();
         switch (type)
         {
             case OrderType.Kebab1:
-                return new List<IngredientType>();
+                dict.Add(IngredientType.Dough1, 1);
+                dict.Add(IngredientType.Cucumber, 2);
+                dict.Add(IngredientType.Lettuce, 1);
+                dict.Add(IngredientType.Meat1, 1);
+                dict.Add(IngredientType.Sauce1, 1);
+                return dict;
+            case OrderType.Kebab2:
+                dict.Add(IngredientType.Dough2, 1);
+                dict.Add(IngredientType.Cucumber, 1);
+                dict.Add(IngredientType.Lettuce, 1);
+                dict.Add(IngredientType.Meat2, 1);
+                dict.Add(IngredientType.Sauce2, 1);
+                return dict;
+            case OrderType.Kebab3:
+                dict.Add(IngredientType.Dough3, 1);
+                dict.Add(IngredientType.Cucumber, 1);
+                dict.Add(IngredientType.Tomato, 1);
+                dict.Add(IngredientType.Pepper, 1);
+                dict.Add(IngredientType.Meat1, 1);
+                dict.Add(IngredientType.Sauce3, 1);
+                return dict;
             default:
-                return new List<IngredientType>();
+                return dict;
         }
     }
 

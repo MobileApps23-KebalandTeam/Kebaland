@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,8 +40,8 @@ public class PlatePanel : MonoBehaviour
     public void AddIngredient(Ingredient ingredient)
     {
         var newObj = Instantiate(ingredientTypes.GetValueOrDefault(ingredient.Name()), Vector2.zero, Quaternion.identity, transform);
-        float offsetX = Random.Range(-ingredient.OffsetX(), ingredient.OffsetX());
-        float offsetY = Random.Range(-ingredient.OffsetY(), ingredient.OffsetY());
+        float offsetX = UnityEngine.Random.Range(-ingredient.OffsetX(), ingredient.OffsetX());
+        float offsetY = UnityEngine.Random.Range(-ingredient.OffsetY(), ingredient.OffsetY());
         Vector3 vect = new Vector3(offsetX, offsetY + actHeight, 0);
         newObj.transform.position = plate.transform.position + vect;
         actHeight += ingredient.AddHeight();
@@ -49,6 +50,7 @@ public class PlatePanel : MonoBehaviour
 
     public abstract class Ingredient
     {
+        public abstract IngredientType GetIngredientType();
         public abstract int AddHeight();
         public abstract string Name();
         public abstract int OffsetX();
@@ -68,7 +70,7 @@ public class PlatePanel : MonoBehaviour
         public override string Name() => "DoughIngredient" + (type + 1);
         public override int OffsetX() => 0;
         public override int OffsetY() => 0;
-
+        public override IngredientType GetIngredientType() => Enum.Parse<IngredientType>("Dough" + (type + 1));
     }
 
 
@@ -85,6 +87,7 @@ public class PlatePanel : MonoBehaviour
         public override string Name() => "MeatIngredient" + (type + 1);
         public override int OffsetX() => Screen.width / 10;
         public override int OffsetY() => Screen.width / 64;
+        public override IngredientType GetIngredientType() => Enum.Parse<IngredientType>("Meat" + (type + 1));
 
     }
 
@@ -102,6 +105,7 @@ public class PlatePanel : MonoBehaviour
         public override string Name() => "ExtraIngredient" + (type + 1);
         public override int OffsetX() => Screen.width / 16;
         public override int OffsetY() => Screen.width / 64;
+        public override IngredientType GetIngredientType() => IngredientsHolder.GetIngredientType(type);
 
     }
 
@@ -119,6 +123,7 @@ public class PlatePanel : MonoBehaviour
         public override string Name() => "SauceIngredient" + (type + 1);
         public override int OffsetX() => Screen.width / 16;
         public override int OffsetY() => Screen.width / 64;
+        public override IngredientType GetIngredientType() => Enum.Parse<IngredientType>("Sauce" + (type + 1));
 
     }
 
