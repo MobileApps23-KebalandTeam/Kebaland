@@ -108,6 +108,7 @@ public class EndGameScript : MonoBehaviour
     public void GoToMap()
     {
         SceneManager.LoadScene("LevelsChoiceScene");
+        TotalCleaner.ClearAll();
     }
 
 }
