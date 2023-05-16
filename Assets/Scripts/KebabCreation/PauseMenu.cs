@@ -22,7 +22,8 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelsChoiceScene");
+        TotalCleaner.ClearAll();
     }
 
     public bool isPaused()

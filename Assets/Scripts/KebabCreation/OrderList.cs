@@ -246,4 +246,10 @@ public class OrderList : MonoBehaviour
         }
 
     }
+
+    public static void Clear()
+    {
+        actList.Clear();
+        kebabTypesMap.Clear();
+    }
 }
