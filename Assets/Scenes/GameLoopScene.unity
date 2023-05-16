@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63252fa3c7d7e044296892a5a6b46455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
+  background: {fileID: 2014585625}
   meatObject: {fileID: 9051256539626719948, guid: eb877d136ce4ab3489283050d93b5f02, type: 3}
   boxObject: {fileID: 740818011}
   parentForMeat: {fileID: 654176657}
