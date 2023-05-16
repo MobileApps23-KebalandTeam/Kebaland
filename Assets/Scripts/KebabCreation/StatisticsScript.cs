@@ -5,9 +5,13 @@ using UnityEngine;
 public class StatisticsScript : MonoBehaviour
 {
 
-    public float time = 5 * 60;
+    public float time = 5 * 10;
     public GameObject pointsObject;
     public GameObject timeObject;
+
+    public EndGameScript endGameScript;
+
+    public Manager manager;
 
     private static GameObject points;
 
@@ -21,10 +25,12 @@ public class StatisticsScript : MonoBehaviour
 
     void Update()
     {
-        time -= Time.deltaTime;
+        if (manager.IsEndGame()) return;
+        time = max(time - Time.deltaTime, 0f);
         if (time <= 0)
         {
-            Debug.Log("Czas minal!");
+            manager.EndGame();
+            endGameScript.Show();
         }
         else refreshTime();
     }
@@ -46,6 +52,11 @@ public class StatisticsScript : MonoBehaviour
     {
         sumPoints = points;
         StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
+    }
+
+    private float max(float a, float b)
+    {
+        return ((a < b) ? b : a); 
     }
 
 }

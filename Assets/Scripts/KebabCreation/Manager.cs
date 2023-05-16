@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
     public Background background;
 
     public GameObject plateObject;
+    public GameObject platePanelObject;
 
     public GameObject[] mainDough;
     public GameObject[] dough;
@@ -14,6 +16,10 @@ public class Manager : MonoBehaviour
     public PauseMenu pauseMenu;
 
     public PlatePanel platePanel;
+
+    public ToastMessageUtils msg;
+
+    public OrderList orderList;
 
     public MeatScript[] meatScript;
     public GameObject[] meatObjects;
@@ -82,6 +88,8 @@ public class Manager : MonoBehaviour
     private int[] sauceAmount;
 
     private Vector3 sauceIncrement;
+
+    private bool isEnd = false;
 
 
     void Start()
@@ -251,8 +259,8 @@ public class Manager : MonoBehaviour
                 if (plateCollider.bounds.Contains(touchPos))
                 {
                     isDraggingPlate = true;
-                    basicPlatePosition = plateObject.transform.position;
-                    plateObject.transform.position = touchPos;
+                    basicPlatePosition = platePanelObject.transform.position;
+                    platePanelObject.transform.position = touchPos;
                 }
             }
 
@@ -311,7 +319,8 @@ public class Manager : MonoBehaviour
                 extras[isDraggingExtras].transform.position = defaultExtrasPosition[isDraggingExtras];
                 if (plateCollider.bounds.Contains(Input.touches[0].position))
                 {
-                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(isDraggingExtras));
+                    IngredientType type = IngredientsHolder.GetIngredientType(isDraggingExtras);
+                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(type));
                 }
 
                 isDraggingExtras = -1;
@@ -328,13 +337,24 @@ public class Manager : MonoBehaviour
             {
                 if (ordersCollider.bounds.Contains(touchPos))
                 {
-                    Debug.Log("ORDER RETURNED");
-                    plateObject.transform.position = basicPlatePosition;
+                    int rew = OrderList.GivePlate(platePanel.GetActualPlate());
+                    if (rew > 0)
+                    {
+                        msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                    }
+                    else
+                    {
+                        msg.ShowToast("Ten kebab nie pasuje do zadnego zamowienia!", 2.0f);
+                    }
+                    platePanel.ClearIngredients();
+                    platePanelObject.transform.position = basicPlatePosition;
+                    MoveBack();
                 }
                 else
                 {
-                    plateObject.transform.position = basicPlatePosition;
+                    platePanelObject.transform.position = basicPlatePosition;
                 }
+                isDraggingPlate = false;
             }
             else if (isClicked)
             {
@@ -404,7 +424,7 @@ public class Manager : MonoBehaviour
             }
             else if (isDraggingPlate)
             {
-                plateObject.transform.position = Input.touches[0].position;
+                platePanelObject.transform.position = Input.touches[0].position;
             }
         }
     }
@@ -413,4 +433,37 @@ public class Manager : MonoBehaviour
     {
         plateObject.SetActive(true);
     }
+
+    public void EndGame()
+    {
+        isEnd = true;
+    }
+
+    public bool IsEndGame()
+    {
+        return isEnd;
+    }
+
+    private void MoveBack()
+    {
+
+        int sum = 0;
+        for (int st = 0; st < statesMoves.Length; st++) 
+        {
+            sum += statesMoves[st];
+        }
+
+        background.MoveFast(new Vector3(sum, 0, 0));
+
+        platePanel.Move(new Vector3(plateStateMove, 0, 0));
+
+        // Clear variables
+        state = 0;
+        for (int i = 0; i < sauceAmount.Length; i++)
+        {
+            sauceAmount[i] = 0;
+        }
+
+    }
+
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using UnityEngine.SceneManagement;
+using static PlatePanel;
 
 public class OrderList : MonoBehaviour
 {
@@ -28,8 +29,10 @@ public class OrderList : MonoBehaviour
 
     }
 
+    public ToastMessageUtils msg;
     public static int maxAmount = 3;
     public GameObject panelObj;
+    public Manager manager;
 
     private static Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
 
@@ -61,7 +64,8 @@ public class OrderList : MonoBehaviour
         // TODO remove - it's just example
         for (int _ = 0; _ < 15; _++)
             AddKebabRequest(OrderType.Kebab1, 100.0f);
-        AddKebabRequest(OrderType.Kebab2, 20.0f);
+        AddKebabRequest(OrderType.Kebab2, 50.0f);
+        AddKebabRequest(OrderType.Kebab3, 20.0f);
         AddKebabRequest(OrderType.Kebab3, 5.0f);
         RemoveKebabRequest(OrderType.Kebab3);
 
@@ -69,6 +73,7 @@ public class OrderList : MonoBehaviour
 
     void Update()
     {
+        if (manager.IsEndGame()) return;
         foreach (SimpleOrder ord in actList)
         {
             ord.timeLeft -= Time.deltaTime;
@@ -83,6 +88,7 @@ public class OrderList : MonoBehaviour
             {
                 StatisticsScript.addPoints(-ord.reward);
                 toRemove.Add(ord);
+                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (- " + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
                 i++;
                 continue;
             }
@@ -147,6 +153,62 @@ public class OrderList : MonoBehaviour
             actList.Remove(minOrder);
             if (refresh) RefreshGUI();
         }
+    }
+
+    public static int GivePlate(List<Ingredient> ingredients)
+    {
+
+        Dictionary<IngredientType, int> actDict = new Dictionary<IngredientType, int>();
+        foreach (Ingredient ing in ingredients)
+        {
+            int val = actDict.GetValueOrDefault(ing.GetIngredientType(), 0);
+            actDict[ing.GetIngredientType()] = val + 1;
+        }
+
+        SimpleOrder rightOrd = null;
+
+        foreach (SimpleOrder order in actList)
+        {
+            bool isOk = true;
+            Dictionary<IngredientType, IngredientRange> orderDict = OrderTypeMethods.GetRequiredIngredients(order.type);
+            foreach (KeyValuePair<IngredientType, IngredientRange> entry in orderDict)
+            {
+                int actVal = actDict.GetValueOrDefault(entry.Key, 0);
+                if (!entry.Value.IsInRange(actVal))
+                {
+                    Debug.Log("Not correct for " + order.type + ": " + entry.Key + " (amount: " + actVal + ")");
+                    isOk = false;
+                    break;
+                }
+            }
+            if (!isOk) continue;
+
+            foreach (KeyValuePair<IngredientType, int> entry in actDict)
+            {
+                if (!orderDict.ContainsKey(entry.Key))
+                {
+                    Debug.Log("Not correct for " + order.type + " (2): " + entry.Key);
+                    isOk = false;
+                    break;
+                }
+            }
+
+            if (isOk)
+            {
+                rightOrd = order;
+                break;
+            }
+        }
+
+        ingredients.Clear();
+
+        if (rightOrd != null)
+        {
+            RemoveKebabRequest(rightOrd.type);
+            return rightOrd.reward;
+        }
+
+        return 0;
     }
 
     public static void RefreshGUI()

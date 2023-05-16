@@ -49,13 +49,29 @@ public static class IngredientTypeMethods
         switch (type)
         {
             case IngredientType.Tomato:
-                return "tomatoPart";
+                return "ExtraIngredient1";
             case IngredientType.Pepper:
-                return "pepperPart";
+                return "ExtraIngredient2";
             case IngredientType.Cucumber:
-                return "cucumberPart";
+                return "ExtraIngredient3";
             case IngredientType.Lettuce:
-                return "lettucePart";
+                return "ExtraIngredient4";
+            case IngredientType.Dough1:
+                return "DoughIngredient1";
+            case IngredientType.Dough2:
+                return "DoughIngredient2";
+            case IngredientType.Dough3:
+                return "DoughIngredient3";
+            case IngredientType.Meat1:
+                return "MeatIngredient1";
+            case IngredientType.Meat2:
+                return "MeatIngredient2";
+            case IngredientType.Sauce1:
+                return "SauceIngredient1";
+            case IngredientType.Sauce2:
+                return "SauceIngredient2";
+            case IngredientType.Sauce3:
+                return "SauceIngredient3";
             default:
                 return "";
         }

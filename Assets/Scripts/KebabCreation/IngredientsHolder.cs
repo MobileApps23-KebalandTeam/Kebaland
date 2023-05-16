@@ -35,6 +35,7 @@ public class IngredientsHolder : MonoBehaviour
         foreach (IngredientType type in types)
         {
             visible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(type));
+            notVisible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getPartName(type));
             i++;
         }
     }
