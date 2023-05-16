@@ -61,13 +61,7 @@ public class OrderList : MonoBehaviour
             i++;
         }
 
-        // TODO remove - it's just example
-        for (int _ = 0; _ < 15; _++)
-            AddKebabRequest(OrderType.Kebab1, 100.0f);
-        AddKebabRequest(OrderType.Kebab2, 50.0f);
-        AddKebabRequest(OrderType.Kebab3, 20.0f);
-        AddKebabRequest(OrderType.Kebab3, 5.0f);
-        RemoveKebabRequest(OrderType.Kebab3);
+        RefreshGUI();
 
     }
 
@@ -213,6 +207,9 @@ public class OrderList : MonoBehaviour
 
     public static void RefreshGUI()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (!currentScene.name.Equals("GameLoopScene")) return;
+
         foreach (GameObject obj in objects)
         {
             Destroy(obj);

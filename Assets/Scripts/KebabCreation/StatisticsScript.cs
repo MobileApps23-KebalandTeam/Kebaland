@@ -5,7 +5,7 @@ using UnityEngine;
 public class StatisticsScript : MonoBehaviour
 {
 
-    public float time = 5 * 10;
+    public float time = 5 * 60;
     public GameObject pointsObject;
     public GameObject timeObject;
 
@@ -16,11 +16,14 @@ public class StatisticsScript : MonoBehaviour
     private static GameObject points;
 
     private static int sumPoints;
+    private static int reqPoints = 10;
+    private static int sumOrders;
 
     private void Start()
     {
         points = pointsObject;
         setPoints(0);
+        sumOrders = 0;
     }
 
     void Update()
@@ -30,7 +33,7 @@ public class StatisticsScript : MonoBehaviour
         if (time <= 0)
         {
             manager.EndGame();
-            endGameScript.Show();
+            endGameScript.Show(sumPoints, reqPoints, sumOrders);
         }
         else refreshTime();
     }
@@ -52,6 +55,16 @@ public class StatisticsScript : MonoBehaviour
     {
         sumPoints = points;
         StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
+    }
+
+    public static void setRequieredPoints(int points)
+    {
+        reqPoints = points;
+    }
+
+    public static void AddOrder()
+    {
+        sumOrders++;
     }
 
     private float max(float a, float b)

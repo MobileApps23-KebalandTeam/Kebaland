@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndGameScript : MonoBehaviour
@@ -10,16 +11,23 @@ public class EndGameScript : MonoBehaviour
     private float toAlpha = 0.7f;
     private Image image;
 
+    private GameObject titleText;
 
 
-    public void Show()
+
+    public void Show(int sumPoints, int reqPoints, int sumOrders)
     {
         gameObject.SetActive(true);
+
+        bool won = sumPoints >= reqPoints;
+
+
+        LevelChoice.UpdateLevel(won);
 
         image = GetComponent<Image>();
         image.enabled = true;
 
-        List<GameObject> list = new List<GameObject>();
+        Dictionary<GameObject, float> list = new Dictionary<GameObject, float>();
         List<Transform> toAdd = new List<Transform>();
         List<Transform> toGo = new List<Transform>();
         foreach (Transform trans in transform) toAdd.Add(trans);
@@ -40,29 +48,36 @@ public class EndGameScript : MonoBehaviour
                 {
                     toAdd.Add(child);
                 }
-                list.Add(trans.gameObject);
+                if (trans.name.Equals("TitleText"))
+                    trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = won ? "Gratulacje!" : "Spróbuj ponownie";
+                else if (trans.name.Equals("PointsText"))
+                    trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = sumPoints + "";
+                else if (trans.name.Equals("OrdersText"))
+                    trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = sumOrders + "";
+                list.Add(trans.gameObject, 0);
             }
             toGo.Clear();
         }
 
-        foreach (GameObject child in list)
+        Dictionary<GameObject, float> list2 = new Dictionary<GameObject, float>();
+
+        foreach (KeyValuePair<GameObject, float> child in list)
         {
-            bool isImage = child.GetComponent<Image>() != null;
-            Color childColor = isImage ? child.GetComponent<Image>().color : child.GetComponent<TMPro.TextMeshProUGUI>().color;
+            bool isImage = child.Key.GetComponent<Image>() != null;
+            Color childColor = isImage ? child.Key.GetComponent<Image>().color : child.Key.GetComponent<TMPro.TextMeshProUGUI>().color;
+            list2.Add(child.Key, childColor.a);
             if (isImage)
-                child.GetComponent<Image>().color = new Color(childColor.r, childColor.g, childColor.b, 0f);
+                child.Key.GetComponent<Image>().color = new Color(childColor.r, childColor.g, childColor.b, 0f);
             else
-                child.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(childColor.r, childColor.g, childColor.b, 0f);
+                child.Key.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(childColor.r, childColor.g, childColor.b, 0f);
         }
 
-        StartCoroutine(ShowPanel(list));
+        StartCoroutine(ShowPanel(list2));
     }
 
-    private IEnumerator ShowPanel(List<GameObject> list)
+    private IEnumerator ShowPanel(Dictionary<GameObject, float> list)
     {
         float a = 0f, b = toAlpha;
-
-        float a2 = 0f, b2 = 1f;
 
         Color backgroundColor = image.color;
         float counter = 0f;
@@ -73,21 +88,26 @@ public class EndGameScript : MonoBehaviour
 
             image.color = new Color(backgroundColor.r, backgroundColor.g, backgroundColor.b, alpha);
             
-            foreach (GameObject child in list)
+            foreach (KeyValuePair<GameObject, float> child in list)
             {
-                bool isImage = child.GetComponent<Image>() != null;
-                Color childColor = isImage ? child.GetComponent<Image>().color : child.GetComponent<TMPro.TextMeshProUGUI>().color;
-                float alpha2 = Mathf.Lerp(a2, b2, counter / duration);
+                bool isImage = child.Key.GetComponent<Image>() != null;
+                Color childColor = isImage ? child.Key.GetComponent<Image>().color : child.Key.GetComponent<TMPro.TextMeshProUGUI>().color;
+                float alpha2 = Mathf.Lerp(0f, child.Value, counter / duration);
                 if (isImage)
-                    child.GetComponent<Image>().color = new Color(childColor.r, childColor.g, childColor.b, alpha2);
+                    child.Key.GetComponent<Image>().color = new Color(childColor.r, childColor.g, childColor.b, alpha2);
                 else
-                    child.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(childColor.r, childColor.g, childColor.b, alpha2);
+                    child.Key.GetComponent<TMPro.TextMeshProUGUI>().color = new Color(childColor.r, childColor.g, childColor.b, alpha2);
             }
 
             yield return null;
         }
         if (counter > duration)
             GetComponentInChildren<Image>().enabled = true;
+    }
+
+    public void GoToMap()
+    {
+        SceneManager.LoadScene("LevelsChoiceScene");
     }
 
 }

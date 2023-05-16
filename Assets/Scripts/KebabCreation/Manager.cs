@@ -340,6 +340,7 @@ public class Manager : MonoBehaviour
                     int rew = OrderList.GivePlate(platePanel.GetActualPlate());
                     if (rew > 0)
                     {
+                        StatisticsScript.AddOrder();
                         msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
                     }
                     else
