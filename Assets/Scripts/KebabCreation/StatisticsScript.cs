@@ -46,7 +46,7 @@ public class StatisticsScript : MonoBehaviour
         timeObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Czas: " + min + ":" + sec;
     }
 
-    public static void addPoints(int points)
+    public static void AddPoints(int points)
     {
         setPoints(sumPoints + points);
     }
@@ -54,12 +54,17 @@ public class StatisticsScript : MonoBehaviour
     public static void setPoints(int points)
     {
         sumPoints = points;
-        StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
+        StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints + "/" + reqPoints;
     }
 
     public static void setRequieredPoints(int points)
     {
         reqPoints = points;
+    }
+
+    public static int getRequiredPoints()
+    {
+        return reqPoints;
     }
 
     public static void AddOrder()

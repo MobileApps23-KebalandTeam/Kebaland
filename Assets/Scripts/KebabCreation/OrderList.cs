@@ -80,9 +80,9 @@ public class OrderList : MonoBehaviour
             if (i >= maxAmount) break;
             if (ord.timeLeft < 0)
             {
-                StatisticsScript.addPoints(-ord.reward);
+                StatisticsScript.AddPoints(-ord.reward);
                 toRemove.Add(ord);
-                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (- " + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
                 i++;
                 continue;
             }
