@@ -33,6 +33,8 @@ public class Manager : MonoBehaviour
 
     public GameObject orders;
 
+    public GameObject pauseButton;
+
     // colliders of elements to check if it was clicked
     private BoxCollider[] mainDoughCollider;
     private Vector3[] defaultDoughPosition;
@@ -48,6 +50,8 @@ public class Manager : MonoBehaviour
 
     private BoxCollider ordersCollider;
     private Vector3 basicPlatePosition;
+
+    private BoxCollider pauseCollider;
 
     // start click positions
     private Vector2 fromSwipe, fromCut;
@@ -154,6 +158,10 @@ public class Manager : MonoBehaviour
         // Initialize returning orders
         ordersCollider = orders.GetComponent<BoxCollider>();
         ordersCollider.size = new Vector3(Screen.width / 2, Screen.height, 0);
+
+        // Initialize pause button
+        pauseCollider = pauseButton.GetComponent<BoxCollider>();
+        pauseCollider.size = new Vector3(Screen.width * 12 / 100, Screen.height * 6 / 100, 0);
     }
 
     void Update()
@@ -166,6 +174,12 @@ public class Manager : MonoBehaviour
                 isDraggingSauce >= 0 || isDraggingPlate) return;
 
             Vector2 touchPos = Input.touches[0].position;
+            if (pauseCollider.bounds.Contains(touchPos))
+            {
+                pauseMenu.Pause();
+                return;
+            }
+
             if (isDraggingDough < 0 && state == 1)
             {
                 for (int i = 0; i < mainDoughCollider.Length; i++)
