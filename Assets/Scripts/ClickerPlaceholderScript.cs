@@ -22,7 +22,9 @@ public class ClickerPlaceholderScript : MonoBehaviour
         LevelsOrders.AddOrders(0);
         IngredientsHolder.SetType(0, IngredientType.Pepper);
         IngredientsHolder.SetType(1, IngredientType.Tomato);
-        SceneManager.LoadScene("GameLoopScene");
+        // SceneManager.LoadScene("GameLoopScene");
+        LevelChoice.UpdateLevel(true);
+        SceneManager.LoadScene("LevelsChoiceScene");
     }
 
     public void ClickerFailed()
