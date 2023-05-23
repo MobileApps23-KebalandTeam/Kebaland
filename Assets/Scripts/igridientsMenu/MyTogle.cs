@@ -48,9 +48,9 @@ public class MyTogle : MonoBehaviour
                 // Tuple<int, Toggle, Toggle> pair = myLsit.Find(t => t.Item1 == temat);
                 if (toggle.isOn)
                 {
-                    Debug.Log("Sprawdzamy czy Actywny item2 == togle"+ (pair.Item2 != toggle));
-                    if (pair.Item2 != toggle)
-                    {
+                        Debug.Log("Sprawdzamy czy Actywny item2 == togle"+ (pair.Item2 != toggle));
+                   // if (pair.Item2 != toggle)
+                    //{
                         toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym 
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
                         if (toggle != null && toggleManager != null)
@@ -58,9 +58,9 @@ public class MyTogle : MonoBehaviour
                             toggleManager.AddToggle(toggle);
                             licznik.Zmien(true);
                         }
-                        Debug.Log("Toggle jest włączony! " + toggle.name + "  " + toggleManager.toggleCounter);
+                        Debug.Log("Toggle jest włączonyE! " + toggle.name + "  " + toggleManager.toggleCounter);
 
-                    }
+                    //}
 
 
 
@@ -77,7 +77,7 @@ public class MyTogle : MonoBehaviour
                         toggleManager.RemoveToggle(toggle);
                         licznik.Zmien(false);
                     }
-                    Debug.Log("Toggle jest wyłączony!");
+                    Debug.Log("Toggle jest wyłączonyE!");
                     // }
                     // Wykonywanie kodu, gdy Toggle jest wyłączony (off).
                     toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
@@ -103,7 +103,7 @@ public class MyTogle : MonoBehaviour
                         toggleManager.AddToggle(toggle);
                         licznik.Zmien(true);
                     }
-                    Debug.Log("Toggle jest włączony! " + toggle.name + "  " + toggleManager.toggleCounter);
+                    Debug.Log("Toggle jest włączony3! " + toggle.name + "  " + toggleManager.toggleCounter);
                 }
                 else
                 {
@@ -116,7 +116,7 @@ public class MyTogle : MonoBehaviour
                         toggleManager.RemoveToggle(toggle);
                         licznik.Zmien(false);
                     }
-                    Debug.Log("Toggle jest wyłączony!");
+                    Debug.Log("Toggle jest wyłączony3!");
                     // }
                     // Wykonywanie kodu, gdy Toggle jest wyłączony (off).
                     toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
@@ -143,7 +143,7 @@ public class MyTogle : MonoBehaviour
             }
             if (toggle.isOn)
             {
-                Debug.Log("2Sprawdzamy czy Actywny item2 == togle " + (pair.Item2 != toggle) +" "+ pair.Item2);
+                Debug.Log("4Sprawdzamy czy Actywny item4 == togle " + (pair.Item2 != toggle) +" "+ pair.Item2);
                 if (pair.Item2 != toggle)
                 {
                    // toggleManager.toggleCounter = 0;
@@ -154,7 +154,7 @@ public class MyTogle : MonoBehaviour
                         toggleManager.AddToggle(toggle);
                         licznik.Zmien(true);
                     }
-                    Debug.Log("Toggle jest włączony! " + toggle.name + "  " + toggleManager.toggleCounter);
+                    Debug.Log("Toggle jest włączony4! " + toggle.name + "  " + toggleManager.toggleCounter);
 
                 }
                 else {
@@ -178,7 +178,7 @@ public class MyTogle : MonoBehaviour
                         toggleManager.RemoveToggle(toggle);
                         licznik.Zmien(false);
                     }
-                    Debug.Log("Toggle jest wyłączony!" + toggle.name + "  " + toggleManager.toggleCounter);
+                    Debug.Log("Toggle jest wyłączony4!" + toggle.name + "  " + toggleManager.toggleCounter);
 
                     // Wykonywanie kodu, gdy Toggle jest wyłączony (off).
                     toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
