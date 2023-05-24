@@ -4,6 +4,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private float startingSpeed = 60f;
+    [SerializeField] private float frequency = 3f;
+    [SerializeField] private float magnitude = 0.2f;
     private float _currentSpeed;
     [SerializeField] private GameObject target;
     
@@ -33,8 +35,8 @@ public class EnemyMovement : MonoBehaviour
         }
         if (startPosition.y < targetPosition.y)
         {
-            transform.position = Vector2.MoveTowards(
-                startPosition, targetPosition, _currentSpeed * Time.deltaTime);
+            startPosition += Time.deltaTime * _currentSpeed * (Vector2) transform.up ;
+            transform.position = startPosition + magnitude * Mathf.Sin(Time.time * frequency) * (Vector2)transform.right;
         }
         else
         {
