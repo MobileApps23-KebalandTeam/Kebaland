@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class BlinkingText : MonoBehaviour
 { 
-    private TMP_Text text;
+    private TMP_Text _text;
     [SerializeField] private float blinkTime = 2.0f;
 
     private void Start()
     {
-        text = GetComponent<TMP_Text>();
+        _text = GetComponent<TMP_Text>();
         StartBlinking();
     }
 
@@ -19,27 +19,14 @@ public class BlinkingText : MonoBehaviour
     {
         while (true)
         {
-            switch (text.color.a)
-            {
-                case 0.3f:
-                    text.color = new Color(text.color.r, text.color.g, text.color.b, 1.0f);
-                    yield return new WaitForSeconds(blinkTime);
-                    break;
-                case 0.6f:
-                    text.color = new Color(text.color.r, text.color.g, text.color.b, 0.3f);
-                    yield return new WaitForSeconds(blinkTime);
-                    break;
-                case 1.0f:
-                    text.color = new Color(text.color.r, text.color.g, text.color.b, 0.6f);
-                    yield return new WaitForSeconds(blinkTime);
-                    break;
-            }
+            _text.color = new Color(_text.color.r, _text.color.g, _text.color.b,
+                Mathf.Sin(Time.time * 5f) * 0.4f + 0.5f);
+            yield return new WaitForSeconds(blinkTime);
         }
     }
 
     void StartBlinking()
     {
-        StopCoroutine("Blink");
         StartCoroutine("Blink");
     }
     

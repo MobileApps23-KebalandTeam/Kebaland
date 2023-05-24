@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 60f;
+    [SerializeField] private float startingSpeed = 60f;
+    private float _currentSpeed;
     [SerializeField] private GameObject target;
     
     [SerializeField] private GameObject player;
+    private float _playerNotMovingSpeed;
     private Vector2 _playerStartingPos;
 
     private void Start()
     {
+        _currentSpeed = startingSpeed;
         _playerStartingPos = player.transform.position;
+        _playerNotMovingSpeed = player.GetComponent<PlayerMovement>().GetBackgroundSpeed() + startingSpeed;
     }
 
     void Update()
@@ -21,16 +25,16 @@ public class EnemyMovement : MonoBehaviour
         int tapCounter = Input.touchCount;
         if (tapCounter == 0 && player.transform.position.y > _playerStartingPos.y)
         {
-            speed = 460f;
+            _currentSpeed = _playerNotMovingSpeed;
         }
         else 
         {
-            speed = 60f;
+            _currentSpeed = startingSpeed;
         }
         if (startPosition.y < targetPosition.y)
         {
             transform.position = Vector2.MoveTowards(
-                startPosition, targetPosition, speed * Time.deltaTime);
+                startPosition, targetPosition, _currentSpeed * Time.deltaTime);
         }
         else
         {
