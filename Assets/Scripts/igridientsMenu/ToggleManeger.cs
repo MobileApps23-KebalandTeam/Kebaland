@@ -24,6 +24,10 @@ public class ToggleManeger : MonoBehaviour
     {
         myList.Add(new Tuple<int, Toggle, Image>(temat, toggleA, krzyzyk));
     }
+    public void RemoveTemat(int index)
+    {
+        myList.RemoveAt(index);
+    }
     public void SelectToggleMeat(Toggle toggle,Image krzyzyk)
     {
         togleActivMeat = toggle;

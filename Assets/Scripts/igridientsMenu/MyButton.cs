@@ -21,16 +21,16 @@ public class MyButton : MonoBehaviour
         {
             if (count == 0)
             {
-                licznik.licznikPoprzedni = 4;
+                licznik.licznikPoprzedni = 2;
             }
-            else if (count == 1)
-            {
-                licznik.licznikPoprzedni = 3;
-            }
-            else if (count == 2)
+            else if (count >= 1)
             {
                 licznik.licznikPoprzedni = 1;
             }
+            //else if (count == 2)
+          //  {
+           //     licznik.licznikPoprzedni = 1;
+           // }
             licznik.textComponent.text = $"{licznik.licznikPoprzedni}";
             DisableToggleInteraction();
         }
@@ -44,6 +44,7 @@ public class MyButton : MonoBehaviour
     }
     public void DisableToggleInteraction()//wyloncza aktywność componentu toggle
     {
+        Debug.Log("MYYYYYYYYYYYYYYYY " + toggleManager.myList.Count);
         Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
         for (int i = 0; i < toggleManager.myList.Count; i++)
         {
@@ -51,7 +52,7 @@ public class MyButton : MonoBehaviour
            // if (pair.Item1 == temat)
           //  {
                 //pair.Item2.interactable = false;
-                //Debug.Log("toggleObject " + toggleObject);
+                Debug.Log(" pair.Item2 " + pair.Item2);
                 pair.Item2.enabled = false;
             //if (pair.Item3 != null) {
                 pair.Item3.enabled = true;
@@ -64,6 +65,8 @@ public class MyButton : MonoBehaviour
         count++;
         toggleManager.toggleListZaakceptowanych.AddRange(toggleManager.toggleList);
         toggleManager.toggleList.Clear();
+        toggleManager.myList.Clear();
+        Debug.Log("MYYYYYYYYYYYYYYYYC " + toggleManager.myList.Count);
 
     }
 }

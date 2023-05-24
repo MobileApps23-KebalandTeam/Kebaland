@@ -280,8 +280,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 1784354999}
   temat: 1
+  toggleGroup: {fileID: 114411148}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &37356537
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,8 +441,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 294507171}
   temat: 3
+  toggleGroup: {fileID: 2075796805}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &114411144
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,8 +771,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 369451392}
   temat: 4
+  toggleGroup: {fileID: 226346083}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &226346079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,8 +1102,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 178219956}
   temat: 1
+  toggleGroup: {fileID: 114411148}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &318390702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,8 +1263,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 407165870}
   temat: 2
+  toggleGroup: {fileID: 1009847283}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &324880909
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,8 +2606,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 2136302678}
   temat: 3
+  toggleGroup: {fileID: 2075796805}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &786206173
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,8 +3405,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 1491336034}
   temat: 3
+  toggleGroup: {fileID: 2075796805}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1122451891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3840,8 +3854,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 786206175}
   temat: 2
+  toggleGroup: {fileID: 1009847283}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1245613449
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,8 +4015,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 324880911}
   temat: 3
+  toggleGroup: {fileID: 2075796805}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1257017697
 GameObject:
   m_ObjectHideFlags: 0
@@ -4314,8 +4332,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 1214309737}
   temat: 4
+  toggleGroup: {fileID: 226346083}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15294118, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1436541764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5063,7 +5083,7 @@ GameObject:
   - component: {fileID: 1784355000}
   - component: {fileID: 1784354999}
   m_Layer: 5
-  m_Name: Krzyzyk2
+  m_Name: Krzyzyk3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5513,8 +5533,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 1123518458}
   temat: 4
+  toggleGroup: {fileID: 226346083}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1839067734
 GameObject:
   m_ObjectHideFlags: 0
@@ -5830,8 +5852,10 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   krzyzykMy: {fileID: 1400385681}
   temat: 2
+  toggleGroup: {fileID: 1009847283}
   selectedColorActivRGB: {r: 0.9450981, g: 0.5803922, b: 0.15294118, a: 1}
   selectedColorNoActivRGB: {r: 0.15294118, g: 0.15686275, b: 0.15294118, a: 1}
+  countGame: {fileID: 698105992}
 --- !u!1 &1870240044
 GameObject:
   m_ObjectHideFlags: 0
