@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelsChoiceScene.unity
     guid: b2824dd38058eb04484e40d69e28866d
+  - enabled: 1
+    path: Assets/Scenes/GameLoopScene.unity
+    guid: 788caf2d6e6eb504eafe7fa656608030
+  - enabled: 1
+    path: Assets/Scenes/LevelPlaceholder.unity
+    guid: 84d97c0d2f6508944a141e88de9808bb
+  - enabled: 1
+    path: Assets/Scenes/ClickerPlaceholder.unity
+    guid: a6b2f79e498fd924c818f28b01f1f3f1
   m_configObjects: {}
