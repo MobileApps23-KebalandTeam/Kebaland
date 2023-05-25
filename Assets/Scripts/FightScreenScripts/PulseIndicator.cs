@@ -19,7 +19,7 @@ public class PulseIndicator : MonoBehaviour
 
     private void Update()
     {
-        if (isGreen && player.transform.position.y - enemy.transform.position.y > 8 * Screen.height/10f)
+        if (isGreen && player.transform.position.y - enemy.transform.position.y > Screen.height/2f)
         {
             StartBlinking();
         }
@@ -27,7 +27,7 @@ public class PulseIndicator : MonoBehaviour
         {
             StopBlinking();
         } 
-        else if (enemy.transform.position.y - player.transform.position.y > 8 * Screen.height / 10f)
+        else if (enemy.transform.position.y - player.transform.position.y > Screen.height / 2f)
         {
             StartBlinking();
         }

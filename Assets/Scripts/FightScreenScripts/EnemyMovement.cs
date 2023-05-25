@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             Debug.Log("wygral");
+            LevelChoice.UpdateLevel(false);
+            SceneManager.LoadScene("LevelsChoiceScene");
         }
     }
 }
