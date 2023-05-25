@@ -52,6 +52,24 @@ public class LevelChoice : MonoBehaviour
         _startedLevel = 4;
         SceneManager.LoadScene("FightScreen");
     }
+    
+    public void StartLevel5()
+    {
+        _startedLevel = 5;
+        SceneManager.LoadScene("ClickerPlaceholder");
+    }
+    
+    public void StartLevel6()
+    {
+        _startedLevel = 6;
+        SceneManager.LoadScene("ClickerPlaceholder");
+    }
+    
+    public void StartLevel7()
+    {
+        _startedLevel = 7;
+        SceneManager.LoadScene("ClickerPlaceholder");
+    }
 
     public void BackToMenu()
     {
