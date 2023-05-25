@@ -1,3 +1,6 @@
+using System;
+using Core;
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +20,7 @@ public class LevelChoice : MonoBehaviour
 
     void Update()
     {
-        SaveCurrentLevel();
+        
     }
 
     public void StartLevel0()
@@ -63,13 +66,14 @@ public class LevelChoice : MonoBehaviour
             {
                 StarshipMove.SetTargetPosition(_currentLevelToPass);
                 _currentLevelToPass++;
+                SaveCurrentLevel();
             }
         }
     }
 
     private void ReadCurrentLevel()
     {
-        // TODO: Read saved level ~ Krzychu
+        _currentLevelToPass = ServiceLocator.Get<GameStateService>().loadProgress().MaxLevel;
 
         if (planets == null || lockPlanets == null)
         {
@@ -103,8 +107,14 @@ public class LevelChoice : MonoBehaviour
         }
     }
 
-    private void SaveCurrentLevel()
+    private static void SaveCurrentLevel()
     {
-        // TODO: As above Krzychu
+        MGameState model = ServiceLocator.Get<GameStateService>().loadProgress();
+        model.MaxLevel = _currentLevelToPass;
+        ServiceLocator.Get<GameStateService>().saveProgress(model);
+        MLogbookEntry entry = new();
+        entry.LevelNumber = _currentLevelToPass - 1;
+        entry.passedTime = DateTime.Now.Ticks;
+        ServiceLocator.Get<LogbookService>().AddEntry(entry);
     }
 }
