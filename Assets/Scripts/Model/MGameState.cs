@@ -5,7 +5,7 @@ namespace Model
     [Serializable]
     public class MGameState
     {
-        public MGameState(string username, long maxLevel)
+        public MGameState(string username, int maxLevel)
         {
             this.Username = username;
             this.MaxLevel = maxLevel;
@@ -16,6 +16,6 @@ namespace Model
         }
 
         public string Username;
-        public long MaxLevel;
+        public int MaxLevel;
     }
 }
