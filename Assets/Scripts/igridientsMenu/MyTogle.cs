@@ -219,6 +219,7 @@ public class MyTogle : MonoBehaviour
         else
         {
             toggleGroup.enabled = false;
+            Debug.Log("TOOOGGG GROUP " + (toggleGroup.enabled));
             if (licznik.licznikPoprzedni > 0)
             {
                 if (toggle.isOn)

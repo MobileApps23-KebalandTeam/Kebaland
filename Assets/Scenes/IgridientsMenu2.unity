@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 349455015}
   - component: {fileID: 349455014}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: informacja Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1415,11 +1415,11 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Drogi Szefie!! Twoja podr\xF3\u017C skoro rozpocznie si\u0119, ale przed
-    tym musisz wybra\u0107 igrydienty do swojego menu. Ci podano do wyboru cztery
-    kategiiji. Z ka\u017Cdej musisz wybra\u0107 jeden produkt i nacisnon\u0107 przycisk.
-    Na g\xF3rze podany jest licznik wybranych igredient\xF3w. Jesli to jest tw\xF3j
-    drugi wybur to wybierz tyle igredient\xF3w ile pozwala ci licnik!! \n Mi\u0142ej
-    podru\u017Cy!!!"
+    tym musisz wybra\u0107 ingredienty do swojego menu. Ci podano do wyboru cztery
+    kategorii. Z ka\u017Cdej musisz wybra\u0107 jeden produkt i nacisn\u0105\u0107
+    przycisk. Na g\xF3rze podany jest licznik wybranych ingredient\xF3w. Je\u015Bli
+    to jest tw\xF3j drugi wyb\xF3r to wybierz tyle ingredient\xF3w ile pozwala ci
+    licznik!!\r\n Mi\u0142ej podr\xF3\u017Cy!!!"
 --- !u!222 &349455015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1965,7 +1965,7 @@ GameObject:
   - component: {fileID: 658404862}
   - component: {fileID: 658404864}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: licznik Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2139,7 +2139,7 @@ GameObject:
   - component: {fileID: 698105989}
   - component: {fileID: 698105992}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Lecimy gotowac Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2222,6 +2222,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1043937568}
+        m_TargetAssemblyTypeName: MyAnimacja, Assembly-CSharp
+        m_MethodName: StartImageMove
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &698105990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2276,6 +2288,7 @@ MonoBehaviour:
   licznik: {fileID: 658404864}
   awaria: {fileID: 2076761213}
   count: 0
+  animacja: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2395,7 @@ GameObject:
   - component: {fileID: 712062065}
   - component: {fileID: 712062064}
   m_Layer: 5
-  m_Name: background
+  m_Name: background awaria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3092,6 +3105,121 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012746824}
   m_CullTransparentMesh: 1
+--- !u!1 &1043937564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043937565}
+  - component: {fileID: 1043937567}
+  - component: {fileID: 1043937566}
+  - component: {fileID: 1043937568}
+  - component: {fileID: 1043937569}
+  m_Layer: 5
+  m_Name: rakieta
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1043937565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043937564}
+  m_LocalRotation: {x: -0, y: -0, z: 0.36701906, w: 0.93021345}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1840704377}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 43.064}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -7, y: -2861}
+  m_SizeDelta: {x: 551.114, y: 577.871}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1043937566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043937564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1332633660, guid: 608825bd5eb70bb4082e6c93a546beb6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1043937567
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043937564}
+  m_CullTransparentMesh: 1
+--- !u!114 &1043937568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043937564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddfa3f08fbee8a469d6da002a2ddc47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1043937566}
+  button: {fileID: 698105992}
+  moveDuration: 2
+  startPosition: {x: 8, y: -2861}
+  endPosition: {x: 8, y: 1346}
+--- !u!95 &1043937569
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043937564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c283ecc0b5abd944ca5f3a52a265964b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1050907791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,7 +3308,7 @@ GameObject:
   - component: {fileID: 1081687461}
   - component: {fileID: 1081687460}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Lecimy gotowac Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5649,6 +5777,7 @@ RectTransform:
   - {fileID: 390134541}
   - {fileID: 698105988}
   - {fileID: 504742421}
+  - {fileID: 1043937565}
   m_Father: {fileID: 1532734228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5868,7 +5997,7 @@ GameObject:
   - component: {fileID: 1870240047}
   - component: {fileID: 1870240046}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ' Accident '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5944,7 +6073,7 @@ GameObject:
   - component: {fileID: 1973403766}
   - component: {fileID: 1973403765}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: Text accident
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6003,7 +6132,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Szefie!!! \nMenu nie gotowe!!!"
+  m_Text: 'Szefie!!!
+
+    Menu niegotowe!!!'
 --- !u!222 &1973403766
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class MyButton : MonoBehaviour
     public Licznik licznik;
     public Awaria awaria;
     public int count = 0;
+    public bool animacja = false;
     // Start is called before the first frame update
     public void cklick()
     {
@@ -28,13 +29,15 @@ public class MyButton : MonoBehaviour
                 licznik.licznikPoprzedni = 1;
             }
             //else if (count == 2)
-          //  {
-           //     licznik.licznikPoprzedni = 1;
-           // }
-            licznik.textComponent.text = $"{licznik.licznikPoprzedni}";
-            DisableToggleInteraction();
+            //  {
+            //     licznik.licznikPoprzedni = 1;
+            // }
+            animacja = true;
+            awaria.zablokowacAnimacja();
+
         }
         else {
+            animacja = false;
             awaria.zablokowac();
 
         }
@@ -42,8 +45,12 @@ public class MyButton : MonoBehaviour
         //DisableToggleInteraction();
 
     }
-    public void DisableToggleInteraction()//wyloncza aktywność componentu toggle
+    public IEnumerator DisableToggleInteraction()//wyloncza aktywność componentu toggle
     {
+        yield return new WaitForSeconds(0.5f); // Dodatkowe opóźnienie po zakończeniu przesuwania obrazka
+                                               // Wywołujemy naszą metodę, która ma zacząć pracować po zakończeniu przesuwania obrazka
+      //awaria.odblokowacAnimacja(); // nie tutaj bo nasze togle jeście nie dodane do toggleListZaakceptowanych i tzeba żeby odblokować już po zapisaniu
+        licznik.textComponent.text = $"{licznik.licznikPoprzedni}";
         Debug.Log("MYYYYYYYYYYYYYYYY " + toggleManager.myList.Count);
         Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
         for (int i = 0; i < toggleManager.myList.Count; i++)
@@ -67,6 +74,7 @@ public class MyButton : MonoBehaviour
         toggleManager.toggleList.Clear();
         toggleManager.myList.Clear();
         Debug.Log("MYYYYYYYYYYYYYYYYC " + toggleManager.myList.Count);
+        awaria.odblokowacAnimacja();
 
     }
 }
