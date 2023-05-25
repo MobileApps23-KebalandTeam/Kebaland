@@ -1,4 +1,6 @@
 using System;
+using Core;
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float startingSpeed = 60f;
     [SerializeField] private float frequency = 3f;
     [SerializeField] private float magnitude = 0.2f;
+    [SerializeField] private float speedModifier = 20f;
     private float _currentSpeed;
     [SerializeField] private GameObject target;
     
@@ -32,7 +35,15 @@ public class EnemyMovement : MonoBehaviour
         }
         else 
         {
-            _currentSpeed = startingSpeed;
+            if (tapCounter > 2)
+            {
+                _currentSpeed = startingSpeed - speedModifier;
+            }
+            else
+            {
+                _currentSpeed = startingSpeed;
+            }
+            
         }
         if (startPosition.y < targetPosition.y)
         {
@@ -41,9 +52,16 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("wygral");
+            //Uncomment to add logbook entry
+            
+            /*MLogbookEntry entry = new();
+            entry.LevelNumber = ???;
+            entry.passedTime = DateTime.Now.Ticks;
+            ServiceLocator.Get<LogbookService>().AddEntry(entry);*/
+            
             LevelChoice.UpdateLevel(false);
             SceneManager.LoadScene("LevelsChoiceScene");
         }
     }
+    
 }

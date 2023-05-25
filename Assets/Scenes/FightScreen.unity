@@ -1464,6 +1464,7 @@ MonoBehaviour:
   startingSpeed: 60
   frequency: 3
   magnitude: 0.2
+  speedModifier: 20
   target: {fileID: 1077350177}
   player: {fileID: 1734863617}
 --- !u!1 &1595336857

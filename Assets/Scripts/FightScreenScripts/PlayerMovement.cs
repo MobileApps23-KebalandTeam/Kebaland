@@ -35,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
         } 
         else
         {
+            //Uncomment to add logbook entry
+            
+            /*MLogbookEntry entry = new();
+            entry.LevelNumber = ???;
+            entry.passedTime = DateTime.Now.Ticks;
+            ServiceLocator.Get<LogbookService>().AddEntry(entry);*/
+            
             SceneManager.LoadScene("Scenes/LevelPlaceholder");
         }
     }
