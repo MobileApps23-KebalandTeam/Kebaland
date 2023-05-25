@@ -63,5 +63,18 @@ public class EnemyMovement : MonoBehaviour
             SceneManager.LoadScene("LevelsChoiceScene");
         }
     }
-    
+
+    public float GetCurrentSpeed()
+    {
+        return _currentSpeed;
+    }
+    public float GetMagnitude()
+    {
+        return magnitude;
+    }
+
+    public float GetFrequency()
+    {
+        return frequency;
+    }
 }

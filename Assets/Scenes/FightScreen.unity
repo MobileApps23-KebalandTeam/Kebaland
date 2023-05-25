@@ -518,7 +518,7 @@ GameObject:
   - component: {fileID: 473776549}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1063,6 +1063,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826400629}
   m_CullTransparentMesh: 1
+--- !u!1 &841799648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841799649}
+  m_Layer: 5
+  m_Name: BulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &841799649
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841799648}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408434130}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.24800001, y: 0.59000003}
+  m_AnchorMax: {x: 0.3708914, y: 0.7748857}
+  m_AnchoredPosition: {x: 0.7710037, y: -0.3670044}
+  m_SizeDelta: {x: 0.18299866, y: -3.2279968}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1077350177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,9 +1400,10 @@ GameObject:
   - component: {fileID: 1408434131}
   - component: {fileID: 1408434133}
   - component: {fileID: 1408434134}
+  - component: {fileID: 1408434135}
   m_Layer: 5
   m_Name: EnemySpaceShip
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,7 +1419,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 841799649}
   m_Father: {fileID: 1372913844}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1467,6 +1505,20 @@ MonoBehaviour:
   speedModifier: 20
   target: {fileID: 1077350177}
   player: {fileID: 1734863617}
+--- !u!114 &1408434135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408434129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5ab18fc58fbf34ab7c63b974de6ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 4371991463078612613, guid: 4108eb88f52378645bcc476d281cbf72, type: 3}
+  bulletPosition: {fileID: 841799649}
 --- !u!1 &1595336857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,7 +1610,7 @@ GameObject:
   - component: {fileID: 1734863622}
   m_Layer: 5
   m_Name: PlayerSpaceship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

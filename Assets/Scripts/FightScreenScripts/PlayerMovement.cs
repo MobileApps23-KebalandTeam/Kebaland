@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 110f;
     [SerializeField] private float backgroundSpeed = 400f;
     private Vector2 _startingPoint;
+    private float _currentSpeed = 0f;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         // Player moves taps the screen - moves towards the target
         if (tapCounter > 0 && startPosition.y < targetPosition.y)
         {
+            _currentSpeed = speed;
             Move(startPosition, targetPosition, false);
         } 
         // Player stops tapping - begins falling
@@ -52,18 +54,23 @@ public class PlayerMovement : MonoBehaviour
         {
             background.transform.position += backgroundSpeed * Time.deltaTime * Vector3.down;
             transform.position = Vector2.MoveTowards(
-                startPosition, targetPosition, speed * Time.deltaTime);
+                startPosition, targetPosition, _currentSpeed * Time.deltaTime);
         }
         else
         {
             background.transform.position -= (backgroundSpeed) * Time.deltaTime * Vector3.down;
             transform.position = Vector2.MoveTowards(
-                startPosition, targetPosition, speed * Time.deltaTime);
+                startPosition, targetPosition, _currentSpeed * Time.deltaTime);
         }
     }
 
     public float GetBackgroundSpeed()
     {
         return backgroundSpeed;
+    }
+
+    public float GetPlayerSpeed()
+    {
+        return _currentSpeed;
     }
 }
