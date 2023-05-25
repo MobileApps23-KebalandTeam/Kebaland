@@ -19,6 +19,7 @@ public class PlayerLife : MonoBehaviour
         int lifeNumber = GetLivesCount() - 1;
         Image life = lives[lifeNumber].gameObject.GetComponent<Image>();
         life.color = new Color(life.color.r, life.color.g, life.color.b, 0f);
+        lives[lifeNumber].gameObject.GetComponent<LifePulsing>().SetActive(false);
         lives.Remove(lives[lifeNumber]);
         if (GetLivesCount() == 0)
         {
