@@ -19,7 +19,18 @@ public class ClickerPlaceholderScript : MonoBehaviour
     
     public void ClickerPassed()
     {
-        SceneManager.LoadScene("LevelPlaceholder");
+        LevelsOrders.AddOrders(0);
+        IngredientsHolder.SetType(0, IngredientType.Pepper);
+        IngredientsHolder.SetType(1, IngredientType.Tomato);
+        /*
+         * Comment the line below to mock level passing
+         */
+        SceneManager.LoadScene("GameLoopScene");
+        /*
+         * Uncomment the lines below to mock level passing
+         */
+        // LevelChoice.UpdateLevel(true);
+        // SceneManager.LoadScene("LevelsChoiceScene");
     }
 
     public void ClickerFailed()
