@@ -20,7 +20,7 @@ public class AchievementManager : MonoBehaviour
     public GameObject visualAchievement;
     public bool mainMenuScreen;
 
-    //public AchievementService k;
+    AchievementService k;
 
     private static AchievementManager instance;
 
@@ -39,12 +39,14 @@ public class AchievementManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        k = new AchievementService();
+        Debug.Log(Application.persistentDataPath);
+
         createAchievement("Pierwsze kroki", "Zacznij grać", 0);
         createAchievement("Arcydzieło", "Skończ pierwszy poziom", 1);
         createAchievement("Przepis na sukces", "Po raz pierwszy wejdż w osiągnięcia", 2);
         createAchievement("Space Wars", "Podołaj meksyków po raz pierwszy", 3);
 
-        //PlayerPrefs.DeleteAll();
         loadAchievements();
     }
 
@@ -89,39 +91,42 @@ public class AchievementManager : MonoBehaviour
         }
     }
 
+    public void setDelayedEarnAchievement(string achievementTitle)
+    {
+        k.AddAchievement(new MAchievement(achievementTitle, true, 10101000));
+    }
+
     private void saveAchievement(string achievementTitle, bool value)
     {
-        ///save achievement
-        // k.AddAchievement(new MAchievement(achievementTitle, value, DateTime.Now.Ticks));
-        // Debug.Log(k.GetCurrentAchievements().Count);
-
-
-        //temporary solution is to save in Unity
-        PlayerPrefs.SetInt(achievementTitle, value == true ? 1 : 0);
-        PlayerPrefs.Save();
+        k.AddAchievement(new MAchievement(achievementTitle, value, DateTime.Now.Ticks));
     }
 
     private void loadAchievements()
     {
-        //List<MAchievement> achievements = new AchievementService().GetCurrentAchievements();
-        //int length = k.GetCurrentAchievements().Count;
+        List<MAchievement> achievements = new AchievementService().GetCurrentAchievements();
 
-        //Debug.Log(length);
+        Debug.Log("Got created");
 
-        // foreach (MAchievement a in achievements)
-        // {
-
-        //     achievementsList[a.Name].isNotUnlocked();
-
-        // }
-        foreach (var item in achievementsList)
+        foreach (MAchievement a in achievements)
         {
-            if (PlayerPrefs.GetInt(item.Key) == 1)
+            Debug.Log("Name: " + a.Name + " Date: " + a.AcquiredDate);
+            if (a.Acquired == true)
             {
-                achievementsList[item.Value.Name].isNotUnlocked();
+                if (a.AcquiredDate == 10101000)
+                {
+                    if (GameObject.Find("AchievementEarnedCanvas").scene.IsValid())
+                    {
+                        k.RemoveAchievement(a);
+                        earnAchievement(a.Name);
+                    }
+                }
+                else
+                {
+                    achievementsList[a.Name].isNotUnlocked();
+                }
             }
-        }
 
+        }
     }
 
     public IEnumerator hideAchievement(GameObject achievement)

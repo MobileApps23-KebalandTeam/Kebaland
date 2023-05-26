@@ -24,11 +24,6 @@ public class LevelChoice : MonoBehaviour
         {
             AchievementManager.Instance.earnAchievement("Arcydzieło");
         }
-
-        if (_currentLevelToPass == 2)
-        {
-            AchievementManager.Instance.earnAchievement("Space Wars");
-        }
     }
 
     public void StartLevel0()

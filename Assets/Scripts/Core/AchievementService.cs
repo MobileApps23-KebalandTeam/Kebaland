@@ -5,7 +5,13 @@ namespace Core
 {
     public class AchievementService : AbstractSerializationService
     {
-        private List<MAchievement> _achievements = new();
+        //private List<MAchievement> _achievements = new();
+        public List<MAchievement> _achievements = new();
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         public List<MAchievement> GetCurrentAchievements()
         {
@@ -16,6 +22,12 @@ namespace Core
         {
             _achievements.Add(j);
             return Serialize();
+        }
+
+        public void RemoveAchievement(MAchievement j)
+        {
+            _achievements.RemoveAll(x => x.Name == j.Name && x.Acquired == j.Acquired && x.AcquiredDate == j.AcquiredDate);
+            Serialize();
         }
 
         override protected string fileName()

@@ -1,5 +1,3 @@
-using System;
-using Model;
 using UnityEngine;
 
 namespace Core
