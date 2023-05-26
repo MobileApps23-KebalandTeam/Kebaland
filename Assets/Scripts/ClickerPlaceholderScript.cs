@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +21,7 @@ public class ClickerPlaceholderScript : MonoBehaviour
     public void ClickerPassed()
     {
         LevelsOrders.AddOrders(0);
+        LevelChoice.UpdateLevel(true, LevelType.CLICKER);
         IngredientsHolder.SetType(0, IngredientType.Pepper);
         IngredientsHolder.SetType(1, IngredientType.Tomato);
         /*
@@ -35,7 +37,7 @@ public class ClickerPlaceholderScript : MonoBehaviour
 
     public void ClickerFailed()
     {
-        LevelChoice.UpdateLevel(false);
+        LevelChoice.UpdateLevel(false, LevelType.CLICKER);
         SceneManager.LoadScene("LevelsChoiceScene");
     }
 }

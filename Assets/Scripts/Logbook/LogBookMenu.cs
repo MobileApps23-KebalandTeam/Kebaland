@@ -5,6 +5,7 @@ using Core;
 using Model;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LogBookMenu : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class LogBookMenu : MonoBehaviour
             s += "\n";
             s += dateTime(entry.passedTime);
             s += "\n";
-            s += levelText(entry.LevelNumber);
+            s += getEntryText(entry.LevelNumber, entry.passed, entry.mode, entry.first_time);
             s += "\n";
             s += "***************\n\n";
         }
@@ -66,7 +67,7 @@ public class LogBookMenu : MonoBehaviour
             default: return "Moon";
         }
     }
-    
+
     private static string levelText(int level)
     {
         switch (level)
@@ -77,4 +78,80 @@ public class LogBookMenu : MonoBehaviour
             default: return "Kapelusze z głów\n";
         }
     }
+
+    private static string clickerText(int level)
+    {
+        switch (level)
+        {
+            case 0: return "Po ciężkich starciach armia została rozgromiona\n";
+            case 1: return "Przeciwnik ucieka\n";
+            case 2: return "Agresywny kebab\n";
+            default: return "Ostry sos\n";
+        }
+    }
+
+    private static string getEntryText(int level, bool passed, LevelType mode, bool first_time)
+    {
+        switch (mode)
+        {
+            case LevelType.CLICKER: return getClickerText(level, passed, first_time);
+            case LevelType.KEBAB: return getKebabText(level, passed, first_time);
+            default: return "";
+        }
+    }
+
+    private static string getClickerText(int level, bool passed, bool first_time)
+    {
+        switch (passed)
+        {
+            case true:
+                switch (first_time)
+                {
+                    case true: return clickerText(level);
+                    case false: return passedLevelAgain[Random.Range(0, passedLevelAgain.Count)];
+                }
+            case false: return failedClicker[Random.Range(0, failedClicker.Count)];
+        }
+    }
+
+    private static string getKebabText(int level, bool passed, bool first_time)
+    {
+        switch (passed)
+        {
+            case true:
+                switch (first_time)
+                {
+                    case true: return clickerText(level);
+                    case false: return passedClickerAgain[Random.Range(0, passedClickerAgain.Count)];
+                }
+            case false: return failedKebab[Random.Range(0, failedKebab.Count)];
+        }
+    }
+
+    private static List<string> failedKebab = new List<string>
+    {
+        "Mieszkańcy planety byli zbyt głodni\n",
+        "Nasze mięso było surowe\n",
+        "Sałata nam spleśniała\n"
+    };
+
+    private static List<string> failedClicker = new List<string>
+    {
+        "Przeciwnik był zbyt silny, musimy uciekać\n",
+        "Trafili nas! Mayday! Mayday!\n",
+        "Strzelają w nas taco, musimy uciekać\n",
+        "Mają guacamole! Ewakuacja!!!\n",
+        "Odwrót!!!"
+    };
+
+    private static List<string> passedLevelAgain = new List<string>
+    {
+        "Mamy chyba za niskie ceny\n",
+    };
+
+    private static List<string> passedClickerAgain = new List<string>
+    {
+        "Aż za łatwo się z nimi wygrywa\n",
+        "Czy awokado jest dobrą podpałką pod rożno?\n",
+    };
 }
