@@ -11,16 +11,18 @@ public class StarshipMove : MonoBehaviour
     private static bool _isFirstStart = true;
     private static Vector3 _rotation;
     private float _planetHorizontalShift;
+    private float _speed;
     
-    private const float Speed = 60f;
     private const int VerticalMovePadding = 50;
     private const int AssetRotation = 45;
 
     void Start()
     {
-        Vector2 startPosition = planets[_starshipPosition].transform.position;
-        _planetHorizontalShift = Screen.width / 10;
+        _planetHorizontalShift = Screen.width / 10f;
+        _speed = Screen.height / 10f;
         
+        Vector2 startPosition = planets[_starshipPosition].transform.position;
+
         if (_starshipPosition % 2 == 0)
         {
             startPosition.x += _planetHorizontalShift;
@@ -57,7 +59,7 @@ public class StarshipMove : MonoBehaviour
 
         if (startPosition != targetPosition)
         {
-            startPosition = transform.position = Vector2.MoveTowards(startPosition, targetPosition, Speed * Time.deltaTime);
+            startPosition = transform.position = Vector2.MoveTowards(startPosition, targetPosition, _speed * Time.deltaTime);
             
             if ((Vector3) (targetPosition - startPosition) != new Vector3(0, 0, 0))
             {
