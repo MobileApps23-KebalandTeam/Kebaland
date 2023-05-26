@@ -8,7 +8,7 @@ namespace Core
 
         public static void Register<T>(T service) where T : AbstractSerializationService
         {
-            map.Add(typeof(T), service);
+            map[typeof(T)] = service;
         }
 
         public static T Get<T>() where T : AbstractSerializationService
