@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &-2857685163568744397
+--- !u!21 &-1891612388341557361
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -33,7 +33,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 6492035586318464149}
+        m_Texture: {fileID: 836553245457432678}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: Bremen Bd BT SDF
   m_EditorClassIdentifier: 
   hashCode: -769149966
-  material: {fileID: -2857685163568744397}
+  material: {fileID: -1891612388341557361}
   materialHashCode: 1645497106
   m_Version: 1.1.0
   m_SourceFontFileGUID: 8a20a81efcc3da44a89e53099dc08c78
@@ -1895,7 +1895,7 @@ MonoBehaviour:
     m_GlyphIndex: 171
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 6492035586318464149}
+  - {fileID: 836553245457432678}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
@@ -2664,7 +2664,7 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
---- !u!28 &6492035586318464149
+--- !u!28 &836553245457432678
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

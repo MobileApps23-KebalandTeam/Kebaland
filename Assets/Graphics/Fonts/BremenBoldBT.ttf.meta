@@ -10,7 +10,8 @@ TrueTypeFontImporter:
   includeFontData: 1
   fontNames:
   - Bremen Bd BT
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8a20a81efcc3da44a89e53099dc08c78, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
