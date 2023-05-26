@@ -15,12 +15,14 @@ public class StatisticsScript : MonoBehaviour
 
     private static GameObject points;
 
+    private float startTime;
     private static int sumPoints;
     private static int reqPoints = 10;
     private static int sumOrders;
 
     private void Start()
     {
+        startTime = time;
         points = pointsObject;
         setPoints(0);
         sumOrders = 0;
@@ -70,6 +72,11 @@ public class StatisticsScript : MonoBehaviour
     public static void AddOrder()
     {
         sumOrders++;
+    }
+
+    public float getActTime()
+    {
+        return startTime - time;
     }
 
     private float max(float a, float b)
