@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (tapCounter > 0)
             {
-                SceneManager.LoadScene("LevelPlaceholder");
+                SceneManager.LoadScene("GameLoopScene");
             }
             
         }
