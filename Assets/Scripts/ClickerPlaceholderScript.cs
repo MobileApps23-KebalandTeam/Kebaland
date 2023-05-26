@@ -31,7 +31,7 @@ public class ClickerPlaceholderScript : MonoBehaviour
         /*
          * Uncomment the lines below to mock level passing
          */
-        // LevelChoice.UpdateLevel(true);
+        // LevelChoice.UpdateLevel(true, LevelType.KEBAB);
         // SceneManager.LoadScene("LevelsChoiceScene");
     }
 

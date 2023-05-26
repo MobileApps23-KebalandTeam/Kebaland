@@ -121,7 +121,7 @@ public class LogBookMenu : MonoBehaviour
             case true:
                 switch (first_time)
                 {
-                    case true: return clickerText(level);
+                    case true: return levelText(level);
                     case false: return passedClickerAgain[Random.Range(0, passedClickerAgain.Count)];
                 }
             case false: return failedKebab[Random.Range(0, failedKebab.Count)];
