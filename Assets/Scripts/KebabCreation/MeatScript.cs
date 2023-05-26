@@ -111,4 +111,14 @@ public class MeatScript : MonoBehaviour
     {
         return cutList;
     }
+
+    public void play()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void stop()
+    {
+        GetComponent<AudioSource>().Stop();
+    }
 }
