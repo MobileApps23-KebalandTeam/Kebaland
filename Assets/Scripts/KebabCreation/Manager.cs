@@ -356,7 +356,7 @@ public class Manager : MonoBehaviour
                     {
                         StatisticsScript.AddOrder();
                         StatisticsScript.AddPoints(rew);
-                        msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                        msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktÃ³w)"), 2.0f);
                     }
                     else
                     {

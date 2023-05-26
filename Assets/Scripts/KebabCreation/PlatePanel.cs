@@ -39,12 +39,19 @@ public class PlatePanel : MonoBehaviour
 
     public void AddIngredient(Ingredient ingredient)
     {
-        string plateName = IngredientTypeMethods.getPlateName(ingredient.GetIngredientType());
+        IngredientType ingredientType = ingredient.GetIngredientType();
+        string plateName = IngredientTypeMethods.getPlateName(ingredientType);
         var newObj = Instantiate(ingredientTypes.GetValueOrDefault(plateName), Vector2.zero, Quaternion.identity, transform);
         float offsetX = UnityEngine.Random.Range(-ingredient.OffsetX(), ingredient.OffsetX());
         float offsetY = UnityEngine.Random.Range(-ingredient.OffsetY(), ingredient.OffsetY());
         Vector3 vect = new Vector3(offsetX, offsetY + actHeight, 0);
         newObj.transform.position = plate.transform.position + vect;
+
+        if (ingredientType is IngredientType.Cucumber or IngredientType.Tomato or IngredientType.Lettuce or IngredientType.Onion)
+        {
+            newObj.transform.eulerAngles += new Vector3(60, 0, 50);
+        }
+        
         actHeight += ingredient.AddHeight();
         ingredients.Add(ingredient);
     }

@@ -46,7 +46,7 @@ public static class OrderTypeMethods {
                 dict.Add(IngredientType.Dough3, new IngredientRange(1, 1));
                 dict.Add(IngredientType.Cucumber, new IngredientRange(2, 3));
                 dict.Add(IngredientType.Tomato, new IngredientRange(1, 1));
-                dict.Add(IngredientType.Pepper, new IngredientRange(3, 4));
+                dict.Add(IngredientType.Onion, new IngredientRange(3, 4));
                 dict.Add(IngredientType.Meat1, new IngredientRange(3, 5));
                 dict.Add(IngredientType.Sauce3, new IngredientRange(12, 37));
                 return dict;

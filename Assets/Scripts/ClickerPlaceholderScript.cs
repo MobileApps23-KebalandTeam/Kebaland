@@ -20,7 +20,7 @@ public class ClickerPlaceholderScript : MonoBehaviour
     public void ClickerPassed()
     {
         LevelsOrders.AddOrders(0);
-        IngredientsHolder.SetType(0, IngredientType.Pepper);
+        IngredientsHolder.SetType(0, IngredientType.Onion);
         IngredientsHolder.SetType(1, IngredientType.Tomato);
         /*
          * Comment the line below to mock level passing

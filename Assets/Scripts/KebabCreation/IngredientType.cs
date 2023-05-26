@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum IngredientType
 {
-    Default, Dough1, Dough2, Dough3, Meat1, Meat2, Tomato, Pepper, Cucumber, Lettuce, Sauce1, Sauce2, Sauce3
+    Default, Dough1, Dough2, Dough3, Meat1, Meat2, Tomato, Onion, Cucumber, Lettuce, Sauce1, Sauce2, Sauce3
 }
 
 public static class IngredientTypeMethods
@@ -16,8 +16,8 @@ public static class IngredientTypeMethods
         {
             case IngredientType.Tomato:
                 return "tomato";
-            case IngredientType.Pepper:
-                return "pepper";
+            case IngredientType.Onion:
+                return "onion";
             case IngredientType.Cucumber:
                 return "cucumber";
             case IngredientType.Lettuce:
@@ -32,13 +32,13 @@ public static class IngredientTypeMethods
         switch (type)
         {
             case IngredientType.Tomato:
-                return "tomatoPart";
-            case IngredientType.Pepper:
-                return "pepperPart";
+                return "tomato-slice";
+            case IngredientType.Onion:
+                return "onion-slice";
             case IngredientType.Cucumber:
-                return "cucumberPart";
+                return "cucumber-slice";
             case IngredientType.Lettuce:
-                return "lettucePart";
+                return "lettuce-leaf";
             default:
                 return "";
         }
@@ -50,7 +50,7 @@ public static class IngredientTypeMethods
         {
             case IngredientType.Tomato:
                 return "ExtraIngredient1";
-            case IngredientType.Pepper:
+            case IngredientType.Onion:
                 return "ExtraIngredient2";
             case IngredientType.Cucumber:
                 return "ExtraIngredient3";
