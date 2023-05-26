@@ -29,6 +29,6 @@ public class EnemyShooting : MonoBehaviour
         Vector2 startPosition = bulletPosition.position;
         EnemyMovement enemyMovement = gameObject.GetComponent<EnemyMovement>();
         startPosition -= Time.deltaTime * (enemyMovement.GetCurrentSpeed()) * (Vector2) transform.right ;
-        GameObject b = Instantiate(bullet, startPosition, Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+        GameObject b = Instantiate(bullet, startPosition, Quaternion.identity, GameObject.FindGameObjectWithTag("Spawn").transform);
     }
 }

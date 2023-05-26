@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Canvas
   - Enemy
+  - Spawn
   layers:
   - Default
   - TransparentFX
