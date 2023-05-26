@@ -30,7 +30,7 @@ public class OrderList : MonoBehaviour
     }
 
     public ToastMessageUtils msg;
-    public static int maxAmount = 3;
+    public static int maxAmount = 1;
     public GameObject panelObj;
     public Manager manager;
 
