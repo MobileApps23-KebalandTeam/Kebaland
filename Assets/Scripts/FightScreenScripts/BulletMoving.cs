@@ -17,7 +17,7 @@ public class BulletMoving : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player");
         float levelNumber = LevelChoice.GetStartedLevel();
-        accuracyModifier /= (8 - levelNumber);
+        accuracyModifier -= (3 - levelNumber/3) * 100;
         Vector3 direction = _player.transform.position + new Vector3(0,_player.GetComponent<PlayerMovement>().GetPlayerSpeed() * accuracyModifier * Time.deltaTime , 0) - transform.position;
         _rigidbody.velocity = new Vector2(direction.x, direction.y).normalized * force;
 
@@ -38,7 +38,6 @@ public class BulletMoving : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
-            Debug.Log("destroyed");
             _player.GetComponent<PlayerLife>().SubtractLife();
             Destroy(gameObject);
         }
