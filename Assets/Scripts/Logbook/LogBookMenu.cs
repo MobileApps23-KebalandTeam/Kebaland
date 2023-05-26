@@ -147,11 +147,14 @@ public class LogBookMenu : MonoBehaviour
     private static List<string> passedLevelAgain = new List<string>
     {
         "Mamy chyba za niskie ceny\n",
+        "Biznes się rozrasta\n",
+        "Halo? Gordon Ramsey? Mamy dla Pana ofertę pracy\n",
     };
 
     private static List<string> passedClickerAgain = new List<string>
     {
         "Aż za łatwo się z nimi wygrywa\n",
         "Czy awokado jest dobrą podpałką pod rożno?\n",
+        "Jakby zjedli to taco, to by mieli siłę z nami walczyć\n"
     };
 }
