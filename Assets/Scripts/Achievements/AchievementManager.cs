@@ -15,15 +15,12 @@ public class AchievementManager : MonoBehaviour
     //list of sprites for achievements done and undone
     public Sprite[] achievementsDoneSprites;
     public Sprite[] achievementsNotDoneSprites;
-    public List<GameObject> achievementsUIList = new List<GameObject>();
-
-    public Dictionary<string, Achievement> achievementsList = new Dictionary<string, Achievement>();
-    public bool achievementCreated = false;
-    public bool valuesUpdated = false;
-
+    private Dictionary<string, Achievement> achievementsList = new Dictionary<string, Achievement>();
+    private bool achievementCreated = false;
     public GameObject visualAchievement;
+    public bool mainMenuScreen;
 
-    public AchievementService k;
+    //public AchievementService k;
 
     private static AchievementManager instance;
 
@@ -35,56 +32,42 @@ public class AchievementManager : MonoBehaviour
             {
                 instance = GameObject.FindObjectOfType<AchievementManager>();
             }
-            return AchievementManager.instance;
+            return instance;
         }
     }
-
 
     // Start is called before the first frame update
     void Start()
     {
-
         createAchievement("Pierwsze kroki", "Zacznij grać", 0);
-        createAchievement("Arcydzieło", "Skończ pierwszy lewel", 1);
+        createAchievement("Arcydzieło", "Skończ pierwszy poziom", 1);
+        createAchievement("Przepis na sukces", "Po raz pierwszy wejdż w osiągnięcia", 2);
+        createAchievement("Space Wars", "Podołaj meksyków po raz pierwszy", 3);
 
-
+        //PlayerPrefs.DeleteAll();
         loadAchievements();
-
-        //Debug.Log(k.GetCurrentAchievements().Count);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (!valuesUpdated)
-        // {
-        //     valuesUpdated = true;
-        //     k = ServiceLocator.Get<AchievementService>();
 
-        //     if (new AchievementService().GetCurrentAchievements().Count != 0)
-        //     {
-        //         Debug.Log("Got here");
-        //         loadAchievements();
-        //     }
-        // }
-
-        if (!achievementCreated && achievementsScreen.activeSelf)
+        if (mainMenuScreen && !achievementCreated && achievementsScreen.activeSelf)
         {
             foreach (var entry in achievementsList)
             {
                 //put each achievement to achievement box and rescale it
                 entry.Value.ReferenceObject.transform.SetParent(GameObject.Find("AchievementsBox").transform);
                 entry.Value.ReferenceObject.transform.localScale = new Vector3(1, 1, 1);
+
+                if (entry.Value.Unlocked) { entry.Value.ReferenceObject.transform.GetChild(0).GetComponent<Image>().sprite = achievementsDoneSprites[entry.Value.SpriteIndex]; }
             }
 
             achievementCreated = true;
         }
-        else if (achievementsScreen.activeSelf)
+        else if (mainMenuScreen && achievementsScreen.activeSelf)
         {
-            // GameObject g = achievementsUIList[1];
-            // g.transform.GetChild(0).GetComponent<Image>().sprite = achievementsDoneSprites[0];
-            earnAchievement("Pierwsze kroki");
+            earnAchievement("Przepis na sukces");
         }
     }
 
@@ -92,7 +75,6 @@ public class AchievementManager : MonoBehaviour
     {
         if (achievementsList[title].isNotUnlocked())
         {
-            Debug.Log("Everytime entering");
             GameObject show = (GameObject)Instantiate(visualAchievement);
             show.transform.SetParent(GameObject.Find("AchievementEarnedCanvas").transform);
             show.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = title;
@@ -102,6 +84,8 @@ public class AchievementManager : MonoBehaviour
             StartCoroutine(hideAchievement(show));
 
             saveAchievement(title, true);
+
+            if (!mainMenuScreen) { achievementCreated = false; }
         }
     }
 
@@ -130,13 +114,10 @@ public class AchievementManager : MonoBehaviour
         //     achievementsList[a.Name].isNotUnlocked();
 
         // }
-        Debug.Log("Am here");
         foreach (var item in achievementsList)
         {
-            Debug.Log(PlayerPrefs.GetInt(item.Key));
             if (PlayerPrefs.GetInt(item.Key) == 1)
             {
-                Debug.Log("Is here");
                 achievementsList[item.Value.Name].isNotUnlocked();
             }
         }
@@ -145,13 +126,13 @@ public class AchievementManager : MonoBehaviour
 
     public IEnumerator hideAchievement(GameObject achievement)
     {
-        //wait for three seconds before hiding achievement
-        yield return new WaitForSeconds(3);
+        //wait for two seconds before hiding achievement
+        yield return new WaitForSeconds(2);
         Destroy(achievement);
     }
 
 
-    public void createAchievement(string title, string desc, int spriteIndex) //,Sprite image)
+    public void createAchievement(string title, string desc, int spriteIndex)
     {
         //create new achievement
         GameObject achievementUI = (GameObject)Instantiate(achievmentPrefab);
@@ -162,13 +143,9 @@ public class AchievementManager : MonoBehaviour
         //example of setting image
         achievementUI.transform.GetChild(0).GetComponent<Image>().sprite = achievementsNotDoneSprites[spriteIndex];
 
-        //achievementsUIList.Add(achievementUI);
-
         //create achievement object to track if achievement is complete
         Achievement newAchievement = new Achievement(title, desc, spriteIndex, achievementUI);
 
         achievementsList.Add(title, newAchievement);
-
-        //return achievement;
     }
 }

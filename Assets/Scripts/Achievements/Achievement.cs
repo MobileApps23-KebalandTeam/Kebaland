@@ -55,7 +55,8 @@ public class Achievement
         if (!unlocked)
         {
             unlocked = true;
-            referenceObject.transform.GetChild(0).GetComponent<Image>().sprite = AchievementManager.Instance.achievementsDoneSprites[spriteIndex];
+            Debug.Log("spriteIndex: " + spriteIndex);
+            if (AchievementManager.Instance.mainMenuScreen == true) { referenceObject.transform.GetChild(0).GetComponent<Image>().sprite = AchievementManager.Instance.achievementsDoneSprites[spriteIndex]; }
             return true;
         }
         return false;
