@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
                 BulletMoving[] bullets = FindObjectsOfType<BulletMoving>();
                 foreach (var bullet in bullets)
                 {
+                    bullet.StopBullet();
                     bullet.enabled = false;
                 }
                 _isEnd = true;
