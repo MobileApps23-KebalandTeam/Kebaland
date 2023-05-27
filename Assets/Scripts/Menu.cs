@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject creatorsScreen;
     [SerializeField] private GameObject grayedOutScreen;
     [SerializeField] private GameObject achievementsScreen;
+
+    [SerializeField] private GameObject kebalandLogo;
     void Start()
     {
         button = GetComponent<Button>();
@@ -34,6 +36,7 @@ public class Menu : MonoBehaviour
     {
         //Loads Achievements Fragment
         mainMenuScreen.SetActive(false);
+        kebalandLogo.SetActive(false);
         achievementsScreen.SetActive(true);
 
     }
@@ -51,6 +54,7 @@ public class Menu : MonoBehaviour
 
     public void BackToMainMenu()
     {
+        kebalandLogo.SetActive(true);
         creatorsScreen.SetActive(false);
         achievementsScreen.SetActive(false);
         mainMenuScreen.SetActive(true);
