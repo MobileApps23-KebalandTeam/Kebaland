@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6672661053386780322}
   - component: {fileID: 6672661053386780321}
   - component: {fileID: 6672661053386780320}
-  - component: {fileID: 6672661053386780323}
   m_Layer: 5
   m_Name: Achievement
   m_TagString: Untagged
@@ -101,21 +100,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6672661053386780323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6672661053386780326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bba8254e5699134abbce9023278b6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achDesc: {fileID: 6672661053474336451}
-  achIcon: {fileID: 6672661053387726555}
-  achievement: {fileID: 4742198647235458139, guid: 175946dc9c1291f44b12db3cdec94b76, type: 3}
 --- !u!1 &6672661053387726553
 GameObject:
   m_ObjectHideFlags: 0

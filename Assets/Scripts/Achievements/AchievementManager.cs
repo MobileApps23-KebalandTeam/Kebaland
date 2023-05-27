@@ -59,7 +59,6 @@ public class AchievementManager : MonoBehaviour
     void Start()
     {
         k = new AchievementService();
-        Debug.Log(Application.persistentDataPath);
 
         createAchievement("Pierwsze kroki", "Zacznij grać", 0);
         createAchievement("Arcydzieło", "Skończ pierwszy poziom", 1);
@@ -124,11 +123,8 @@ public class AchievementManager : MonoBehaviour
     {
         List<MAchievement> achievements = new AchievementService().GetCurrentAchievements();
 
-        Debug.Log("Got created");
-
         foreach (MAchievement a in achievements)
         {
-            Debug.Log("Name: " + a.Name + " Date: " + a.AcquiredDate);
             if (a.Acquired == true)
             {
                 if (a.AcquiredDate == 10101000)
