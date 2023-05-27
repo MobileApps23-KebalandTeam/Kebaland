@@ -22,8 +22,14 @@ public class ClickerPlaceholderScript : MonoBehaviour
     {
         LevelsOrders.AddOrders(0);
         LevelChoice.UpdateLevel(true, LevelType.CLICKER);
-        IngredientsHolder.SetType(0, IngredientType.Pepper);
-        IngredientsHolder.SetType(1, IngredientType.Tomato);
+        IngredientsHolder.AddType(IngredientType.Dough1);
+        IngredientsHolder.AddType(IngredientType.Dough3);
+        IngredientsHolder.AddType(IngredientType.Meat1);
+        IngredientsHolder.AddType(IngredientType.Pepper);
+        IngredientsHolder.AddType(IngredientType.Pepper);
+        IngredientsHolder.AddType(IngredientType.Tomato);
+        IngredientsHolder.AddType(IngredientType.Sauce1);
+        IngredientsHolder.AddType(IngredientType.Sauce2);
         /*
          * Comment the line below to mock level passing
          */

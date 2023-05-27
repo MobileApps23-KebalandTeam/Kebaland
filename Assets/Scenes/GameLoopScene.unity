@@ -6182,6 +6182,14 @@ MonoBehaviour:
   - {fileID: 386709312}
   - {fileID: 1919524444}
   - {fileID: 1407602011}
+  dough1O: {fileID: 1327612419}
+  dough2O: {fileID: 941926591}
+  dough3O: {fileID: 1029681307}
+  meat1O: {fileID: 268885231}
+  meat2O: {fileID: 190666475}
+  sauce1O: {fileID: 855810779}
+  sauce2O: {fileID: 426622291}
+  sauce3O: {fileID: 1795502816}
 --- !u!1 &1102689961
 GameObject:
   m_ObjectHideFlags: 0
