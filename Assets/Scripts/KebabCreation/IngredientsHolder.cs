@@ -33,6 +33,7 @@ public class IngredientsHolder : MonoBehaviour
         foreach (IngredientType type in Types)
         {
             _visible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(type));
+            Debug.Log(IngredientTypeMethods.getPartName(type));
 
             _notVisible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getPartName(type));
             _notVisible[i].transform.eulerAngles += new Vector3(60, 0, 50);;
