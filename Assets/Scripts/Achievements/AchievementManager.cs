@@ -64,7 +64,10 @@ public class AchievementManager : MonoBehaviour
         createAchievement("Pierwsze kroki", "Zacznij grać", 0);
         createAchievement("Arcydzieło", "Skończ pierwszy poziom", 1);
         createAchievement("Przepis na sukces", "Po raz pierwszy wejdż w osiągnięcia", 2);
-        createAchievement("Space Wars", "Podołaj meksyków po raz pierwszy", 3);
+        createAchievement("Space Wars", "Podołaj meksykanów po raz pierwszy", 3);
+        createAchievement("Ooops", "Oddaj pusty talerz jako zamówienie", 4);
+        createAchievement("Quacamole na pokładzie", "Przegraj meksykanom", 5);
+        createAchievement("Więcej mięsa!", "Włóż do kebaba 10 kawałków mięsa", 6);
 
         loadAchievements();
     }
@@ -89,6 +92,8 @@ public class AchievementManager : MonoBehaviour
         else if (mainMenuScreen && achievementsScreen.activeSelf)
         {
             earnAchievement("Przepis na sukces");
+            earnAchievement("Quacamole na pokładzie");
+            earnAchievement("Więcej mięsa!");
         }
     }
 
@@ -143,8 +148,8 @@ public class AchievementManager : MonoBehaviour
             {
                 if (a.AcquiredDate == 10101000)
                 {
-                    Debug.Log("Before confirming: " + a.Name);
-                    if (GameObject.Find("AchievementEarnedCanvas").scene.IsValid())
+                    //Debug.Log("Before confirming: " + a.Name);
+                    if (GameObject.Find("AchievementEarnedCanvas") != null)
                     {
                         Debug.Log(a.Name);
                         k.RemoveAchievement(a);
@@ -163,7 +168,7 @@ public class AchievementManager : MonoBehaviour
     public IEnumerator hideAchievement(GameObject achievement)
     {
         //wait for two seconds before hiding achievement
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         Destroy(achievement);
     }
 

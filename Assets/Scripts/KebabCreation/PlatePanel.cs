@@ -56,6 +56,12 @@ public class PlatePanel : MonoBehaviour
 
     public void ClearIngredients()
     {
+        //call achievement
+        if (transform.childCount == 1)
+        {
+            AchievementManager.Instance.setDelayedEarnAchievement("Ooops");
+        }
+
         actHeight = 0;
         foreach (Transform child in transform)
         {

@@ -560,66 +560,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500928771}
   m_CullTransparentMesh: 1
---- !u!1 &601881410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 601881412}
-  - component: {fileID: 601881411}
-  m_Layer: 0
-  m_Name: AchievementManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &601881411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601881410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eba5917a4888c343af63f1eb822be6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievmentPrefab: {fileID: 6672661053386780326, guid: f6d72f4495d8d1b4aa2a38c4cd99eab3,
-    type: 3}
-  achievementsScreen: {fileID: 0}
-  achievementsDoneSprites:
-  - {fileID: 21300000, guid: bf8578bf90cbe174d83d939226821d32, type: 3}
-  - {fileID: 21300000, guid: d162d34a32206ab44927ebc68ca93c0c, type: 3}
-  - {fileID: 21300000, guid: b9ee6a7f6b6ed3046a78807daf7adaff, type: 3}
-  - {fileID: 21300000, guid: 226e34c4df7d5ff46a9a304cc6a25ff1, type: 3}
-  achievementsNotDoneSprites:
-  - {fileID: 21300000, guid: 167b61252733d914cb374b9128dccd73, type: 3}
-  - {fileID: 21300000, guid: 8547a3a7e0fde814bb3b3d2704718342, type: 3}
-  - {fileID: 21300000, guid: 26a126853137bbf4e9168ccd1dad014d, type: 3}
-  - {fileID: 21300000, guid: 1c19d3ce744d42745aa2995dfb76e6ac, type: 3}
-  visualAchievement: {fileID: 2084475095787764334, guid: 8320f67b3d2d26345b5d1923b8d90536,
-    type: 3}
-  mainMenuScreen: 0
---- !u!4 &601881412
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601881410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 692.6073, y: 1526.7101, z: -22.456253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675774797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,8 +3314,7 @@ MonoBehaviour:
   m_text: Dziennik misji
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
-  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34,
-    type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3525,6 +3464,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479634572}
   m_CullTransparentMesh: 1
+--- !u!1 &1482905697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1482905699}
+  - component: {fileID: 1482905698}
+  m_Layer: 0
+  m_Name: AchievementManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1482905698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482905697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eba5917a4888c343af63f1eb822be6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievmentPrefab: {fileID: 6672661053386780326, guid: f6d72f4495d8d1b4aa2a38c4cd99eab3, type: 3}
+  achievementsScreen: {fileID: 0}
+  achievementsDoneSprites:
+  - {fileID: 21300000, guid: bf8578bf90cbe174d83d939226821d32, type: 3}
+  - {fileID: 21300000, guid: d162d34a32206ab44927ebc68ca93c0c, type: 3}
+  - {fileID: 21300000, guid: b9ee6a7f6b6ed3046a78807daf7adaff, type: 3}
+  - {fileID: 21300000, guid: 226e34c4df7d5ff46a9a304cc6a25ff1, type: 3}
+  - {fileID: 21300000, guid: f111c7736d786544e954d5a8b7e2f9d7, type: 3}
+  - {fileID: 21300000, guid: 82bada70961cabb41b585f62ce719d07, type: 3}
+  - {fileID: 21300000, guid: 236d583ed78041a4cbf212844a4644be, type: 3}
+  achievementsNotDoneSprites:
+  - {fileID: 21300000, guid: 167b61252733d914cb374b9128dccd73, type: 3}
+  - {fileID: 21300000, guid: 8547a3a7e0fde814bb3b3d2704718342, type: 3}
+  - {fileID: 21300000, guid: 26a126853137bbf4e9168ccd1dad014d, type: 3}
+  - {fileID: 21300000, guid: 1c19d3ce744d42745aa2995dfb76e6ac, type: 3}
+  - {fileID: 21300000, guid: 64d895677a4eadc4eabca1793858e14c, type: 3}
+  - {fileID: 21300000, guid: 5838de48eff683a47bb0e769093cf526, type: 3}
+  - {fileID: 21300000, guid: 2c050fc2920fa98479a2d4702527c755, type: 3}
+  visualAchievement: {fileID: 2084475095787764334, guid: 8320f67b3d2d26345b5d1923b8d90536, type: 3}
+  mainMenuScreen: 0
+--- !u!4 &1482905699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482905697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 692.6073, y: 1526.7101, z: -22.456253}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1484687432
 GameObject:
   m_ObjectHideFlags: 0

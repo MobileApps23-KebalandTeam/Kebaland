@@ -2118,11 +2118,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d162d34a32206ab44927ebc68ca93c0c, type: 3}
   - {fileID: 21300000, guid: b9ee6a7f6b6ed3046a78807daf7adaff, type: 3}
   - {fileID: 21300000, guid: 226e34c4df7d5ff46a9a304cc6a25ff1, type: 3}
+  - {fileID: 21300000, guid: f111c7736d786544e954d5a8b7e2f9d7, type: 3}
+  - {fileID: 21300000, guid: 82bada70961cabb41b585f62ce719d07, type: 3}
+  - {fileID: 21300000, guid: 236d583ed78041a4cbf212844a4644be, type: 3}
   achievementsNotDoneSprites:
   - {fileID: 21300000, guid: 167b61252733d914cb374b9128dccd73, type: 3}
   - {fileID: 21300000, guid: 8547a3a7e0fde814bb3b3d2704718342, type: 3}
   - {fileID: 21300000, guid: 26a126853137bbf4e9168ccd1dad014d, type: 3}
   - {fileID: 21300000, guid: 1c19d3ce744d42745aa2995dfb76e6ac, type: 3}
+  - {fileID: 21300000, guid: 64d895677a4eadc4eabca1793858e14c, type: 3}
+  - {fileID: 21300000, guid: 5838de48eff683a47bb0e769093cf526, type: 3}
+  - {fileID: 21300000, guid: 2c050fc2920fa98479a2d4702527c755, type: 3}
   visualAchievement: {fileID: 2084475095787764334, guid: 8320f67b3d2d26345b5d1923b8d90536, type: 3}
   mainMenuScreen: 1
 --- !u!4 &919545273
@@ -3291,7 +3297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322, y: 20}
+  m_AnchoredPosition: {x: 322, y: 48}
   m_SizeDelta: {x: 20, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280072834
