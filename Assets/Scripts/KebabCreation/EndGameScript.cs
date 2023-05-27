@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,7 +23,7 @@ public class EndGameScript : MonoBehaviour
         bool won = sumPoints >= reqPoints;
 
 
-        LevelChoice.UpdateLevel(won);
+        LevelChoice.UpdateLevel(won, LevelType.KEBAB);
 
         image = GetComponent<Image>();
         image.enabled = true;
@@ -49,7 +50,7 @@ public class EndGameScript : MonoBehaviour
                     toAdd.Add(child);
                 }
                 if (trans.name.Equals("TitleText"))
-                    trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = won ? "Gratulacje!" : "Spróbuj ponownie";
+                    trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = won ? "Gratulacje!" : "SprÃ³buj ponownie";
                 else if (trans.name.Equals("PointsText"))
                     trans.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = sumPoints + "";
                 else if (trans.name.Equals("OrdersText"))

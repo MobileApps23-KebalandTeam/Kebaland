@@ -80,9 +80,16 @@ public class LevelChoice : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public static void UpdateLevel(bool nextLevel)
+    public static void UpdateLevel(bool nextLevel, LevelType mode) 
     {
-        if (nextLevel)
+        MLogbookEntry entry = new();
+        entry.LevelNumber = _startedLevel;
+        entry.passedTime = DateTime.Now.Ticks;
+        entry.passed = nextLevel;
+        entry.mode = mode;
+        entry.first_time = (_startedLevel == _currentLevelToPass);
+        ServiceLocator.Get<LogbookService>().AddEntry(entry);
+        if (nextLevel && mode == LevelType.KEBAB)
         {
             if (_startedLevel == _currentLevelToPass)
             {
@@ -134,10 +141,6 @@ public class LevelChoice : MonoBehaviour
         MGameState model = ServiceLocator.Get<GameStateService>().loadProgress();
         model.MaxLevel = _currentLevelToPass;
         ServiceLocator.Get<GameStateService>().saveProgress(model);
-        MLogbookEntry entry = new();
-        entry.LevelNumber = _currentLevelToPass - 1;
-        entry.passedTime = DateTime.Now.Ticks;
-        ServiceLocator.Get<LogbookService>().AddEntry(entry);
     }
 
     public static int GetStartedLevel()

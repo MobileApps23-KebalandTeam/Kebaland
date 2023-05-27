@@ -6,6 +6,7 @@ namespace Core
 {
     public abstract class AbstractSerializationService
     {
+        public static int version = 2;
         public AbstractSerializationService()
         {
             handleLoad();

@@ -17,7 +17,7 @@ namespace Model
         }
 
         public string Name;
-        public bool Acquired;
+        public bool Acquired = false;
         public long AcquiredDate;
     }
 }
