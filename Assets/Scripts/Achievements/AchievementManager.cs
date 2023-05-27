@@ -125,6 +125,14 @@ public class AchievementManager : MonoBehaviour
 
         foreach (MAchievement a in achievements)
         {
+            if (a == null)
+            {
+                Debug.Log("Error");
+                continue;
+            }
+            
+            // Debug.Log(a.Name);
+            
             if (a.Acquired == true)
             {
                 if (a.AcquiredDate == 10101000)

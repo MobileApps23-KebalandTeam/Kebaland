@@ -10,8 +10,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private GameObject mainMenuScreen;
     [SerializeField] private GameObject creatorsScreen;
-    [SerializeField] private GameObject achievementsScreen;
     [SerializeField] private GameObject grayedOutScreen;
+    [SerializeField] private GameObject achievementsScreen;
     void Start()
     {
         button = GetComponent<Button>();

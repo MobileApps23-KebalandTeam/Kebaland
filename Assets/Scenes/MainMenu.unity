@@ -759,8 +759,8 @@ MonoBehaviour:
   button: {fileID: 506918752}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!1 &522898922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,8 +1164,8 @@ MonoBehaviour:
   button: {fileID: 568751868}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!114 &568751868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1454,8 +1454,8 @@ MonoBehaviour:
   button: {fileID: 736722752}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!114 &736722752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,64 +1935,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030518, y: -0.0022278}
   m_SizeDelta: {x: 720, y: 1282.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &919545271
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 919545273}
-  - component: {fileID: 919545272}
-  m_Layer: 0
-  m_Name: AchievementManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &919545272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919545271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eba5917a4888c343af63f1eb822be6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  achievmentPrefab: {fileID: 6672661053386780326, guid: f6d72f4495d8d1b4aa2a38c4cd99eab3, type: 3}
-  achievementsScreen: {fileID: 1345746033}
-  achievementsDoneSprites:
-  - {fileID: 21300000, guid: bf8578bf90cbe174d83d939226821d32, type: 3}
-  - {fileID: 21300000, guid: d162d34a32206ab44927ebc68ca93c0c, type: 3}
-  - {fileID: 21300000, guid: b9ee6a7f6b6ed3046a78807daf7adaff, type: 3}
-  - {fileID: 21300000, guid: 226e34c4df7d5ff46a9a304cc6a25ff1, type: 3}
-  achievementsNotDoneSprites:
-  - {fileID: 21300000, guid: 167b61252733d914cb374b9128dccd73, type: 3}
-  - {fileID: 21300000, guid: 8547a3a7e0fde814bb3b3d2704718342, type: 3}
-  - {fileID: 21300000, guid: 26a126853137bbf4e9168ccd1dad014d, type: 3}
-  - {fileID: 21300000, guid: 1c19d3ce744d42745aa2995dfb76e6ac, type: 3}
-  visualAchievement: {fileID: 2084475095787764334, guid: 8320f67b3d2d26345b5d1923b8d90536, type: 3}
-  mainMenuScreen: 1
---- !u!4 &919545273
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919545271}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 692.6073, y: 1526.7101, z: -22.456253}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1035715321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,8 +2490,8 @@ MonoBehaviour:
   button: {fileID: 1083994839}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!1 &1181809387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2606,8 +2548,8 @@ MonoBehaviour:
   button: {fileID: 1181809390}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!114 &1181809390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2755,11 +2697,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7332891a1e3ae564da77bd2d384bbea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
-  mainMenuScreen: {fileID: 0}
-  creatorsScreen: {fileID: 0}
-  achievementsScreen: {fileID: 0}
-  grayedOutScreen: {fileID: 0}
+  button: {fileID: 1185234516}
+  mainMenuScreen: {fileID: 199769591}
+  creatorsScreen: {fileID: 903973932}
+  grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!114 &1185234516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2804,7 +2746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1185234515}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: BackToMainMenu
         m_Mode: 1
@@ -3004,8 +2946,8 @@ MonoBehaviour:
   button: {fileID: 1232878983}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!1 &1265828760
 GameObject:
   m_ObjectHideFlags: 0
@@ -4001,8 +3943,8 @@ MonoBehaviour:
   button: {fileID: 506918752}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 1345746033}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!114 &1898168385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4169,8 +4111,8 @@ MonoBehaviour:
   button: {fileID: 1921252056}
   mainMenuScreen: {fileID: 199769591}
   creatorsScreen: {fileID: 903973932}
-  achievementsScreen: {fileID: 0}
   grayedOutScreen: {fileID: 135918193}
+  achievementsScreen: {fileID: 1345746033}
 --- !u!1 &1933786047
 GameObject:
   m_ObjectHideFlags: 0
