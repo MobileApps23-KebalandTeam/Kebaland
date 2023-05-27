@@ -339,8 +339,7 @@ public class Manager : MonoBehaviour
                 extras[isDraggingExtras].transform.position = defaultExtrasPosition[isDraggingExtras];
                 if (plateCollider.bounds.Contains(Input.touches[0].position))
                 {
-                    IngredientType type = IngredientsHolder.GetIngredientType(isDraggingExtras);
-                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(type));
+                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(isDraggingExtras));
                 }
 
                 isDraggingExtras = -1;
