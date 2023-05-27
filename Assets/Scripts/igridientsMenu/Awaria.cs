@@ -20,10 +20,12 @@ public class Awaria : MonoBehaviour
         scrollRect.enabled = true;//robi nasz scrollRect aktywnym 
         awariaIF = false; // zmienna booloa która pozwała sprawdzić czy awaria jest czy nie
         button1.enabled = true;  // robi nasz przycisk aktywnym
+
+        
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++) // przechodzimy po tablice wszystkich toglle i sprawdzamy czy te toggle nie są zaakceptowane
         {
-            if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i]))) {
-                toggleManager.toggleListAll[i].enabled = true; // i robimy znów actywnymi
+            if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i].Item2))) {
+                toggleManager.toggleListAll[i].Item1.enabled = true; // i robimy znów actywnymi
             }
            
 
@@ -38,7 +40,7 @@ public class Awaria : MonoBehaviour
  
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++)//robi wszystkie toggle nie aktywnymi
         {
-            toggleManager.toggleListAll[i].enabled = false;
+            toggleManager.toggleListAll[i].Item1.enabled = false;
 
         }
     }
@@ -51,7 +53,7 @@ public class Awaria : MonoBehaviour
 
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
         {
-            toggleManager.toggleListAll[i].enabled = false;
+            toggleManager.toggleListAll[i].Item1.enabled = false;
 
         }
     }
@@ -64,9 +66,9 @@ public class Awaria : MonoBehaviour
 
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
         {
-            if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i])))
+            if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i].Item2)))
             {
-                toggleManager.toggleListAll[i].enabled = true;
+                toggleManager.toggleListAll[i].Item1.enabled = true;
             }
 
 

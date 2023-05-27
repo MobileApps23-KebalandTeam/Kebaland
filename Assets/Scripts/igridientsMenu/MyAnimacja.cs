@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 //clasa która animuje podany obrazek kiedy naciskamy przycisk Lecimy gotować z licziliem 0 i potem zapuskamy metode ToggleInteraction()
 public class MyAnimacja : MonoBehaviour
@@ -30,6 +31,11 @@ public class MyAnimacja : MonoBehaviour
                 isMoving = false;//ustawiamy że animacja skonczona
                 moveTimer = 0.0f;//Resetuje licznik czasu
                 StartCoroutine(button.ToggleInteraction()); // Uruchamiamy po zakończeniu przesuwania obrazka
+                                                            // SceneManager.UnloadScene("IgridientsMenu2");
+
+                //SceneManager.LoadScene("FightScreen");
+               
+
             }
         }
     }

@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelPlaceholder.unity
     guid: 84d97c0d2f6508944a141e88de9808bb
   - enabled: 1
-    path: Assets/Scenes/FightScreen.unity
-    guid: a6b2f79e498fd924c818f28b01f1f3f1
-  - enabled: 1
     path: Assets/Scenes/IgridientsMenu2.unity
     guid: aa1d9fac98c637d47b678bedcdbab29b
+  - enabled: 1
+    path: Assets/Scenes/FightScreen.unity
+    guid: a6b2f79e498fd924c818f28b01f1f3f1
   m_configObjects: {}

@@ -18,12 +18,14 @@ public class MyTogle : MonoBehaviour
     public Color selectedColorActivRGB;// color wybranego toggle
     public Color selectedColorNoActivRGB;// color nie wybranego toggle
     public MyButton countGame;//zmiena clasy MyButton 
-
+    public IngredientType type;
     // Start jest wywoływany przed aktualizacją pierwszego updete
     void Start()
     {
         toggle = GetComponent<Toggle>();//pobiera component Toggle do którego jest przypisany skrypt
-        toggleManager.toggleListAll.Add(toggle);// dodaje do listy wszystkich toggle nasz pojedynczy toggle
+        //toggleManager.toggleListAll.Add(toggle,type);// dodaje do listy wszystkich toggle nasz pojedynczy toggle
+        Debug.Log("TOOOOOOOOOOOOOOOOOO");
+        toggleManager.AddToggleType(toggle, type, krzyzykMy);
     }
 
     public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle
@@ -33,11 +35,12 @@ public class MyTogle : MonoBehaviour
             if (temat != toggleManager.toggleTemat)//sprawdzamy czy temat wybranego pojedynczego toggle nie jest taka sama jak i aktywna tema(tema poprzednio wybranego toggle)
             {
                 toggleManager.toggleTemat = temat; // zmienaiamy aktwną teme
+                toggleManager.toggleTypeActiv = type;
                 bool numberExists = toggleManager.myList.Exists(item => item.Item1 == temat);//sprawdza czy temat już byl używany 
                 if (numberExists)//jeśli tak
                 {
                     // Zapisanie pary gdie temat jest równy tematu wybranego toggle 
-                    Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
+                    Tuple<int, Toggle, Image, IngredientType> pair = toggleManager.myList[0];
                     int index = -1; // i szukamy index tego tematu
                     for (int i = 0; i < toggleManager.myList.Count; i++)
                     {
@@ -56,7 +59,7 @@ public class MyTogle : MonoBehaviour
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;//zmieniamy kolor toggl na wlączony
                         if (toggle != null && toggleManager != null)//jeśli toggle i toggleManażer nie są null to 
                         {
-                            toggleManager.AddToggle(toggle);//dodajemy do tablicy wybranych toggle
+                            toggleManager.AddToggle(toggle,type);//dodajemy do tablicy wybranych toggle
                             licznik.Zmien(true); // i zmieniamy licznik (licznik zmniejsza się)
                         }
                         Debug.Log("Toggle jest włączonyE! " + toggle.name + "  " + toggleManager.toggleCounter);
@@ -65,7 +68,7 @@ public class MyTogle : MonoBehaviour
                     {
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.RemoveToggle(toggle);//usuwamy z listy wybranych toglle
+                            toggleManager.RemoveToggle(toggle, type);//usuwamy z listy wybranych toglle
                             licznik.Zmien(false);//zmieniamy licznik(licznik zwiększa się)
                         }
                         Debug.Log("Toggle jest wyłączonyE!");
@@ -73,9 +76,9 @@ public class MyTogle : MonoBehaviour
 
 
                     }
-                    Tuple<int, Toggle, Image> firstPair = toggleManager.myList[index];//pobiera pare podanego indeksu tematu 
+                    Tuple<int, Toggle, Image, IngredientType> firstPair = toggleManager.myList[index];//pobiera pare podanego indeksu tematu 
 
-                    firstPair = new Tuple<int, Toggle, Image>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);// modyfikacja danych pary nowym wybranym toggle tego tematu i jego krzyżykiem  
+                    firstPair = new Tuple<int, Toggle, Image, IngredientType>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv, type);// modyfikacja danych pary nowym wybranym toggle tego tematu i jego krzyżykiem  
 
                     toggleManager.myList[index] = firstPair;  // Aktualizuj parę w liście
                 }
@@ -87,7 +90,7 @@ public class MyTogle : MonoBehaviour
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.AddToggle(toggle);
+                            toggleManager.AddToggle(toggle, type);
                             licznik.Zmien(true);
                         }
                         Debug.Log("Toggle jest włączony3! " + toggle.name + "  " + toggleManager.toggleCounter);
@@ -96,13 +99,13 @@ public class MyTogle : MonoBehaviour
                     {
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.RemoveToggle(toggle);
+                            toggleManager.RemoveToggle(toggle, type);
                             licznik.Zmien(false);
                         }
                         Debug.Log("Toggle jest wyłączony3!");
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
                     }
-                    toggleManager.AddTemat(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);//dodanie tematu aktywnego toggle i krzyżyka do listy tematów 
+                    toggleManager.AddTemat(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv, type);//dodanie tematu aktywnego toggle i krzyżyka do listy tematów 
                 }
 
 
@@ -111,7 +114,7 @@ public class MyTogle : MonoBehaviour
             else // jeśli teamat nie zmienial się (wybrany toggle jest z tego samego tematu)
             {
                 //szukamy indeks tego tematu i pare 
-                Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
+                Tuple<int, Toggle, Image, IngredientType>  pair = toggleManager.myList[0];
                 int index = -1;
                 for (int i = 0; i < toggleManager.myList.Count; i++)
                 {
@@ -132,7 +135,7 @@ public class MyTogle : MonoBehaviour
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.AddToggle(toggle);
+                            toggleManager.AddToggle(toggle, type);
                             licznik.Zmien(true);
                         }
                         Debug.Log("Toggle jest włączony4! " + toggle.name + "  " + toggleManager.toggleCounter);
@@ -142,7 +145,7 @@ public class MyTogle : MonoBehaviour
                     {
                         Debug.Log("Count! " + toggle.name + "  " + toggleManager.toggleCounter);
                         licznik.Zmien(true);
-                        toggleManager.AddToggle(toggle);
+                        toggleManager.AddToggle(toggle, type);
                         toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym 
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
                         toggleManager.toggleCounter++;//dodajemy do licznika 1
@@ -155,7 +158,7 @@ public class MyTogle : MonoBehaviour
 
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.RemoveToggle(toggle);
+                            toggleManager.RemoveToggle(toggle, type);
                             licznik.Zmien(false);
                         }
                         Debug.Log("Toggle jest wyłączony4!" + toggle.name + "  " + toggleManager.toggleCounter);
@@ -166,7 +169,7 @@ public class MyTogle : MonoBehaviour
                     else
                     {
                         licznik.Zmien(false);
-                        toggleManager.RemoveToggle(toggle);
+                        toggleManager.RemoveToggle(toggle, type);
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
                     }
 
@@ -175,10 +178,10 @@ public class MyTogle : MonoBehaviour
 
                 }
 
-                Tuple<int, Toggle, Image> firstPair = toggleManager.myList[index];
+                Tuple<int, Toggle, Image, IngredientType> firstPair = toggleManager.myList[index];
 
                 // Zmodyfikuj dane pary
-                firstPair = new Tuple<int, Toggle, Image>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);
+                firstPair = new Tuple<int, Toggle, Image, IngredientType>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv, type);
 
                 // Aktualizuj parę w liście
                 toggleManager.myList[index] = firstPair;
@@ -193,17 +196,17 @@ public class MyTogle : MonoBehaviour
             {
                 if (toggle.isOn)
                 {
-                    toggleManager.AddToggle(toggle);
+                    toggleManager.AddToggle(toggle, type);
                     licznik.Zmien(true);
                     toggle.GetComponent<Image>().color = selectedColorActivRGB;
-                    toggleManager.AddTemat(temat, toggle, krzyzykMy);
+                    toggleManager.AddTemat(temat, toggle, krzyzykMy, type);
                 }
                 else
                 {
-                    toggleManager.RemoveToggle(toggle);
+                    toggleManager.RemoveToggle(toggle, type);
                     licznik.Zmien(false);
                     toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
-                    Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
+                    Tuple<int, Toggle, Image, IngredientType> pair = toggleManager.myList[0];
                     int index = -1;
                     for (int i = 0; i < toggleManager.myList.Count; i++)
                     {
@@ -227,17 +230,17 @@ public class MyTogle : MonoBehaviour
                    
                     if (toggle.isOn)//MOŻE NIE TRZEBA BO TOGLE KTÓRY NALEŻY DO LISTY WYBRANYCH TOGGLE JEST JUŻ ACTIVE
                     {
-                        toggleManager.AddToggle(toggle);
+                        toggleManager.AddToggle(toggle, type);
                         licznik.Zmien(true);
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
-                        toggleManager.AddTemat(temat, toggle, krzyzykMy);
+                        toggleManager.AddTemat(temat, toggle, krzyzykMy, type);
                     }
                     else
                     {
-                        toggleManager.RemoveToggle(toggle);//usuwamy toggle z listy
+                        toggleManager.RemoveToggle(toggle, type);//usuwamy toggle z listy
                         licznik.Zmien(false);//zmieniamy licznik (zwiększamy)
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
-                        Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
+                        Tuple<int, Toggle, Image, IngredientType> pair = toggleManager.myList[0];
                         int index = -1;
                         for (int i = 0; i < toggleManager.myList.Count; i++)//sukamy index gdzie jest wybrany toggle 
                         {

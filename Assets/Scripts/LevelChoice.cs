@@ -30,49 +30,49 @@ public class LevelChoice : MonoBehaviour
     public void StartLevel0()
     {
         _startedLevel = 0;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
-
+ 
     public void StartLevel1()
     {
         _startedLevel = 1;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
 
     public void StartLevel2()
     {
         _startedLevel = 2;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
 
     public void StartLevel3()
     {
         _startedLevel = 3;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
 
     public void StartLevel4()
     {
         _startedLevel = 4;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
     
     public void StartLevel5()
     {
         _startedLevel = 5;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
     
     public void StartLevel6()
     {
         _startedLevel = 6;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
     
     public void StartLevel7()
     {
         _startedLevel = 7;
-        SceneManager.LoadScene("FightScreen");
+        SceneManager.LoadScene("IgridientsMenu2");
     }
 
     public void BackToMenu()
