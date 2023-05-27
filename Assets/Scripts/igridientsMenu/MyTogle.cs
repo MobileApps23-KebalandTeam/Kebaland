@@ -26,7 +26,7 @@ public class MyTogle : MonoBehaviour
         //toggleManager.toggleListAll.Add(toggle,type);// dodaje do listy wszystkich toggle nasz pojedynczy toggle
       
         toggleManager.AddToggleType(toggle, type, krzyzykMy);
-        Debug.Log("TOOOOOOOOOOOOOOOOOO" + toggleManager.toggleListAll.Count);
+        Debug.Log("TOOOOOOOOOOOOOOOOOO" + toggle);
     }
 
     public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle
