@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Model;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -46,6 +47,7 @@ public class PauseFight : MonoBehaviour
     
     public void BackToMainMenu()
     {
+        LevelChoice.UpdateLevel(false, LevelType.CLICKER);
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -59,12 +59,6 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                //Uncomment to add logbook entry
-            
-                /*MLogbookEntry entry = new();
-                entry.LevelNumber = ???;
-                entry.passedTime = DateTime.Now.Ticks;
-                ServiceLocator.Get<LogbookService>().AddEntry(entry);*/
                 _isEnd = true;
                 tutorialText.SetActive(false);
                 endGameInfo.SetActive(true);
@@ -73,6 +67,7 @@ public class EnemyMovement : MonoBehaviour
                 BulletMoving[] bullets = FindObjectsOfType<BulletMoving>();
                 foreach (var bullet in bullets)
                 {
+                    bullet.StopBullet();
                     bullet.enabled = false;
                 }
             }
@@ -80,8 +75,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (tapCounter > 0)
             {
-                LevelChoice.UpdateLevel(false);
-                SceneManager.LoadScene("LevelsChoiceScene");
+                clickerFailed();
             }
         }
         else
@@ -108,5 +102,11 @@ public class EnemyMovement : MonoBehaviour
     public void SetIsEnd(bool end)
     {
         _isEnd = end;
+    }
+
+    private void clickerFailed()
+    {
+        LevelChoice.UpdateLevel(false, LevelType.CLICKER);
+        SceneManager.LoadScene("LevelsChoiceScene");
     }
 }

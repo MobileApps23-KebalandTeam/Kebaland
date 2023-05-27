@@ -1,4 +1,5 @@
 
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,7 +29,7 @@ public class LevelPlaceholderScript : MonoBehaviour
 
     private static void PushInfoToParent(bool nextLevel)
     {
-        LevelChoice.UpdateLevel(nextLevel);
+        LevelChoice.UpdateLevel(nextLevel, LevelType.KEBAB);
         SceneManager.LoadScene("LevelsChoiceScene");
     }
 }

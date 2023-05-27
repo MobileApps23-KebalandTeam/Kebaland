@@ -204,6 +204,7 @@ public class Manager : MonoBehaviour
                     {
                         fromCut = touchPos;
                         isCuttingMeat = i;
+                        meatScript[i].play();
                         break;
                     }
                 }
@@ -308,7 +309,7 @@ public class Manager : MonoBehaviour
                 {
                     meatScript[isCuttingMeat].CutMeat(touchPos);
                 }
-
+                meatScript[isCuttingMeat].stop();
                 isCuttingMeat = -1;
             }
             else if (draggingMeat != null)
@@ -356,7 +357,7 @@ public class Manager : MonoBehaviour
                     {
                         StatisticsScript.AddOrder();
                         StatisticsScript.AddPoints(rew);
-                        msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                        msg.ShowToast("Oddales zamowienie! (+ " + rew + ((rew < 5 && rew % 10 != 0) ? " punkty)" : " punktï¿½w)"), 2.0f);
                     }
                     else
                     {
