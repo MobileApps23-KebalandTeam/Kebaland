@@ -26,49 +26,49 @@ public class LevelChoice : MonoBehaviour
     public void StartLevel0()
     {
         _startedLevel = 0;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel1()
     {
         _startedLevel = 1;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel2()
     {
         _startedLevel = 2;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel3()
     {
         _startedLevel = 3;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel4()
     {
         _startedLevel = 4;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel5()
     {
         _startedLevel = 5;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel6()
     {
         _startedLevel = 6;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
     
     public void StartLevel7()
     {
         _startedLevel = 7;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
 
     public void BackToMenu()
@@ -134,5 +134,10 @@ public class LevelChoice : MonoBehaviour
         entry.LevelNumber = _currentLevelToPass - 1;
         entry.passedTime = DateTime.Now.Ticks;
         ServiceLocator.Get<LogbookService>().AddEntry(entry);
+    }
+
+    public static int GetStartedLevel()
+    {
+        return _startedLevel;
     }
 }
