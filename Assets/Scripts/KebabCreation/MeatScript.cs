@@ -24,7 +24,8 @@ public class MeatScript : MonoBehaviour
         public Vector2 GetActualTarget()
         {
             i += Time.deltaTime;
-            return from + (target - from) * i / states + 300 * new Vector2(0, i * (states - i) * (i - states * 95 / 100) * (i - states * 95 / 100));
+            return from + (target - from) * i / states + 300 * new Vector2(0,
+                i * (states - i) * (i - states * 95 / 100) * (i - states * 95 / 100));
         }
 
         public bool IsEnd()
@@ -114,7 +115,7 @@ public class MeatScript : MonoBehaviour
 
     public void play()
     {
-        GetComponent<AudioSource>().Play();
+        if (MusicScript.isMusicEnabled) GetComponent<AudioSource>().Play();
     }
 
     public void stop()
