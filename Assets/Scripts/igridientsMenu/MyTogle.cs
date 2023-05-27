@@ -30,7 +30,7 @@ public class MyTogle : MonoBehaviour
 
     public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle
     {
-        if (countGame.count == 0)//sprawdzamy czy to jest pierwszy wybur gracza
+        if (LevelChoice.GetStartedLevel() == 0)//sprawdzamy czy to jest pierwszy wybur gracza
         {
             if (temat != toggleManager.toggleTemat)//sprawdzamy czy temat wybranego pojedynczego toggle nie jest taka sama jak i aktywna tema(tema poprzednio wybranego toggle)
             {
