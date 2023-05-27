@@ -26,16 +26,30 @@ public class OrderList : MonoBehaviour
             this.maxTime = maxTime;
             this.reward = reward;
         }
+    }
 
+    private class DelayedOrder
+    {
+        public SimpleOrder order;
+        public float startTime;
+        public bool done = false;
+
+        public DelayedOrder(SimpleOrder order, float startTime)
+        {
+            this.order = order;
+            this.startTime = startTime;
+        }
     }
 
     public ToastMessageUtils msg;
-    public static int maxAmount = 3;
+    public static int maxAmount = 1;
     public GameObject panelObj;
     public Manager manager;
+    public StatisticsScript statistics;
 
     private static Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
 
+    private static List<DelayedOrder> delayedOrders = new List<DelayedOrder>();
     private static List<SimpleOrder> actList = new List<SimpleOrder>();
     private static GameObject[] objects;
     private static Transform[] childs;
@@ -68,6 +82,16 @@ public class OrderList : MonoBehaviour
     void Update()
     {
         if (manager.IsEndGame()) return;
+
+        foreach (DelayedOrder delayedOrder in delayedOrders)
+        {
+            if (!delayedOrder.done && delayedOrder.startTime < statistics.getActTime())
+            {
+                AddKebabRequest(delayedOrder.order);
+                delayedOrder.done = true;
+            }
+        }
+
         foreach (SimpleOrder ord in actList)
         {
             ord.timeLeft -= Time.deltaTime;
@@ -80,9 +104,9 @@ public class OrderList : MonoBehaviour
             if (i >= maxAmount) break;
             if (ord.timeLeft < 0)
             {
-                StatisticsScript.addPoints(-ord.reward);
+                StatisticsScript.AddPoints(-ord.reward);
                 toRemove.Add(ord);
-                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (- " + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
                 i++;
                 continue;
             }
@@ -97,22 +121,23 @@ public class OrderList : MonoBehaviour
         }
     }
 
+    public static void AddDelayedKebabRequest(float startTime, OrderType type, float maxSecs)
+    {
+        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
+        delayedOrders.Add(new DelayedOrder(order, startTime));
+    }
+
     public static void AddKebabRequest(OrderType type, float maxSecs)
     {
         SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
+        AddKebabRequest(order);
+    }
+
+    public static void AddKebabRequest(SimpleOrder order)
+    {
         actList.Add(order);
         actList.Sort((x, y) => x.timeLeft.CompareTo(y.timeLeft));
-        int i = 0;
-        foreach (SimpleOrder ord in actList)
-        {
-            if (i >= maxAmount) break;
-            if (ord.Equals(order))
-            {
-                RefreshGUI();
-                break;
-            }
-            i++;
-        }
+        RefreshGUI();
     }
 
     public static void RemoveKebabRequest(OrderType type)
