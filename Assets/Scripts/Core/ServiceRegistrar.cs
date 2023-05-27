@@ -10,6 +10,7 @@ namespace Core
             Debug.Log(Application.persistentDataPath);
             ServiceLocator.Register(new AchievementService());
             ServiceLocator.Register(new GameStateService());
+            ServiceLocator.Register(new LogbookService());
 
             /***
              * EXAMPLE USAGE

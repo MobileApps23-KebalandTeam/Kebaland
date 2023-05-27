@@ -33,7 +33,7 @@ namespace Core
                 file.Close();
                 return deserialized;
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException)
             {
                 return new T();
             }

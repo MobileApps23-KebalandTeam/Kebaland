@@ -1,3 +1,6 @@
+using System;
+using Core;
+using Model;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,41 +16,63 @@ public class LevelChoice : MonoBehaviour
     void Start()
     { 
         ReadCurrentLevel();
+        AchievementManager.Instance.earnAchievement("Pierwsze kroki");
     }
 
     void Update()
     {
-        SaveCurrentLevel();
+        if (_currentLevelToPass == 1)
+        {
+            AchievementManager.Instance.earnAchievement("Arcydzieło");
+        }
     }
 
     public void StartLevel0()
     {
         _startedLevel = 0;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
-    
+
     public void StartLevel1()
     {
         _startedLevel = 1;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
-    
+
     public void StartLevel2()
     {
         _startedLevel = 2;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
-    
+
     public void StartLevel3()
     {
         _startedLevel = 3;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
     }
-    
+
     public void StartLevel4()
     {
         _startedLevel = 4;
-        SceneManager.LoadScene("ClickerPlaceholder");
+        SceneManager.LoadScene("FightScreen");
+    }
+    
+    public void StartLevel5()
+    {
+        _startedLevel = 5;
+        SceneManager.LoadScene("FightScreen");
+    }
+    
+    public void StartLevel6()
+    {
+        _startedLevel = 6;
+        SceneManager.LoadScene("FightScreen");
+    }
+    
+    public void StartLevel7()
+    {
+        _startedLevel = 7;
+        SceneManager.LoadScene("FightScreen");
     }
 
     public void BackToMenu()
@@ -55,7 +80,7 @@ public class LevelChoice : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public static void UpdateLevel(bool nextLevel) 
+    public static void UpdateLevel(bool nextLevel)
     {
         if (nextLevel)
         {
@@ -63,13 +88,14 @@ public class LevelChoice : MonoBehaviour
             {
                 StarshipMove.SetTargetPosition(_currentLevelToPass);
                 _currentLevelToPass++;
+                SaveCurrentLevel();
             }
         }
     }
 
     private void ReadCurrentLevel()
     {
-        // TODO: Read saved level ~ Krzychu
+        _currentLevelToPass = ServiceLocator.Get<GameStateService>().loadProgress().MaxLevel;
 
         if (planets == null || lockPlanets == null)
         {
@@ -79,15 +105,15 @@ public class LevelChoice : MonoBehaviour
         if (_currentLevelToPass == 0)
         {
             spaceship.SetActive(false);
-            StarshipMove.SetPositionForce(_currentLevelToPass); 
+            StarshipMove.SetPositionForce(_currentLevelToPass);
         }
         else
         {
             spaceship.SetActive(true);
             StarshipMove.SetPositionForce(_currentLevelToPass - 1);
         }
-        
-        
+
+
         for (int level = 0; level < planets.Length; level++)
         {
             if (level <= _currentLevelToPass)
@@ -103,8 +129,19 @@ public class LevelChoice : MonoBehaviour
         }
     }
 
-    private void SaveCurrentLevel()
+    private static void SaveCurrentLevel()
     {
-        // TODO: As above Krzychu
+        MGameState model = ServiceLocator.Get<GameStateService>().loadProgress();
+        model.MaxLevel = _currentLevelToPass;
+        ServiceLocator.Get<GameStateService>().saveProgress(model);
+        MLogbookEntry entry = new();
+        entry.LevelNumber = _currentLevelToPass - 1;
+        entry.passedTime = DateTime.Now.Ticks;
+        ServiceLocator.Get<LogbookService>().AddEntry(entry);
+    }
+
+    public static int GetStartedLevel()
+    {
+        return _startedLevel;
     }
 }

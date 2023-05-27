@@ -56,6 +56,7 @@ public class PlatePanel : MonoBehaviour
 
     public void ClearIngredients()
     {
+        actHeight = 0;
         foreach (Transform child in transform)
         {
             if (!child.name.Equals("Plate"))
