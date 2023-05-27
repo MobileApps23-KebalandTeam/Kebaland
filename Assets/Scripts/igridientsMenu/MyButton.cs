@@ -88,6 +88,12 @@ public class MyButton : MonoBehaviour
             }
 
         }
+
+        IngredientsHolder.ClearTypes();
+        foreach (IngredientType type in toggleManager.toggleListZaakceptowanych)
+        {
+            IngredientsHolder.AddType(type);
+        }
         awaria.odblokowacAnimacja();//odblokujemy componenty
 
     }

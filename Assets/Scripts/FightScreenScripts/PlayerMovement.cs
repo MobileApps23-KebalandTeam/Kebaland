@@ -118,12 +118,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void clickerPassed()
     {
-        //TODO FIX USAGE
-        // AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
-        LevelsOrders.AddOrders(0);
         LevelChoice.UpdateLevel(true, LevelType.CLICKER);
-        IngredientsHolder.SetType(0, IngredientType.Pepper);
-        IngredientsHolder.SetType(1, IngredientType.Tomato);
+        LevelsOrders.AddOrders(LevelChoice.GetStartedLevel());
         SceneManager.LoadScene("GameLoopScene");
     }
 }

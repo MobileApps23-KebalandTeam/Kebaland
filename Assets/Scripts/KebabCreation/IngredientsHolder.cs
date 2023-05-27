@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +10,21 @@ public class IngredientsHolder : MonoBehaviour
     // Static amount of types, must be changed after adding/removing extras slots
     private static List<IngredientType> types = new List<IngredientType>();
 
-    public GameObject[] visibleObjects;
-    public GameObject[] notVisibleObjects;
-    public GameObject dough1O, dough2O, dough3O, meat1O, meat2O, sauce1O, sauce2O, sauce3O;
+    public GameObject dough1O, dough2O, dough3O, meat1O, meat2O, tomatoO, cucumberO, pepperO, lettuceO, sauce1O, sauce2O, sauce3O;
 
-    private static GameObject[] visible, notVisible;
-    private static GameObject dough1, dough2, dough3, meat1, meat2, sauce1, sauce2, sauce3;
+    private static GameObject dough1, dough2, dough3, meat1, meat2, tomato, cucumber, pepper, lettuce, sauce1, sauce2, sauce3;
 
     private void Start()
     {
-        visible = visibleObjects;
-        notVisible = notVisibleObjects;
         dough1 = dough1O;
         dough2 = dough2O;
         dough3 = dough3O;
         meat1 = meat1O;
         meat2 = meat2O;
+        tomato = tomatoO;
+        cucumber = cucumberO;
+        pepper = pepperO;
+        lettuce = lettuceO;
         sauce1 = sauce1O;
         sauce2 = sauce2O;
         sauce3 = sauce3O;
@@ -37,26 +37,10 @@ public class IngredientsHolder : MonoBehaviour
         types.Add(type);
     }
 
-    public static IngredientType GetIngredientType(int ind) => types[ind];
+    public static List<IngredientType> GetIngredientTypes() => types;
 
     public static void UpdateTypes()
     {
-        int i = 0;
-        foreach (IngredientType type in types)
-        {
-            if (!type.Equals(IngredientType.Tomato) && !type.Equals(IngredientType.Pepper) && !type.Equals(IngredientType.Lettuce) && !type.Equals(IngredientType.Cucumber))
-            {
-                i++; continue;
-            }
-            visible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(type));
-            notVisible[i].GetComponent<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getPartName(type));
-            i++;
-        }
-
-        for (int j = i; j < visible.Length; j++)
-        {
-            visible[j].SetActive(false);
-        }
 
         if (!types.Contains(IngredientType.Dough1))
         {
@@ -80,6 +64,23 @@ public class IngredientsHolder : MonoBehaviour
             meat2.SetActive(false);
         }
 
+        if (!types.Contains(IngredientType.Tomato))
+        {
+            tomato.SetActive(false);
+        }
+        if (!types.Contains(IngredientType.Lettuce))
+        {
+            lettuce.SetActive(false);
+        }
+        if (!types.Contains(IngredientType.Pepper))
+        {
+            pepper.SetActive(false);
+        }
+        if (!types.Contains(IngredientType.Cucumber))
+        {
+            cucumber.SetActive(false);
+        }
+
         if (!types.Contains(IngredientType.Sauce1))
         {
             sauce1.SetActive(false);
@@ -96,4 +97,8 @@ public class IngredientsHolder : MonoBehaviour
         // TODO update other objects
     }
 
+    internal static void ClearTypes()
+    {
+        types.Clear();
+    }
 }
