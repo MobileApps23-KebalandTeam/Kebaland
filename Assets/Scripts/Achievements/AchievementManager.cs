@@ -7,6 +7,25 @@ using Model;
 using Core;
 using System;
 
+/*
+Instrukcja wywołania i tworzenia osiągnięć
+
+Żeby stworzyć osiągnięcie:
+1) do void start() dopisać wywołanie createAchievement() z swoimi parametrami (nazwa, opis, index obrazków z listy achievementsDone i achievementsNotDone)
+2) Dodać obrazki do AchievementManager z poziomu inspektora Unity do achievementsDoneSprites i achievementsNotDoneSprites (niewykonane osiągnięcie - obrazek czarno-biały, wykonany - kolorowy)
+3) Dodać obrazki do AchievementManager w każdej scenie gdzie on jest (na razie Menu, LevelChoice, ClickerPlaceholder)
+
+Żeby wywołać pokazanie osiągnięcia na ekranie:
+1) Oprócz AchievementManager w scenie musi być także AchievementEarnedCanvas (na razie jest w Menu i LevelChoice, w razie potrzeby można skopiować)
+2) Po spełnieniu umowy potrzebnej do wykonania osiągnięcia wywołać osiągnięcie: AchievementManager.Instance.earnAchievement("nazwa osiągnięcia");
+
+Żeby wywołać póżniejsze pokazanie osiągnięcia na ekranie (np. osiągnięcie otrzymane podczas gry):
+(Osiągnięcie wywołane w taki sposób zostanie pokazane w pierwszej scenie która posiada AchievementEarnedCanvas, wywołanie póżniejsze potrzebuje tylko AchievementManager w scenie)
+1) Po spełnieniu umowy potrzebnej do wykonania osiągnięcia wywołać osiągnięcie: AchievementManager.Instance.setDelayedEarnAchievement("nazwa osiągnięcia");
+
+!!! Dla każdej sceny oprócz menu głównego parametr mainMenuScreen musi być false
+*/
+
 public class AchievementManager : MonoBehaviour
 {
     //the preset for created later achievements
