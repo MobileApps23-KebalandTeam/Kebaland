@@ -19,7 +19,6 @@ public class ClickerPlaceholderScript : MonoBehaviour
 
     public void ClickerPassed()
     {
-        AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
         LevelsOrders.AddOrders(0);
         IngredientsHolder.SetType(0, IngredientType.Pepper);
         IngredientsHolder.SetType(1, IngredientType.Tomato);

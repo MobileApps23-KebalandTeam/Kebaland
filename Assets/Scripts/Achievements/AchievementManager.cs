@@ -98,7 +98,7 @@ public class AchievementManager : MonoBehaviour
         {
             return;
         }
-        
+
         if (achievementsList[title].isNotUnlocked())
         {
             GameObject show = (GameObject)Instantiate(visualAchievement);
@@ -136,15 +136,17 @@ public class AchievementManager : MonoBehaviour
                 Debug.Log("Error");
                 continue;
             }
-            
+
             // Debug.Log(a.Name);
-            
+
             if (a.Acquired == true)
             {
                 if (a.AcquiredDate == 10101000)
                 {
+                    Debug.Log("Before confirming: " + a.Name);
                     if (GameObject.Find("AchievementEarnedCanvas").scene.IsValid())
                     {
+                        Debug.Log(a.Name);
                         k.RemoveAchievement(a);
                         earnAchievement(a.Name);
                     }
