@@ -5,32 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-public class Informacje : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+// class EventSystem (przy najechaniem muszką na obrazek )
+public class Informacje : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler//te metody z interfeidów
 {
-    public Image backgroud;
-    public Text info;
-    public Awaria awaria;
+    public Image backgroud;//backgraund informacji
+    public Text info; //tekst informacji 
+    public Awaria awaria; // zmienna awariji
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void OnPointerEnter(PointerEventData eventData)//metoda przy najechaniu muszą
     {
-        Debug.Log("CZESC");
-        if (!awaria.awariaIF) {
+        if (!awaria.awariaIF) {//jeśli awariji nie ma to przy najechaniu tekst i background aktywne
             backgroud.enabled = true;
             info.enabled = true;
         }
-        
-
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public void OnPointerExit(PointerEventData eventData)//przy zjechaniem muszy
     {
-        Debug.Log("BYE");
-        if (!awaria.awariaIF)
+        if (!awaria.awariaIF)//jeśli awariji nie ma to przy najechaniu tekst i background nie aktywne
         {
             backgroud.enabled = false;
             info.enabled = false;
         }
-        
     }
 }
 

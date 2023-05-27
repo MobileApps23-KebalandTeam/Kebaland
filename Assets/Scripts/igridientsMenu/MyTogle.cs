@@ -5,42 +5,40 @@ using UnityEngine.UI;
 using System.Linq;
 using System;
 
+// clasa dla pojedynczego podanego toggle 
+//w toggleGroup zaznaczyłam Allow Switch off robi wszystkie nasze toglle niezaznaczonymi 
 public class MyTogle : MonoBehaviour
 {
-    //public GameObject toggleObject;
-    public Toggle toggle;
-    public ToggleManeger toggleManager;
-    public Licznik licznik;
-    public Image krzyzykMy;
-    public int temat = 0;
-    public ToggleGroup toggleGroup;
-    public Color selectedColorActivRGB;
-    //public Transform toggleContainer;
-    public Color selectedColorNoActivRGB;
-    public MyButton countGame;
-    // Start is called before the first frame update
+    public Toggle toggle;// toggle do kturego przypisany metod
+    public ToggleManeger toggleManager;//zmienna kontenera
+    public Licznik licznik; // zmienna licznika
+    public Image krzyzykMy; // zdjęcie krzyżyka
+    public int temat = 0; // temat podanego toggl
+    public ToggleGroup toggleGroup;  // podany toggleGroup do którego należy podany toggle  
+    public Color selectedColorActivRGB;// color wybranego toggle
+    public Color selectedColorNoActivRGB;// color nie wybranego toggle
+    public MyButton countGame;//zmiena clasy MyButton 
+
+    // Start jest wywoływany przed aktualizacją pierwszego updete
     void Start()
     {
-        toggle = GetComponent<Toggle>();
-        // Pobieranie komponentu ToggleGroup z tego samego obiektu
-        //toggleGroup = GetComponent<ToggleGroup>();
-        toggleManager.toggleListAll.Add(toggle);
+        toggle = GetComponent<Toggle>();//pobiera component Toggle do którego jest przypisany skrypt
+        toggleManager.toggleListAll.Add(toggle);// dodaje do listy wszystkich toggle nasz pojedynczy toggle
     }
-    public void OnToggleValueChangedMeat()
-    {
-        if (countGame.count == 0)
-        {
-            if (temat != toggleManager.toggleTemat)
-            {
-                //toggleManager.toggleCounter = 0;
-                toggleManager.toggleTemat = temat;
-                bool numberExists = toggleManager.myList.Exists(item => item.Item1 == temat);//sprawdza czy temat już byl używany 
-                if (numberExists)
-                {// Zapisanie pary, gdzie liczba jest równa 1
 
-                    // Zapisanie indeksu pary, gdzie liczba jest równa 1
+    public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle
+    {
+        if (countGame.count == 0)//sprawdzamy czy to jest pierwszy wybur gracza
+        {
+            if (temat != toggleManager.toggleTemat)//sprawdzamy czy temat wybranego pojedynczego toggle nie jest taka sama jak i aktywna tema(tema poprzednio wybranego toggle)
+            {
+                toggleManager.toggleTemat = temat; // zmienaiamy aktwną teme
+                bool numberExists = toggleManager.myList.Exists(item => item.Item1 == temat);//sprawdza czy temat już byl używany 
+                if (numberExists)//jeśli tak
+                {
+                    // Zapisanie pary gdie temat jest równy tematu wybranego toggle 
                     Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
-                    int index = -1;
+                    int index = -1; // i szukamy index tego tematu
                     for (int i = 0; i < toggleManager.myList.Count; i++)
                     {
                         pair = toggleManager.myList[i];
@@ -50,54 +48,38 @@ public class MyTogle : MonoBehaviour
                             break;
                         }
                     }
-                    // Tuple<int, Toggle, Toggle> pair = myLsit.Find(t => t.Item1 == temat);
-                    if (toggle.isOn)
+  
+                    if (toggle.isOn)//sprawdzamy czy wybrany toggle jest wlączony
                     {
-                        Debug.Log("Sprawdzamy czy Actywny item2 == togle" + (pair.Item2 != toggle));
-                        // if (pair.Item2 != toggle)
-                        //{
-                        toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym 
-                        toggle.GetComponent<Image>().color = selectedColorActivRGB;
-                        if (toggle != null && toggleManager != null)
+                        //Debug.Log("Sprawdzamy czy Actywny item2 == togle" + (pair.Item2 != toggle));
+                        toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym i zmieniamy krzyżyk
+                        toggle.GetComponent<Image>().color = selectedColorActivRGB;//zmieniamy kolor toggl na wlączony
+                        if (toggle != null && toggleManager != null)//jeśli toggle i toggleManażer nie są null to 
                         {
-                            toggleManager.AddToggle(toggle);
-                            licznik.Zmien(true);
+                            toggleManager.AddToggle(toggle);//dodajemy do tablicy wybranych toggle
+                            licznik.Zmien(true); // i zmieniamy licznik (licznik zmniejsza się)
                         }
                         Debug.Log("Toggle jest włączonyE! " + toggle.name + "  " + toggleManager.toggleCounter);
-
-                        //}
-
-
-
                     }
-                    else
+                    else//jeśli toogle nie wlączony
                     {
-
-                        toggleManager.SelectPoprzedniToggleMeat(toggle);
-                        //toggleManager.toggleCounter = 0;
-                        // if (toggleManager.toggleCounter <= 1)
-                        // {
                         if (toggle != null && toggleManager != null)
                         {
-                            toggleManager.RemoveToggle(toggle);
-                            licznik.Zmien(false);
+                            toggleManager.RemoveToggle(toggle);//usuwamy z listy wybranych toglle
+                            licznik.Zmien(false);//zmieniamy licznik(licznik zwiększa się)
                         }
                         Debug.Log("Toggle jest wyłączonyE!");
-                        // }
-                        // Wykonywanie kodu, gdy Toggle jest wyłączony (off).
-                        toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
+                        toggle.GetComponent<Image>().color = selectedColorNoActivRGB;//zmieniamy kolor na nie wlączony
 
 
                     }
-                    Tuple<int, Toggle, Image> firstPair = toggleManager.myList[index];
+                    Tuple<int, Toggle, Image> firstPair = toggleManager.myList[index];//pobiera pare podanego indeksu tematu 
 
-                    // Zmodyfikuj dane pary
-                    firstPair = new Tuple<int, Toggle, Image>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);
+                    firstPair = new Tuple<int, Toggle, Image>(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);// modyfikacja danych pary nowym wybranym toggle tego tematu i jego krzyżykiem  
 
-                    // Aktualizuj parę w liście
-                    toggleManager.myList[index] = firstPair;
+                    toggleManager.myList[index] = firstPair;  // Aktualizuj parę w liście
                 }
-                else
+                else //jeśli temat był wybrany pierwszy raz
                 {
                     if (toggle.isOn)
                     {
@@ -110,32 +92,25 @@ public class MyTogle : MonoBehaviour
                         }
                         Debug.Log("Toggle jest włączony3! " + toggle.name + "  " + toggleManager.toggleCounter);
                     }
-                    else
+                    else //MOŻE NIE POTRZEBNE BO JEŚLI TEMAT JEST WYBRANY PIERWSZY RAZ TO ZAWSZE BĘDZIE WŁĄCZONYM
                     {
-                        toggleManager.SelectPoprzedniToggleMeat(toggle);
-                        // toggleManager.toggleCounter = 0;
-                        // if (toggleManager.toggleCounter <= 1)
-                        // {
                         if (toggle != null && toggleManager != null)
                         {
                             toggleManager.RemoveToggle(toggle);
                             licznik.Zmien(false);
                         }
                         Debug.Log("Toggle jest wyłączony3!");
-                        // }
-                        // Wykonywanie kodu, gdy Toggle jest wyłączony (off).
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
-
-
                     }
-                    toggleManager.AddTemat(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);
+                    toggleManager.AddTemat(temat, toggleManager.togleActivMeat, toggleManager.krzyzykActiv);//dodanie tematu aktywnego toggle i krzyżyka do listy tematów 
                 }
 
 
 
             }
-            else
+            else // jeśli teamat nie zmienial się (wybrany toggle jest z tego samego tematu)
             {
+                //szukamy indeks tego tematu i pare 
                 Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
                 int index = -1;
                 for (int i = 0; i < toggleManager.myList.Count; i++)
@@ -150,9 +125,9 @@ public class MyTogle : MonoBehaviour
                 if (toggle.isOn)
                 {
                     Debug.Log("4Sprawdzamy czy Actywny item4 == togle " + (pair.Item2 != toggle) + " " + pair.Item2);
-                    if (pair.Item2 != toggle)
-                    {
-                        // toggleManager.toggleCounter = 0;
+                    if (pair.Item2 != toggle)// sprawdzamy czy zapisany toggle tego tematu jest wybranym toglle 
+                    {//jeśli nie (i toggl jest inny)
+
                         toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym 
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
                         if (toggle != null && toggleManager != null)
@@ -163,21 +138,19 @@ public class MyTogle : MonoBehaviour
                         Debug.Log("Toggle jest włączony4! " + toggle.name + "  " + toggleManager.toggleCounter);
 
                     }
-                    else
+                    else //jeśli tak to 
                     {
                         Debug.Log("Count! " + toggle.name + "  " + toggleManager.toggleCounter);
                         licznik.Zmien(true);
                         toggleManager.AddToggle(toggle);
                         toggleManager.SelectToggleMeat(toggle, krzyzykMy);//robimy actywnym 
                         toggle.GetComponent<Image>().color = selectedColorActivRGB;
-                        toggleManager.toggleCounter++;
+                        toggleManager.toggleCounter++;//dodajemy do licznika 1
                     }
                 }
                 else
                 {
-                    toggleManager.SelectPoprzedniToggleMeat(toggle);
-                    // toggleManager.toggleCounter = 0;
-                    if (toggleManager.toggleCounter <= 0)
+                    if (toggleManager.toggleCounter <= 0)//sprawdzamy jeśli toggle jest wybrany i wyłączony więcej niż 0 MOZE NIE TRZEBA SPRAWDZAĆ!
                     {
 
                         if (toggle != null && toggleManager != null)
@@ -197,11 +170,11 @@ public class MyTogle : MonoBehaviour
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
                     }
 
-                    toggleManager.toggleCounter = 0;
+                    toggleManager.toggleCounter = 0;//zerujemy licznik klików
 
 
                 }
-                //toggleManager.AddTemat(temat, toggleManager.togleActivMeat, toggleManager.toglePoprzedniMeat);
+
                 Tuple<int, Toggle, Image> firstPair = toggleManager.myList[index];
 
                 // Zmodyfikuj dane pary
@@ -210,17 +183,13 @@ public class MyTogle : MonoBehaviour
                 // Aktualizuj parę w liście
                 toggleManager.myList[index] = firstPair;
 
-                // if (licznik.licznikPoprzedni == 0) { DisableToggleInteraction(); }
-
             }
-
-
         }
-        else
+        else //Jeśli to nie pierwszy wybur 
         {
-            toggleGroup.enabled = false;
+            toggleGroup.enabled = false;//robimy togleGroup nie actywnym żeby moglibyśmy wybierać więcej niż jeden toggle z kategoriji
             Debug.Log("TOOOGGG GROUP " + (toggleGroup.enabled));
-            if (licznik.licznikPoprzedni > 0)
+            if (licznik.licznikPoprzedni > 0)//sprawdzamy licznik jeśli on jest więkzsy za 0 możmy wybierać różne toggle
             {
                 if (toggle.isOn)
                 {
@@ -251,12 +220,12 @@ public class MyTogle : MonoBehaviour
 
 
             }
-            else {
+            else {//jeśli licznik jest 0 to 
                // bool numberExists = toggleManager.myList.Exists(item => item.Item2 == toggle);//sprawdza czy temat już byl używany 
-                if (toggleManager.toggleList.Contains(toggle))
+                if (toggleManager.toggleList.Contains(toggle))//jeśli toggle już należy do listy wybranych toggle to 
                 {
                    
-                    if (toggle.isOn)
+                    if (toggle.isOn)//MOŻE NIE TRZEBA BO TOGLE KTÓRY NALEŻY DO LISTY WYBRANYCH TOGGLE JEST JUŻ ACTIVE
                     {
                         toggleManager.AddToggle(toggle);
                         licznik.Zmien(true);
@@ -265,12 +234,12 @@ public class MyTogle : MonoBehaviour
                     }
                     else
                     {
-                        toggleManager.RemoveToggle(toggle);
-                        licznik.Zmien(false);
+                        toggleManager.RemoveToggle(toggle);//usuwamy toggle z listy
+                        licznik.Zmien(false);//zmieniamy licznik (zwiększamy)
                         toggle.GetComponent<Image>().color = selectedColorNoActivRGB;
                         Tuple<int, Toggle, Image> pair = toggleManager.myList[0];
                         int index = -1;
-                        for (int i = 0; i < toggleManager.myList.Count; i++)
+                        for (int i = 0; i < toggleManager.myList.Count; i++)//sukamy index gdzie jest wybrany toggle 
                         {
                             pair = toggleManager.myList[i];
                             if (pair.Item2 == toggle)
@@ -279,12 +248,12 @@ public class MyTogle : MonoBehaviour
                                 break;
                             }
                         }
-                        toggleManager.RemoveTemat(index);
+                        toggleManager.RemoveTemat(index);//i usuwamy z listy tematów 
                     }
                     Debug.Log("TOOOGGG2 " + toggleManager.myList.Count);
 
                 }
-                else {
+                else {//jeśli nie to toggle zostaje się wylączonym
                     toggle.isOn = false;
                 }
                     

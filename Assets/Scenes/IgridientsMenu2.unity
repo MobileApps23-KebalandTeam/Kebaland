@@ -6386,7 +6386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleManager: {fileID: 1690950050}
-  objectToDisable: {fileID: 504742420}
+  objectAwaria: {fileID: 504742420}
   scrollRect: {fileID: 1122451893}
   awariaIF: 0
   button1: {fileID: 698105989}

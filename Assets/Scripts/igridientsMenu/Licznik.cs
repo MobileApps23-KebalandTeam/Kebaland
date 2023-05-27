@@ -3,50 +3,40 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
+//class Licznik aktualizuje liczbe igresientów które grać może wybrać
 public class Licznik : MonoBehaviour
 {
-    public Text textComponent;
-    public ToggleManeger toggleManager;
-    public int licznikPoprzedni;
-    public int maxLiczba = 12;
-    // Start is called before the first frame update
-    void Start()
+    public Text textComponent;//tekst licznika
+    public ToggleManeger toggleManager;// toggle  manager (Contener wszystkich toggle)
+    public int licznikPoprzedni;// licznik igredientów
+   
+    void Start()//metoda przy urachomieniu sceny
     {
-        textComponent = GetComponent<Text>();
-        licznikPoprzedni = 4;
+        textComponent = GetComponent<Text>();//pobiera component text 
+        licznikPoprzedni = 4; //początkowa liczba igredientów
     }
 
-    // Update is called once per frame
-    public void Zmien(bool wybur)
+    public void Zmien(bool wybur)//metoda która zmienia liczbe igradientów przy wybieraniu
+        // wybur - czy jest włączony toggle czy nie
     {
         if (toggleManager != null)
         {
-            Debug.Log(toggleManager.toggleList.Count);
-            if (wybur)
+            //Debug.Log("Liczba wybranych elementów: "+toggleManager.toggleList.Count);
+            if (wybur)//jeśli toggle jest wybrany
             {
-               // if (licznikPoprzedni != toggleManager.toggleList.Count)
-               // {
                     licznikPoprzedni = licznikPoprzedni - 1;
                 //textComponent.text = $"{licznikPoprzedni - toggleManager.toggleList.Count}";
-             //   Debug.Log("AAAA " + (licznikPoprzedni - toggleManager.toggleList.Count));
-                textComponent.text = $"{licznikPoprzedni}";
-               Debug.Log("AAAA " + licznikPoprzedni);
-                Debug.Log("YES");
-               // }
-
+                //   Debug.Log("Licznik odjąć:  "  + (licznikPoprzedni - toggleManager.toggleList.Count));
+                textComponent.text = $"{licznikPoprzedni}";//zmienia text licznika na aktóalnu liczbu igredientów
+               Debug.Log("Licznik odjąć:  " + licznikPoprzedni);
             }
             else {
-                Debug.Log("NO");
-               // if (licznikPoprzedni != toggleManager.toggleList.Count)
-              //  {
                     licznikPoprzedni = licznikPoprzedni + 1;
-               Debug.Log("BBB " + licznikPoprzedni);
+               Debug.Log("Licznik dodaj:  " + licznikPoprzedni);
                // Debug.Log("BBB " + (licznikPoprzedni - toggleManager.toggleList.Count));
                // textComponent.text = $"{licznikPoprzedni - toggleManager.toggleList.Count}";
                textComponent.text = $"{licznikPoprzedni}";
-               // }
-
-            }
+             }
             
         }
     }

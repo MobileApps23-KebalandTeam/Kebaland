@@ -1,58 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.Linq;
 using System;
 
+//clasa Awaria blokuje i aktywuje podane componenty   
 public class Awaria : MonoBehaviour
 {
-    //public MyButton myButton;
     public ToggleManeger toggleManager; // zmienna obiektu managera Toggles
-    public GameObject objectToDisable; // zmienna obiektu awaria
-    public ScrollRect scrollRect; // zmienna
-    public bool awariaIF = false;
-    // public EventTrigger eventTrigger;
-    public Button button1;
-    public void cklick()
+    public GameObject objectAwaria; // zmienna obiektu awaria
+    public ScrollRect scrollRect; // zmienna scrolla
+    public bool awariaIF = false; // zmienna czy jest awaria 
+    public Button button1; // zmienna przycisku "Lecimy gotować" 
+
+    public void cklick() //metoda kliku przycisku "kontinuje"
     {
-        objectToDisable.SetActive(false);//robi nasz obiekt nie aktywnym 
+        objectAwaria.SetActive(false);//robi nasz obiekt nie aktywnym 
         scrollRect.enabled = true;//robi nasz scrollRect aktywnym 
-        // eventTrigger.enabled = true;
         awariaIF = false; // zmienna booloa która pozwała sprawdzić czy awaria jest czy nie
-        button1.enabled = true; 
-        for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
+        button1.enabled = true;  // robi nasz przycisk aktywnym
+        for (int i = 0; i < toggleManager.toggleListAll.Count; i++) // przechodzimy po tablice wszystkich toglle i sprawdzamy czy te toggle nie są zaakceptowane
         {
             if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i]))) {
-                toggleManager.toggleListAll[i].enabled = true;
+                toggleManager.toggleListAll[i].enabled = true; // i robimy znów actywnymi
             }
            
 
         }
     }
-    public void zablokowac()
+    public void zablokowac() // metoda bloku componentów
     {
-        scrollRect.enabled = false;
-        //eventTrigger.enabled = false;
-        button1.enabled = false;
-        awariaIF = true;
-        objectToDisable.SetActive(true);
+        scrollRect.enabled = false; // blok scrolla
+        button1.enabled = false; // blok przycisku
+        awariaIF = true; // zapisuje że jest awaria
+        objectAwaria.SetActive(true); //robi obiekt awarii aktywnym
  
-        for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
+        for (int i = 0; i < toggleManager.toggleListAll.Count; i++)//robi wszystkie toggle nie aktywnymi
         {
             toggleManager.toggleListAll[i].enabled = false;
 
         }
     }
 
-    public void zablokowacAnimacja()
+    public void zablokowacAnimacja() // metetoda blokuje componenty przy Animacji
     {
         scrollRect.enabled = false;
-        //eventTrigger.enabled = false;
         button1.enabled = false;
-        awariaIF = true;
-        //objectToDisable.SetActive(true);
+        awariaIF = true;//wykorzystujemy tótaj też zmienną czy jest awari bo ten stan taki samy jak przy animacji
 
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
         {
@@ -60,13 +55,13 @@ public class Awaria : MonoBehaviour
 
         }
     }
-    public void odblokowacAnimacja()
+    public void odblokowacAnimacja() // metoda odblokowania przy Animacji
     {
-       // objectToDisable.SetActive(false);//robi nasz obiekt nie aktywnym 
-        scrollRect.enabled = true;//robi nasz scrollRect aktywnym 
-        // eventTrigger.enabled = true;
-        awariaIF = false; // zmienna booloa która pozwała sprawdzić czy awaria jest czy nie
+       
+        scrollRect.enabled = true;
+        awariaIF = false; 
         button1.enabled = true;
+
         for (int i = 0; i < toggleManager.toggleListAll.Count; i++)
         {
             if (!(toggleManager.toggleListZaakceptowanych.Contains(toggleManager.toggleListAll[i])))
