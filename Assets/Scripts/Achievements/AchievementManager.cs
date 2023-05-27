@@ -6,6 +6,7 @@ using TMPro;
 using Model;
 using Core;
 using System;
+using System.Linq;
 
 /*
 Instrukcja wywołania i tworzenia osiągnięć
@@ -93,6 +94,11 @@ public class AchievementManager : MonoBehaviour
 
     public void earnAchievement(string title)
     {
+        if (!achievementsList.ContainsKey(title))
+        {
+            return;
+        }
+        
         if (achievementsList[title].isNotUnlocked())
         {
             GameObject show = (GameObject)Instantiate(visualAchievement);
