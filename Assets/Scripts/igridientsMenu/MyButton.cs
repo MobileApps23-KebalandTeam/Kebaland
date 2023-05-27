@@ -28,6 +28,7 @@ public class MyButton : MonoBehaviour
         {
             licznik.licznikPoprzedni = 1;
         }
+        licznik.textComponent.text = $"{licznik.licznikPoprzedni}";
     }
 
     public void cklick()//metoda kliku

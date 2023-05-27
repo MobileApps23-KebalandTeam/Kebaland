@@ -33,7 +33,7 @@ public class MyAnimacja : MonoBehaviour
                 StartCoroutine(button.ToggleInteraction()); // Uruchamiamy po zakończeniu przesuwania obrazka
                                                             // SceneManager.UnloadScene("IgridientsMenu2");
 
-                //SceneManager.LoadScene("FightScreen");
+                SceneManager.LoadScene("FightScreen");
                
 
             }
