@@ -40,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 _currentSpeed = _playerNotMovingSpeed;
             }
-            else 
+            else
             {
                 if (tapCounter > 2)
                 {
@@ -50,11 +50,11 @@ public class EnemyMovement : MonoBehaviour
                 {
                     _currentSpeed = startingSpeed;
                 }
-            
+
             }
             if (startPosition.y < targetPosition.y)
             {
-                startPosition += Time.deltaTime * _currentSpeed * (Vector2) transform.up ;
+                startPosition += Time.deltaTime * _currentSpeed * (Vector2)transform.up;
                 transform.position = startPosition + magnitude * Mathf.Sin(Time.time * frequency) * (Vector2)transform.right;
             }
             else
@@ -71,10 +71,13 @@ public class EnemyMovement : MonoBehaviour
                     bullet.enabled = false;
                 }
             }
-        }else if (_timeAfterReachingEnd > 2)
+        }
+        else if (_timeAfterReachingEnd > 2)
         {
             if (tapCounter > 0)
             {
+                //set achievement
+                AchievementManager.Instance.setDelayedEarnAchievement("Quacamole na pokładzie");
                 clickerFailed();
             }
         }
@@ -82,7 +85,7 @@ public class EnemyMovement : MonoBehaviour
         {
             _timeAfterReachingEnd += Time.deltaTime;
         }
-        
+
     }
 
     public float GetCurrentSpeed()

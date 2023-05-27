@@ -36,24 +36,24 @@ public class PlayerMovement : MonoBehaviour
             {
                 _currentSpeed = speed;
                 Move(startPosition, targetPosition, false);
-            } 
+            }
             // Player stops tapping - begins falling
-            else if (tapCounter == 0) 
+            else if (tapCounter == 0)
             {
                 if (startPosition.y > _startingPoint.y)
                 {
                     Move(startPosition, _startingPoint, true);
                 }
-            } 
+            }
             else
             {
                 //Uncomment to add logbook entry
-        
+
                 /*MLogbookEntry entry = new();
                 entry.LevelNumber = ???;
                 entry.passedTime = DateTime.Now.Ticks;
                 ServiceLocator.Get<LogbookService>().AddEntry(entry);*/
-            
+
                 tutorialText.SetActive(false);
                 endGameInfo.GetComponentInChildren<TMP_Text>().text =
                     "To mały krok dla człowieka, \n ale wielki krok dla Imperium Kebaba!";
@@ -69,7 +69,11 @@ public class PlayerMovement : MonoBehaviour
                     bullet.enabled = false;
                 }
                 _isEnd = true;
-            } 
+
+                //checking achievements
+                AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
+                if (this.GetComponent<PlayerLife>().GetLivesCount() == 3) { AchievementManager.Instance.setDelayedEarnAchievement("Manewr perfekcyjny"); }
+            }
         }
         else if (_timeAfterReachingEnd > 2)
         {
@@ -77,13 +81,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 clickerPassed();
             }
-            
+
         }
         else
         {
             _timeAfterReachingEnd += Time.deltaTime;
         }
-       
+
     }
 
     private void Move(Vector2 startPosition, Vector2 targetPosition, bool isFalling)

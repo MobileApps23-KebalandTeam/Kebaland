@@ -6,7 +6,6 @@ using TMPro;
 using Model;
 using Core;
 using System;
-using System.Linq;
 
 /*
 Instrukcja wywołania i tworzenia osiągnięć
@@ -64,7 +63,11 @@ public class AchievementManager : MonoBehaviour
         createAchievement("Pierwsze kroki", "Zacznij grać", 0);
         createAchievement("Arcydzieło", "Skończ pierwszy poziom", 1);
         createAchievement("Przepis na sukces", "Po raz pierwszy wejdż w osiągnięcia", 2);
-        createAchievement("Space Wars", "Podołaj meksyków po raz pierwszy", 3);
+        createAchievement("Space Wars", "Podołaj meksykanów po raz pierwszy", 3);
+        createAchievement("Ooops", "Oddaj pusty talerz jako zamówienie", 4);
+        createAchievement("Quacamole na pokładzie", "Przegraj meksykanom", 5);
+        createAchievement("Więcej mięsa!", "Włóż do kebaba 10 kawałków mięsa", 6);
+        createAchievement("Manewr perfekcyjny", "Przegoń meksykanów bez straty żyć", 7);
 
         loadAchievements();
     }
@@ -98,7 +101,7 @@ public class AchievementManager : MonoBehaviour
         {
             return;
         }
-        
+
         if (achievementsList[title].isNotUnlocked())
         {
             GameObject show = (GameObject)Instantiate(visualAchievement);
@@ -136,15 +139,17 @@ public class AchievementManager : MonoBehaviour
                 Debug.Log("Error");
                 continue;
             }
-            
+
             // Debug.Log(a.Name);
-            
+
             if (a.Acquired == true)
             {
                 if (a.AcquiredDate == 10101000)
                 {
-                    if (GameObject.Find("AchievementEarnedCanvas").scene.IsValid())
+                    //Debug.Log("Before confirming: " + a.Name);
+                    if (GameObject.Find("AchievementEarnedCanvas") != null)
                     {
+                        Debug.Log(a.Name);
                         k.RemoveAchievement(a);
                         earnAchievement(a.Name);
                     }
@@ -161,7 +166,7 @@ public class AchievementManager : MonoBehaviour
     public IEnumerator hideAchievement(GameObject achievement)
     {
         //wait for two seconds before hiding achievement
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
         Destroy(achievement);
     }
 
