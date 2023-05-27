@@ -17,9 +17,9 @@ public class ToggleManeger : MonoBehaviour
     public int toggleCounter = 0; // licznik toglle to zmienne wykorzystujemy gdy możemy wybrać tylko jeden igredient z jednej katygoriji (wykorzystamy przy drugim kliku na już wybrany toggle)
     public int toggleTemat = 0; // wybrany temat toggle
     public Color selectedColorActivRGB;
-    public IngredientType toggleTypeActiv; 
+    public IngredientType toggleTypeActiv;
 
-    void Start()
+    public void wykorzystane()
     {
         Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@ " + toggleListAll.Count);
         if (toggleListZaakceptowanych.Count > 0) {

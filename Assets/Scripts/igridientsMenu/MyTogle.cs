@@ -27,6 +27,9 @@ public class MyTogle : MonoBehaviour
       
         toggleManager.AddToggleType(toggle, type, krzyzykMy);
         Debug.Log("TOOOOOOOOOOOOOOOOOO" + toggle);
+        if (type == IngredientType.Dough2) {
+            toggleManager.wykorzystane();
+        }
     }
 
     public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle
