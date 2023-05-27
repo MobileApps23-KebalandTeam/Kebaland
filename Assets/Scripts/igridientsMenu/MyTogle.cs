@@ -24,8 +24,9 @@ public class MyTogle : MonoBehaviour
     {
         toggle = GetComponent<Toggle>();//pobiera component Toggle do którego jest przypisany skrypt
         //toggleManager.toggleListAll.Add(toggle,type);// dodaje do listy wszystkich toggle nasz pojedynczy toggle
-        Debug.Log("TOOOOOOOOOOOOOOOOOO");
+      
         toggleManager.AddToggleType(toggle, type, krzyzykMy);
+        Debug.Log("TOOOOOOOOOOOOOOOOOO" + toggleManager.toggleListAll.Count);
     }
 
     public void OnToggleValueChangedMeat()//metoda użyana przy kliku na toglle

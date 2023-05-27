@@ -16,7 +16,9 @@ public class ToggleManeger : MonoBehaviour
     public Image krzyzykActiv; // krzyżyk actywnego toogle
     public int toggleCounter = 0; // licznik toglle to zmienne wykorzystujemy gdy możemy wybrać tylko jeden igredient z jednej katygoriji (wykorzystamy przy drugim kliku na już wybrany toggle)
     public int toggleTemat = 0; // wybrany temat toggle
+    public Color selectedColorActivRGB;
     public IngredientType toggleTypeActiv; 
+
     void Start()
     {
         Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@ " + toggleListAll.Count);
@@ -26,6 +28,7 @@ public class ToggleManeger : MonoBehaviour
             {
                 if ((toggleListZaakceptowanych.Contains(toggleListAll[i].Item2)))
                 {
+                    toggleListAll[i].Item1.GetComponent<Image>().color = selectedColorActivRGB;
                     toggleListAll[i].Item1.enabled = false; // i robimy znów actywnymi
                     toggleListAll[i].Item3.enabled = true;
                 }
