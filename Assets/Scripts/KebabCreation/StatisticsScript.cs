@@ -15,12 +15,14 @@ public class StatisticsScript : MonoBehaviour
 
     private static GameObject points;
 
+    private float startTime;
     private static int sumPoints;
     private static int reqPoints = 10;
     private static int sumOrders;
 
     private void Start()
     {
+        startTime = time;
         points = pointsObject;
         setPoints(0);
         sumOrders = 0;
@@ -46,7 +48,7 @@ public class StatisticsScript : MonoBehaviour
         timeObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Czas: " + min + ":" + sec;
     }
 
-    public static void addPoints(int points)
+    public static void AddPoints(int points)
     {
         setPoints(sumPoints + points);
     }
@@ -54,7 +56,7 @@ public class StatisticsScript : MonoBehaviour
     public static void setPoints(int points)
     {
         sumPoints = points;
-        StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints;
+        StatisticsScript.points.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Punkty: " + sumPoints + "/" + reqPoints;
     }
 
     public static void setRequieredPoints(int points)
@@ -62,9 +64,19 @@ public class StatisticsScript : MonoBehaviour
         reqPoints = points;
     }
 
+    public static int getRequiredPoints()
+    {
+        return reqPoints;
+    }
+
     public static void AddOrder()
     {
         sumOrders++;
+    }
+
+    public float getActTime()
+    {
+        return startTime - time;
     }
 
     private float max(float a, float b)

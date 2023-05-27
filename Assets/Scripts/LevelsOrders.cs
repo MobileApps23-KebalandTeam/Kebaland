@@ -9,11 +9,10 @@ public class LevelsOrders
     {
         if (lvl == 0)
         {
-            for (int _ = 0; _ < 15; _++)
-                OrderList.AddKebabRequest(OrderType.Kebab1, 100.0f);
-            OrderList.AddKebabRequest(OrderType.Kebab2, 50.0f);
-            OrderList.AddKebabRequest(OrderType.Kebab3, 20.0f);
-            OrderList.AddKebabRequest(OrderType.Kebab3, 5.0f);
+            OrderList.AddKebabRequest(OrderType.Kebab1, 20.0f);
+            OrderList.AddKebabRequest(OrderType.Kebab1, 50.0f);
+            OrderList.AddKebabRequest(OrderType.Kebab1, 100.0f);
+            OrderList.AddDelayedKebabRequest(5.0f, OrderType.Kebab1, 50.0f);
         }
     }
 

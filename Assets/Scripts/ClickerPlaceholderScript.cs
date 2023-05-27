@@ -9,17 +9,18 @@ public class ClickerPlaceholderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
+
     public void ClickerPassed()
     {
+        AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
         LevelsOrders.AddOrders(0);
         LevelChoice.UpdateLevel(true, LevelType.CLICKER);
         IngredientsHolder.SetType(0, IngredientType.Pepper);
