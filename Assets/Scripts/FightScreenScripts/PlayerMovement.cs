@@ -1,4 +1,5 @@
 using System.Collections;
+using Model;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -73,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (tapCounter > 0)
             {
-                SceneManager.LoadScene("GameLoopScene");
+                clickerPassed();
             }
             
         }
@@ -108,5 +109,16 @@ public class PlayerMovement : MonoBehaviour
     public float GetPlayerSpeed()
     {
         return _currentSpeed;
+    }
+
+    private void clickerPassed()
+    {
+        //TODO FIX USAGE
+        // AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
+        LevelsOrders.AddOrders(0);
+        LevelChoice.UpdateLevel(true, LevelType.CLICKER);
+        IngredientsHolder.SetType(0, IngredientType.Pepper);
+        IngredientsHolder.SetType(1, IngredientType.Tomato);
+        SceneManager.LoadScene("GameLoopScene");
     }
 }

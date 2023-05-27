@@ -80,8 +80,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (tapCounter > 0)
             {
-                LevelChoice.UpdateLevel(false);
-                SceneManager.LoadScene("LevelsChoiceScene");
+                clickerFailed();
             }
         }
         else
@@ -108,5 +107,11 @@ public class EnemyMovement : MonoBehaviour
     public void SetIsEnd(bool end)
     {
         _isEnd = end;
+    }
+
+    private void clickerFailed()
+    {
+        LevelChoice.UpdateLevel(false, LevelType.CLICKER);
+        SceneManager.LoadScene("LevelsChoiceScene");
     }
 }
