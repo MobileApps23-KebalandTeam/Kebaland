@@ -2121,6 +2121,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f111c7736d786544e954d5a8b7e2f9d7, type: 3}
   - {fileID: 21300000, guid: 82bada70961cabb41b585f62ce719d07, type: 3}
   - {fileID: 21300000, guid: 236d583ed78041a4cbf212844a4644be, type: 3}
+  - {fileID: 21300000, guid: 82f67dc4b3d1bb044a22012d3c5f2a22, type: 3}
   achievementsNotDoneSprites:
   - {fileID: 21300000, guid: 167b61252733d914cb374b9128dccd73, type: 3}
   - {fileID: 21300000, guid: 8547a3a7e0fde814bb3b3d2704718342, type: 3}
@@ -2129,6 +2130,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 64d895677a4eadc4eabca1793858e14c, type: 3}
   - {fileID: 21300000, guid: 5838de48eff683a47bb0e769093cf526, type: 3}
   - {fileID: 21300000, guid: 2c050fc2920fa98479a2d4702527c755, type: 3}
+  - {fileID: 21300000, guid: 794f676d15b04ac43b645f9cde89f0a2, type: 3}
   visualAchievement: {fileID: 2084475095787764334, guid: 8320f67b3d2d26345b5d1923b8d90536, type: 3}
   mainMenuScreen: 1
 --- !u!4 &919545273

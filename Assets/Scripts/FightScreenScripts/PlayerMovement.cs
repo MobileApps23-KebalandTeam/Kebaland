@@ -70,7 +70,9 @@ public class PlayerMovement : MonoBehaviour
                 }
                 _isEnd = true;
 
+                //checking achievements
                 AchievementManager.Instance.setDelayedEarnAchievement("Space Wars");
+                if (this.GetComponent<PlayerLife>().GetLivesCount() == 3) { AchievementManager.Instance.setDelayedEarnAchievement("Manewr perfekcyjny"); }
             }
         }
         else if (_timeAfterReachingEnd > 2)

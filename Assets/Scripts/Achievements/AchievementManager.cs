@@ -6,7 +6,6 @@ using TMPro;
 using Model;
 using Core;
 using System;
-using System.Linq;
 
 /*
 Instrukcja wywołania i tworzenia osiągnięć
@@ -68,6 +67,7 @@ public class AchievementManager : MonoBehaviour
         createAchievement("Ooops", "Oddaj pusty talerz jako zamówienie", 4);
         createAchievement("Quacamole na pokładzie", "Przegraj meksykanom", 5);
         createAchievement("Więcej mięsa!", "Włóż do kebaba 10 kawałków mięsa", 6);
+        createAchievement("Manewr perfekcyjny", "Przegoń meksykanów bez straty żyć", 7);
 
         loadAchievements();
     }
@@ -92,8 +92,6 @@ public class AchievementManager : MonoBehaviour
         else if (mainMenuScreen && achievementsScreen.activeSelf)
         {
             earnAchievement("Przepis na sukces");
-            earnAchievement("Quacamole na pokładzie");
-            earnAchievement("Więcej mięsa!");
         }
     }
 
