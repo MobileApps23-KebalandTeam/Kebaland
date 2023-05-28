@@ -18,7 +18,15 @@ public class BulletMoving : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player");
         float levelNumber = LevelChoice.GetStartedLevel();
+        // IN EDITOR
+#if UNITY_EDITOR
+        accuracyModifier = 800f;
         accuracyModifier -= (3 - levelNumber/3) * 100;
+#else
+        accuracyModifier -= (2 - levelNumber/3) * 10;
+#endif
+
+        
         Vector3 direction = _player.transform.position + new Vector3(0,_player.GetComponent<PlayerMovement>().GetPlayerSpeed() * accuracyModifier * Time.deltaTime , 0) - transform.position;
         _rigidbody.velocity = new Vector2(direction.x, direction.y).normalized * force;
         _bulletVelocity = _rigidbody.velocity;

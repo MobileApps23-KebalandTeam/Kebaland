@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 200
-  accuracyModifier: 800
+  accuracyModifier: 60
 --- !u!61 &7041790219606712415
 BoxCollider2D:
   m_ObjectHideFlags: 0
