@@ -10,8 +10,11 @@ public class StatisticsScript : MonoBehaviour
     public GameObject timeObject;
 
     public EndGameScript endGameScript;
-
     public Manager manager;
+
+
+    public static EndGameScript stEndGameScript;
+    public static Manager stManager;
 
     private static GameObject points;
 
@@ -22,6 +25,9 @@ public class StatisticsScript : MonoBehaviour
 
     private void Start()
     {
+        stEndGameScript = endGameScript;
+        stManager = manager;
+
         startTime = time;
         points = pointsObject;
         setPoints(0);
@@ -34,8 +40,7 @@ public class StatisticsScript : MonoBehaviour
         time = max(time - Time.deltaTime, 0f);
         if (time <= 0)
         {
-            manager.EndGame();
-            endGameScript.Show(sumPoints, reqPoints, sumOrders);
+            EndGame();
         }
         else refreshTime();
     }
@@ -51,6 +56,13 @@ public class StatisticsScript : MonoBehaviour
     public static void AddPoints(int points)
     {
         setPoints(sumPoints + points);
+    }
+
+    public static void EndGame()
+    {
+
+        stManager.EndGame();
+        stEndGameScript.Show(sumPoints, reqPoints, sumOrders);
     }
 
     public static void setPoints(int points)

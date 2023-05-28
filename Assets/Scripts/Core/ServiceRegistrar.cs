@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 namespace Core
@@ -8,9 +9,19 @@ namespace Core
         void Start()
         {
             Debug.Log(Application.persistentDataPath);
+            if (AbstractSerializationService.version > PlayerPrefs.GetInt("version", 0))
+            {
+                PlayerPrefs.SetInt("version",AbstractSerializationService.version);
+                foreach (var file in Directory.GetFiles(Application.persistentDataPath))
+                {
+                    FileInfo file_info = new FileInfo(file);
+                    file_info.Delete();
+                }
+            }
             ServiceLocator.Register(new AchievementService());
             ServiceLocator.Register(new GameStateService());
             ServiceLocator.Register(new LogbookService());
+            ServiceLocator.Register(new IngredientsService());
 
             /***
              * EXAMPLE USAGE

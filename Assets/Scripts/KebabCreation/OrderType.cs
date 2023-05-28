@@ -1,11 +1,76 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public enum OrderType
+public class KebabType
 {
-    Kebab1, Kebab2, Kebab3
+    public static int idCounter = 0;
+    int reward;
+    Dictionary<IngredientType, IngredientRange> reqIngredients;
+    int id;
+
+    public KebabType()
+    {
+        id = idCounter;
+        idCounter++;
+        reward = (int) Random.Range(5.0f, 20.0f);
+        reqIngredients = new Dictionary<IngredientType, IngredientRange>();
+        List<IngredientType> l = IngredientsHolder.GetIngredientTypes().OrderBy(a => Random.Range(0f, 1f)).ToList();
+        int d = 0, m = 0, s = 0, e = 0;
+        foreach (IngredientType type in l)
+        {
+            if (type.Equals(IngredientType.Dough1) || type.Equals(IngredientType.Dough2) || type.Equals(IngredientType.Dough3))
+            {
+                if (d == 1) continue;
+                d++;
+                reqIngredients.Add(type, new IngredientRange(1, 1));
+            }
+            else if (type.Equals(IngredientType.Meat1) || type.Equals(IngredientType.Meat2))
+            {
+                if (m == 1) continue;
+                m++;
+                int r = (int) Random.Range(2f, 5f);
+                reqIngredients.Add(type, new IngredientRange(r, r + 2));
+            }
+            else if (type.Equals(IngredientType.Sauce1) || type.Equals(IngredientType.Sauce2) || type.Equals(IngredientType.Sauce3))
+            {
+                if (s == 1) continue;
+                s++;
+                reqIngredients.Add(type, new IngredientRange(12, 37));
+            }
+            else if (type.Equals(IngredientType.Lettuce) || type.Equals(IngredientType.Cucumber) || type.Equals(IngredientType.Tomato) || type.Equals(IngredientType.Pepper))
+            {
+                if (e == 2) continue;
+                e++;
+                int r = (int)Random.Range(1f, 5f);
+                reqIngredients.Add(type, new IngredientRange(r, r + 2));
+            }
+        }
+
+    }
+
+    public int GetReward()
+    {
+        return reward;
+    }
+
+    public Dictionary<IngredientType, IngredientRange> GetRequiredIngredients()
+    {
+        return reqIngredients;
+    }
+
+    public string GetPrefabName()
+    {
+        return "ExampleType";
+    }
+
+    public int GetId()
+    {
+        return id;
+    }
 }
+
  
 public class IngredientRange
 {
@@ -19,71 +84,4 @@ public class IngredientRange
     {
         return am <= to && am >= from;
     }
-}
-
-public static class OrderTypeMethods {
-    
-    public static Dictionary<IngredientType, IngredientRange> GetRequiredIngredients(OrderType type)
-    {
-        Dictionary<IngredientType, IngredientRange> dict = new Dictionary<IngredientType, IngredientRange>();
-        switch (type)
-        {
-            case OrderType.Kebab1:
-                dict.Add(IngredientType.Dough1, new IngredientRange(1, 1));
-                dict.Add(IngredientType.Cucumber, new IngredientRange(2, 3));
-                dict.Add(IngredientType.Lettuce, new IngredientRange(1, 2));
-                dict.Add(IngredientType.Meat1, new IngredientRange(3, 5));
-                dict.Add(IngredientType.Sauce1, new IngredientRange(12, 37));
-                return dict;
-            case OrderType.Kebab2:
-                dict.Add(IngredientType.Dough2, new IngredientRange(1, 1));
-                dict.Add(IngredientType.Cucumber, new IngredientRange(2, 3));
-                dict.Add(IngredientType.Lettuce, new IngredientRange(1, 2));
-                dict.Add(IngredientType.Meat2, new IngredientRange(3, 5));
-                dict.Add(IngredientType.Sauce2, new IngredientRange(12, 37));
-                return dict;
-            case OrderType.Kebab3:
-                dict.Add(IngredientType.Dough3, new IngredientRange(1, 1));
-                dict.Add(IngredientType.Cucumber, new IngredientRange(2, 3));
-                dict.Add(IngredientType.Tomato, new IngredientRange(1, 1));
-                dict.Add(IngredientType.Onion, new IngredientRange(3, 4));
-                dict.Add(IngredientType.Meat1, new IngredientRange(3, 5));
-                dict.Add(IngredientType.Sauce3, new IngredientRange(12, 37));
-                return dict;
-            default:
-                return dict;
-        }
-    }
-
-    public static int GetReward(OrderType type)
-    {
-        switch (type)
-        {
-            case OrderType.Kebab1:
-                return 10;
-            case OrderType.Kebab2:
-                return 8;
-            case OrderType.Kebab3:
-                return 5;
-            default:
-                return 1;
-        }
-    }
-
-
-    public static string GetPrefabName(OrderType type)
-    {
-        switch (type)
-        {
-            case OrderType.Kebab1:
-                return "ExampleType";
-            case OrderType.Kebab2:
-                return "ExampleType";
-            case OrderType.Kebab3:
-                return "ExampleType";
-            default:
-                return "ExampleType";
-        }
-    }
-
 }

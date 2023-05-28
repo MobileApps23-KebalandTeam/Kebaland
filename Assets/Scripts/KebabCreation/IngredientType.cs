@@ -22,6 +22,22 @@ public static class IngredientTypeMethods
                 return "cucumber";
             case IngredientType.Lettuce:
                 return "lettuce";
+            case IngredientType.Meat1:
+                return "meat1";
+            case IngredientType.Meat2:
+                return "meat2";
+            case IngredientType.Dough1:
+                return "dough1";
+            case IngredientType.Dough2:
+                return "dough2";
+            case IngredientType.Dough3:
+                return "dough3";
+            case IngredientType.Sauce1:
+                return "sauce1";
+            case IngredientType.Sauce2:
+                return "sauce2";
+            case IngredientType.Sauce3:
+                return "sauce3";
             default:
                 return "";
         }
@@ -72,6 +88,39 @@ public static class IngredientTypeMethods
                 return "SauceIngredient2";
             case IngredientType.Sauce3:
                 return "SauceIngredient3";
+            default:
+                return "";
+        }
+    }
+
+    public static string getPublicName(IngredientType type)
+    {
+        switch (type)
+        {
+            case IngredientType.Tomato:
+                return "Pomidor";
+            case IngredientType.Cucumber:
+                return "Ogórek";
+            case IngredientType.Lettuce:
+                return "Sa³ata";
+            case IngredientType.Pepper:
+                return "Papryka";
+            case IngredientType.Meat1:
+                return "Kurczak";
+            case IngredientType.Meat2:
+                return "Wo³owina";
+            case IngredientType.Dough1:
+                return "Jasne ciasto";
+            case IngredientType.Dough2:
+                return "¯ó³te ciasto";
+            case IngredientType.Dough3:
+                return "Ciemne ciasto";
+            case IngredientType.Sauce1:
+                return "Sos 1";
+            case IngredientType.Sauce2:
+                return "Sos 2";
+            case IngredientType.Sauce3:
+                return "Sos 3";
             default:
                 return "";
         }

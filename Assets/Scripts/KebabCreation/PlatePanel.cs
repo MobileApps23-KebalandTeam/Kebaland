@@ -63,6 +63,12 @@ public class PlatePanel : MonoBehaviour
 
     public void ClearIngredients()
     {
+        //call achievement
+        if (transform.childCount == 1)
+        {
+            AchievementManager.Instance.setDelayedEarnAchievement("Ooops");
+        }
+
         actHeight = 0;
         foreach (Transform child in transform)
         {
@@ -120,9 +126,9 @@ public class PlatePanel : MonoBehaviour
 
     public class ExtraIngredient : Ingredient
     {
-        IngredientType type;
+        int type;
 
-        public ExtraIngredient(IngredientType type)
+        public ExtraIngredient(int type)
         {
             this.type = type;
         }
@@ -130,7 +136,14 @@ public class PlatePanel : MonoBehaviour
         public override int AddHeight() => 1;
         public override int OffsetX() => Screen.width / 8;
         public override int OffsetY() => Screen.width / 64;
-        public override IngredientType GetIngredientType() => type;
+        public override IngredientType GetIngredientType()
+        {
+            if (type == 0) return IngredientType.Tomato;
+            if (type == 1) return IngredientType.Pepper;
+            if (type == 2) return IngredientType.Cucumber;
+            if (type == 3) return IngredientType.Lettuce;
+            return IngredientType.Default;
+        }
 
     }
 

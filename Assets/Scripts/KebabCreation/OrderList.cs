@@ -13,12 +13,12 @@ public class OrderList : MonoBehaviour
     {
         // main game object that contains ProgressBar to change
         public GameObject obj;
-        public OrderType type;
+        public KebabType type;
         public float timeLeft;
         public float maxTime;
         public int reward;
 
-        public SimpleOrder(GameObject obj, OrderType type, float maxTime, int reward)
+        public SimpleOrder(GameObject obj, KebabType type, float maxTime, int reward)
         {
             this.obj = obj;
             this.type = type;
@@ -46,6 +46,7 @@ public class OrderList : MonoBehaviour
     public GameObject panelObj;
     public Manager manager;
     public StatisticsScript statistics;
+    public EndGameScript endGameScript;
 
     private static Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
 
@@ -57,6 +58,7 @@ public class OrderList : MonoBehaviour
 
     void Start()
     {
+
         panel = panelObj;
 
         GameObject[] types = Resources.LoadAll<GameObject>("KebabTypes");
@@ -83,6 +85,25 @@ public class OrderList : MonoBehaviour
     {
         if (manager.IsEndGame()) return;
 
+        if (actList.Count == 0)
+        {
+            bool isAll = true;
+
+            foreach (DelayedOrder delayedOrder in delayedOrders)
+            {
+                if (!delayedOrder.done)
+                {
+                    isAll = false;
+                    break;
+                }
+            }
+            if (isAll)
+            {
+                StatisticsScript.EndGame();
+                return;
+            }
+        }
+
         foreach (DelayedOrder delayedOrder in delayedOrders)
         {
             if (!delayedOrder.done && delayedOrder.startTime < statistics.getActTime())
@@ -106,7 +127,7 @@ public class OrderList : MonoBehaviour
             {
                 StatisticsScript.AddPoints(-ord.reward);
                 toRemove.Add(ord);
-                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                msg.ShowToast("Nie zdÄ…Å¼yÅ‚eÅ› przygotowaÄ‡ zamÃ³wienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktÃ³w)"), 2.0f);
                 i++;
                 continue;
             }
@@ -121,15 +142,17 @@ public class OrderList : MonoBehaviour
         }
     }
 
-    public static void AddDelayedKebabRequest(float startTime, OrderType type, float maxSecs)
+    public static void AddDelayedKebabRequest(float startTime, float maxSecs)
     {
-        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
+        KebabType kebabType = new KebabType();
+        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(kebabType.GetPrefabName()), kebabType, maxSecs, kebabType.GetReward());
         delayedOrders.Add(new DelayedOrder(order, startTime));
     }
 
-    public static void AddKebabRequest(OrderType type, float maxSecs)
+    public static void AddKebabRequest(float maxSecs)
     {
-        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(type)), type, maxSecs, OrderTypeMethods.GetReward(type));
+        KebabType kebabType = new KebabType();
+        SimpleOrder order = new SimpleOrder(kebabTypesMap.GetValueOrDefault(kebabType.GetPrefabName()), kebabType, maxSecs, kebabType.GetReward());
         AddKebabRequest(order);
     }
 
@@ -140,14 +163,14 @@ public class OrderList : MonoBehaviour
         RefreshGUI();
     }
 
-    public static void RemoveKebabRequest(OrderType type)
+    public static void RemoveKebabRequest(KebabType type)
     {
         float minTime = Int32.MaxValue;
         SimpleOrder minOrder = null;
         foreach (SimpleOrder order in actList)
         {
 
-            if (!order.type.Equals(type)) continue;
+            if (order.type.GetId() != type.GetId()) continue;
 
             float left = order.timeLeft;
             if (minTime >= left)
@@ -189,7 +212,7 @@ public class OrderList : MonoBehaviour
         foreach (SimpleOrder order in actList)
         {
             bool isOk = true;
-            Dictionary<IngredientType, IngredientRange> orderDict = OrderTypeMethods.GetRequiredIngredients(order.type);
+            Dictionary<IngredientType, IngredientRange> orderDict = order.type.GetRequiredIngredients();
             foreach (KeyValuePair<IngredientType, IngredientRange> entry in orderDict)
             {
                 int actVal = actDict.GetValueOrDefault(entry.Key, 0);
@@ -251,11 +274,56 @@ public class OrderList : MonoBehaviour
         {
             if (i >= maxAmount) break;
 
-            var newObj = Instantiate(kebabTypesMap.GetValueOrDefault(OrderTypeMethods.GetPrefabName(ord.type)), Vector2.zero, Quaternion.identity, childs[i]);
+            var newObj = Instantiate(kebabTypesMap.GetValueOrDefault(ord.type.GetPrefabName()), Vector2.zero, Quaternion.identity, childs[i]);
+
             newObj.GetComponent<RectTransform>().offsetMin = Vector2.zero;
             newObj.GetComponent<RectTransform>().offsetMax = Vector2.zero;
             objects[i] = newObj;
             ord.obj = newObj;
+            int act = 0;
+            IngredientType[] images = new IngredientType[5];
+            string[] texts = new string[5];
+            foreach (KeyValuePair<IngredientType, IngredientRange> pair in ord.type.GetRequiredIngredients())
+            {
+                if (act == 5) break;
+                images[act] = pair.Key;
+                texts[act] = IngredientTypeMethods.getPublicName(pair.Key);
+                if (!pair.Key.Equals(IngredientType.Sauce1) && !pair.Key.Equals(IngredientType.Sauce2) && !pair.Key.Equals(IngredientType.Sauce3))
+                {
+                    texts[act] += " x" + ((pair.Value.from + pair.Value.to) / 2);
+                }
+                act++;
+            }
+            foreach (Transform t in ord.obj.transform)
+            {
+                if (t.gameObject.name.Equals("IngredientTypes"))
+                {
+                    int ac = 0;
+                    foreach (Transform childs in t.transform)
+                    {
+                        foreach (Transform childChild in childs.transform)
+                        {
+                            if (childChild.gameObject.name.Contains("Text"))
+                            {
+                                childChild.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = texts[ac];
+                            }
+                            else
+                            {
+                                if (ac >= act)
+                                {
+                                    childChild.gameObject.SetActive(false);
+                                }
+                                else
+                                {
+                                    childChild.gameObject.GetComponentInChildren<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(images[ac]));
+                                }
+                            }
+                        }
+                        ac++;
+                    }
+                    break;
+                }
+            } 
             i++;
         }
 

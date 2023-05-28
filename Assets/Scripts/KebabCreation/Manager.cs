@@ -95,6 +95,8 @@ public class Manager : MonoBehaviour
 
     private bool isEnd = false;
 
+    //for achievement
+    private int meatCount = 0;
 
     void Start()
     {
@@ -204,6 +206,7 @@ public class Manager : MonoBehaviour
                     {
                         fromCut = touchPos;
                         isCuttingMeat = i;
+                        meatScript[i].play();
                         break;
                     }
                 }
@@ -308,7 +311,7 @@ public class Manager : MonoBehaviour
                 {
                     meatScript[isCuttingMeat].CutMeat(touchPos);
                 }
-
+                meatScript[isCuttingMeat].stop();
                 isCuttingMeat = -1;
             }
             else if (draggingMeat != null)
@@ -318,6 +321,9 @@ public class Manager : MonoBehaviour
                     Destroy(draggingMeat.obj);
                     meatScript[draggingMeatId].RemoveFinalMeat(draggingMeat);
                     platePanel.AddIngredient(new PlatePanel.MeatIngredient(draggingMeatId));
+                    //for achievement
+                    meatCount++;
+
                 }
                 else
                 {
@@ -333,8 +339,7 @@ public class Manager : MonoBehaviour
                 extras[isDraggingExtras].transform.position = defaultExtrasPosition[isDraggingExtras];
                 if (plateCollider.bounds.Contains(Input.touches[0].position))
                 {
-                    IngredientType type = IngredientsHolder.GetIngredientType(isDraggingExtras);
-                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(type));
+                    platePanel.AddIngredient(new PlatePanel.ExtraIngredient(isDraggingExtras));
                 }
 
                 isDraggingExtras = -1;
@@ -362,6 +367,9 @@ public class Manager : MonoBehaviour
                     {
                         msg.ShowToast("Ten kebab nie pasuje do zadnego zamowienia!", 2.0f);
                     }
+                    //call achievement
+                    if (meatCount == 10) { AchievementManager.Instance.setDelayedEarnAchievement("Więcej mięsa!"); }
+                    meatCount = 0;
                     platePanel.ClearIngredients();
                     platePanelObject.transform.position = basicPlatePosition;
                     MoveBack();
@@ -464,7 +472,7 @@ public class Manager : MonoBehaviour
     {
 
         int sum = 0;
-        for (int st = 0; st < statesMoves.Length; st++) 
+        for (int st = 0; st < statesMoves.Length; st++)
         {
             sum += statesMoves[st];
         }
