@@ -114,7 +114,7 @@ public class OrderList : MonoBehaviour
             {
                 StatisticsScript.AddPoints(-ord.reward);
                 toRemove.Add(ord);
-                msg.ShowToast("Nie zd¹¿y³eœ przygotowaæ zamówienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktów)"), 2.0f);
+                msg.ShowToast("Nie zdÄ…Å¼yÅ‚eÅ› przygotowaÄ‡ zamÃ³wienia! (-" + ord.reward + ((ord.reward < 5 && ord.reward % 10 != 0) ? " punkty)" : " punktÃ³w)"), 2.0f);
                 i++;
                 continue;
             }
