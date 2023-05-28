@@ -30,9 +30,7 @@ public class MyAnimacja : MonoBehaviour
             {
                 isMoving = false;//ustawiamy że animacja skonczona
                 moveTimer = 0.0f;//Resetuje licznik czasu
-                StartCoroutine(button.ToggleInteraction()); // Uruchamiamy po zakończeniu przesuwania obrazka
-                                                            // SceneManager.UnloadScene("IgridientsMenu2");
-
+                button.ToggleInteraction(); // Uruchamiamy po zakończeniu przesuwania obrazka
                 SceneManager.LoadScene("FightScreen");
                
 

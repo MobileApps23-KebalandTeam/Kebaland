@@ -21,6 +21,7 @@ namespace Core
             ServiceLocator.Register(new AchievementService());
             ServiceLocator.Register(new GameStateService());
             ServiceLocator.Register(new LogbookService());
+            ServiceLocator.Register(new IngredientsService());
 
             /***
              * EXAMPLE USAGE

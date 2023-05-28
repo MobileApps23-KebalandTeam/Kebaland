@@ -13,7 +13,6 @@ public class Licznik : MonoBehaviour
     void Start()//metoda przy urachomieniu sceny
     {
         textComponent = GetComponent<Text>();//pobiera component text 
-        licznikPoprzedni = 4; //początkowa liczba igredientów
     }
 
     public void Zmien(bool wybur)//metoda która zmienia liczbe igradientów przy wybieraniu
@@ -28,16 +27,15 @@ public class Licznik : MonoBehaviour
                 //textComponent.text = $"{licznikPoprzedni - toggleManager.toggleList.Count}";
                 //   Debug.Log("Licznik odjąć:  "  + (licznikPoprzedni - toggleManager.toggleList.Count));
                 textComponent.text = $"{licznikPoprzedni}";//zmienia text licznika na aktóalnu liczbu igredientów
-               Debug.Log("Licznik odjąć:  " + licznikPoprzedni);
+               // Debug.Log("Licznik odjąć:  " + licznikPoprzedni);
             }
             else {
                     licznikPoprzedni = licznikPoprzedni + 1;
-               Debug.Log("Licznik dodaj:  " + licznikPoprzedni);
+               // Debug.Log("Licznik dodaj:  " + licznikPoprzedni);
                // Debug.Log("BBB " + (licznikPoprzedni - toggleManager.toggleList.Count));
                // textComponent.text = $"{licznikPoprzedni - toggleManager.toggleList.Count}";
                textComponent.text = $"{licznikPoprzedni}";
              }
-            
         }
     }
 }
