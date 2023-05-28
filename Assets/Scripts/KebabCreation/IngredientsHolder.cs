@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +7,7 @@ public class IngredientsHolder : MonoBehaviour
 {
 
     // Static amount of types, must be changed after adding/removing extras slots
+    private readonly Vector3 _rotateVector = new (60, 0, 50);
     private static List<IngredientType> types = new List<IngredientType>();
 
     public GameObject dough1O, dough2O, dough3O, meat1O, meat2O, tomatoO, cucumberO, pepperO, lettuceO, sauce1O, sauce2O, sauce3O;
@@ -72,7 +72,7 @@ public class IngredientsHolder : MonoBehaviour
         {
             lettuce.SetActive(false);
         }
-        if (!types.Contains(IngredientType.Pepper))
+        if (!types.Contains(IngredientType.Onion))
         {
             pepper.SetActive(false);
         }

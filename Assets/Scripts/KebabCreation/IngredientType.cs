@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum IngredientType
 {
-    Default, Dough1, Dough2, Dough3, Meat1, Meat2, Tomato, Pepper, Cucumber, Lettuce, Sauce1, Sauce2, Sauce3
+    Default, Dough1, Dough2, Dough3, Meat1, Meat2, Tomato, Onion, Cucumber, Lettuce, Sauce1, Sauce2, Sauce3
 }
 
 public static class IngredientTypeMethods
@@ -16,8 +16,8 @@ public static class IngredientTypeMethods
         {
             case IngredientType.Tomato:
                 return "tomato";
-            case IngredientType.Pepper:
-                return "pepper";
+            case IngredientType.Onion:
+                return "onion";
             case IngredientType.Cucumber:
                 return "cucumber";
             case IngredientType.Lettuce:
@@ -48,13 +48,13 @@ public static class IngredientTypeMethods
         switch (type)
         {
             case IngredientType.Tomato:
-                return "tomatoPart";
-            case IngredientType.Pepper:
-                return "pepperPart";
+                return "tomato-slice";
+            case IngredientType.Onion:
+                return "onion-slice";
             case IngredientType.Cucumber:
-                return "cucumberPart";
+                return "cucumber-slice";
             case IngredientType.Lettuce:
-                return "lettucePart";
+                return "lettuce-leaf";
             default:
                 return "";
         }
@@ -64,9 +64,9 @@ public static class IngredientTypeMethods
     {
         switch (type)
         {
-            case IngredientType.Tomato:
+            case IngredientType.Onion:
                 return "ExtraIngredient1";
-            case IngredientType.Pepper:
+            case IngredientType.Tomato:
                 return "ExtraIngredient2";
             case IngredientType.Cucumber:
                 return "ExtraIngredient3";
@@ -100,27 +100,27 @@ public static class IngredientTypeMethods
             case IngredientType.Tomato:
                 return "Pomidor";
             case IngredientType.Cucumber:
-                return "OgÛrek";
+                return "Og√≥rek";
             case IngredientType.Lettuce:
-                return "Sa≥ata";
-            case IngredientType.Pepper:
-                return "Papryka";
+                return "Sa≈Çata";
+            case IngredientType.Onion:
+                return "Cebula";
             case IngredientType.Meat1:
                 return "Kurczak";
             case IngredientType.Meat2:
-                return "Wo≥owina";
+                return "Wo≈Çowina";
             case IngredientType.Dough1:
-                return "Jasne ciasto";
+                return "≈ª√≥≈Çte ciasto";
             case IngredientType.Dough2:
-                return "ØÛ≥te ciasto";
+                return "Jasne ciasto";
             case IngredientType.Dough3:
                 return "Ciemne ciasto";
             case IngredientType.Sauce1:
-                return "Sos 1";
+                return "Musztarda";
             case IngredientType.Sauce2:
-                return "Sos 2";
+                return "Serowy";
             case IngredientType.Sauce3:
-                return "Sos 3";
+                return "Ketchup";
             default:
                 return "";
         }

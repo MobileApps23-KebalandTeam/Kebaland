@@ -39,7 +39,7 @@ public class KebabType
                 s++;
                 reqIngredients.Add(type, new IngredientRange(12, 37));
             }
-            else if (type.Equals(IngredientType.Lettuce) || type.Equals(IngredientType.Cucumber) || type.Equals(IngredientType.Tomato) || type.Equals(IngredientType.Pepper))
+            else if (type.Equals(IngredientType.Lettuce) || type.Equals(IngredientType.Cucumber) || type.Equals(IngredientType.Tomato) || type.Equals(IngredientType.Onion))
             {
                 if (e == 2) continue;
                 e++;
