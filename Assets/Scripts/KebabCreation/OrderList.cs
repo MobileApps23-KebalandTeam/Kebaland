@@ -85,10 +85,23 @@ public class OrderList : MonoBehaviour
     {
         if (manager.IsEndGame()) return;
 
-        if (delayedOrders.Count == 0 && actList.Count == 0)
+        if (actList.Count == 0)
         {
-            StatisticsScript.EndGame();
-            return;
+            bool isAll = true;
+
+            foreach (DelayedOrder delayedOrder in delayedOrders)
+            {
+                if (!delayedOrder.done)
+                {
+                    isAll = false;
+                    break;
+                }
+            }
+            if (isAll)
+            {
+                StatisticsScript.EndGame();
+                return;
+            }
         }
 
         foreach (DelayedOrder delayedOrder in delayedOrders)
