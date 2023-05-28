@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &12224780
 RectTransform:
   m_ObjectHideFlags: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 77.2
+  m_fontSize: 19.25
   m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -312,7 +312,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07425182, y: -0.0011280105}
+  m_ConnectedAnchor: {x: 0.07425263, y: -0.0011306589}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 134.3
+  m_fontSize: 165.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -651,7 +651,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07213159, y: -0.0011305129}
+  m_ConnectedAnchor: {x: 0.07213206, y: -0.0011279213}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -790,7 +790,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100221673}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -798,10 +798,10 @@ RectTransform:
   m_Father: {fileID: 691774152}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.0753179, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -8.5, y: 1.0000305}
+  m_SizeDelta: {x: -3, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &100221675
 MonoBehaviour:
@@ -825,8 +825,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Koniec etapu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 142
+  m_fontSize: 146.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -26.80777, y: 0, z: -26.807755, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -954,7 +954,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.091186605, y: -0.0000002438571}
+  m_ConnectedAnchor: {x: 0.091185756, y: -0.00000024385483}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1012,10 +1012,10 @@ RectTransform:
   m_Father: {fileID: 325814074}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.53900003, y: 0.124000005}
-  m_AnchorMax: {x: 0.9480001, y: 0.27269706}
-  m_AnchoredPosition: {x: -245, y: 831}
-  m_SizeDelta: {x: -94.32547, y: -216.7592}
+  m_AnchorMin: {x: 0.2903014, y: 0.40600002}
+  m_AnchorMax: {x: 0.70457536, y: 0.537}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166969305
 MonoBehaviour:
@@ -1326,7 +1326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 50, y: -58}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219826323
@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 181.9
+  m_fontSize: 30.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1480,7 +1480,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637114, y: 0.0011278096}
+  m_ConnectedAnchor: {x: 0.07637151, y: 0.0011304391}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1558,7 +1558,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058298, y: 0.000000034853294}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1765,7 +1765,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072100855, y: 0.000000031184655}
+  m_ConnectedAnchor: {x: 0.0721, y: 0.000000031184285}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1868,8 +1868,8 @@ MonoBehaviour:
   - {fileID: 65603081}
   - {fileID: 1267019261}
   m_Bounds:
-    m_Center: {x: -0.004998684, y: 0.0000002682209, z: 0}
-    m_Extent: {x: 0.09500138, y: 0.48000038, z: 0}
+    m_Center: {x: -0.0050019026, y: 0.000000029802322, z: 0}
+    m_Extent: {x: 0.09500195, y: 0.4800002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -2150,7 +2150,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0.000061035}
+  m_SizeDelta: {x: 0, y: 0.000061035156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325814075
 MonoBehaviour:
@@ -2379,7 +2379,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4615.2515, y: 2087.8406}
+  m_ConnectedAnchor: {x: 6052.174, y: 2429.889}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2530,7 +2530,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.10181186, y: -0.0011309949}
+  m_ConnectedAnchor: {x: 0.10181105, y: -0.0011283554}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2817,7 +2817,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485074, y: 0.001131078}
+  m_ConnectedAnchor: {x: 0.08485036, y: 0.00112845}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2876,7 +2876,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.17968355}
-  m_AnchoredPosition: {x: -1.0000153, y: -3.8388672}
+  m_AnchoredPosition: {x: -1.0000305, y: -3.8388672}
   m_SizeDelta: {x: -28, y: -17.801147}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &458751657
@@ -3269,7 +3269,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058298, y: 0.000000034853294}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3347,7 +3347,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.067892745, y: 0.0011278219}
+  m_ConnectedAnchor: {x: 0.067891836, y: 0.0011303917}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3588,7 +3588,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485036, y: 0.00112845}
+  m_ConnectedAnchor: {x: 0.084851176, y: 0.0011310943}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3854,20 +3854,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655993205}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 248102496}
   - {fileID: 852935910}
-  m_Father: {fileID: 2107479099}
+  m_Father: {fileID: 1897332525}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0773033, y: 0.38762742}
-  m_AnchorMax: {x: 0.9013484, y: 0.4853726}
-  m_AnchoredPosition: {x: -0.19900513, y: -0.29776}
-  m_SizeDelta: {x: -0.398, y: 0.59552}
+  m_AnchorMin: {x: 0.16757534, y: 0.467}
+  m_AnchorMax: {x: 0.80375355, y: 0.528}
+  m_AnchoredPosition: {x: 0.3999939, y: -0.099998474}
+  m_SizeDelta: {x: 0.16666794, y: -0.47733307}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655993207
 MonoBehaviour:
@@ -4066,19 +4066,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691774151}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 100221674}
-  m_Father: {fileID: 2107479099}
+  m_Father: {fileID: 1897332525}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.83100003}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00048828125, y: -0.8126831}
-  m_SizeDelta: {x: -0.92, y: 0.7444}
+  m_AnchorMin: {x: 0.108125225, y: 0.76000005}
+  m_AnchorMax: {x: 0.88422513, y: 0.86500007}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -0.9786682, y: 0.038772583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691774153
 MonoBehaviour:
@@ -4093,7 +4093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4509804, g: 0.9511284, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4248,7 +4248,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637109, y: 0.001130421}
+  m_ConnectedAnchor: {x: 0.076371565, y: 0.0011278278}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4326,7 +4326,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07213206, y: -0.0011279213}
+  m_ConnectedAnchor: {x: 0.07213287, y: -0.0011305707}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4606,7 +4606,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072100855, y: 0.000000031184655}
+  m_ConnectedAnchor: {x: 0.0721, y: 0.000000031184285}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4690,7 +4690,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07213206, y: -0.0011279213}
+  m_ConnectedAnchor: {x: 0.072131164, y: -0.0011304938}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4835,10 +4835,10 @@ RectTransform:
   m_Father: {fileID: 325814074}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06067242, y: 0.124000005}
-  m_AnchorMax: {x: 0.46532762, y: 0.27269706}
-  m_AnchoredPosition: {x: 227, y: 1148}
-  m_SizeDelta: {x: -91.334045, y: -216.75911}
+  m_AnchorMin: {x: 0.2903014, y: 0.5718536}
+  m_AnchorMax: {x: 0.70457536, y: 0.70100003}
+  m_AnchoredPosition: {x: 0.5, y: 0}
+  m_SizeDelta: {x: -1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942223630
 MonoBehaviour:
@@ -5250,7 +5250,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07846237, y: -0.00000019548993}
+  m_ConnectedAnchor: {x: 0.078462794, y: -0.00000019549098}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6034,10 +6034,10 @@ RectTransform:
   m_Father: {fileID: 2036997492}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.7068321}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0.115097046}
-  m_SizeDelta: {x: 0.38, y: 0.48850012}
+  m_AnchorMin: {x: 0, y: 0.55475223}
+  m_AnchorMax: {x: 1, y: 0.8582478}
+  m_AnchoredPosition: {x: 0.000030517578, y: -0.099998474}
+  m_SizeDelta: {x: 0.38, y: -0.5114994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164482438
 MonoBehaviour:
@@ -6052,7 +6052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.7695224, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6131,7 +6131,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.067892686, y: 0.0011304325}
+  m_ConnectedAnchor: {x: 0.067892745, y: 0.0011278219}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6189,10 +6189,10 @@ RectTransform:
   m_Father: {fileID: 325814074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.72751987}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -61, y: 11}
-  m_SizeDelta: {x: -229.0995, y: -398.60925}
+  m_AnchorMin: {x: 0.13957535, y: 0.7564928}
+  m_AnchorMax: {x: 0.86230147, y: 0.8688551}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: -0.051597595, y: -1.3565979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193107563
 MonoBehaviour:
@@ -6426,7 +6426,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07425178, y: -0.0011306215}
+  m_ConnectedAnchor: {x: 0.07425182, y: -0.0011280105}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6582,7 +6582,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.091185756, y: -0.00000024385483}
+  m_ConnectedAnchor: {x: 0.091186605, y: -0.0000002438571}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6934,8 +6934,8 @@ MonoBehaviour:
   - {fileID: 1900283995}
   - {fileID: 257188993}
   m_Bounds:
-    m_Center: {x: -0.0050000027, y: 0.0000006854534, z: 0}
-    m_Extent: {x: 0.09500006, y: 0.4800004, z: 0}
+    m_Center: {x: -0.0050019026, y: 0.00000011920929, z: 0}
+    m_Extent: {x: 0.09500195, y: 0.48000056, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -7221,10 +7221,10 @@ RectTransform:
   m_Father: {fileID: 2036997492}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.314}
-  m_AnchorMax: {x: 1, y: 0.60200006}
-  m_AnchoredPosition: {x: -0.19000244, y: 0}
-  m_SizeDelta: {x: 0.38, y: 0.44859982}
+  m_AnchorMin: {x: 0, y: 0.15649565}
+  m_AnchorMax: {x: 1, y: 0.4527522}
+  m_AnchoredPosition: {x: -0.19000244, y: -0.21511841}
+  m_SizeDelta: {x: 0.3800001, y: -0.5514002}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388986903
 MonoBehaviour:
@@ -7239,7 +7239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.76862746, b: 1, a: 1}
+  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7324,8 +7324,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 25
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7349,7 +7349,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.05
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7901,8 +7901,8 @@ MonoBehaviour:
   - {fileID: 850997273}
   - {fileID: 892877020}
   m_Bounds:
-    m_Center: {x: -0.0050000027, y: 0.00000047683716, z: 0}
-    m_Extent: {x: 0.09500006, y: 0.4800002, z: 0}
+    m_Center: {x: -0.0050000027, y: 0.000000059604645, z: 0}
+    m_Extent: {x: 0.09500006, y: 0.4800005, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -7960,7 +7960,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09118618, y: -0.00000024385596}
+  m_ConnectedAnchor: {x: 0.091186605, y: -0.0000002438571}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8038,7 +8038,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0742522, y: -0.00113064}
+  m_ConnectedAnchor: {x: 0.07425182, y: -0.0011280105}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8353,7 +8353,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058298, y: 0.000000034853294}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8510,8 +8510,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 25
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8535,7 +8535,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 56.65
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8718,7 +8718,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.10181186, y: -0.0011309949}
+  m_ConnectedAnchor: {x: 0.10181105, y: -0.0011283554}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8959,7 +8959,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.078462794, y: -0.00000019549098}
+  m_ConnectedAnchor: {x: 0.07846194, y: -0.00000019548887}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9009,19 +9009,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721582422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 12224780}
-  m_Father: {fileID: 2107479099}
+  m_Father: {fileID: 1897332525}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.16073856, y: 0.09440448}
-  m_AnchorMax: {x: 0.83800006, y: 0.201}
-  m_AnchoredPosition: {x: 0.5800171, y: 0.45922852}
-  m_SizeDelta: {x: -1.9883, y: 1.5053997}
+  m_AnchorMin: {x: 0.29442465, y: 0.127}
+  m_AnchorMax: {x: 0.7055754, y: 0.2564125}
+  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721582424
 MonoBehaviour:
@@ -9044,10 +9044,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.75686276, g: 0.88235295, b: 0.9254902, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.75686276, g: 0.88235295, b: 0.9254902, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -9099,8 +9099,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: d8925d26c3400cf42b717542cb7b8e9f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -9171,7 +9171,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485074, y: 0.001131078}
+  m_ConnectedAnchor: {x: 0.08485036, y: 0.00112845}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9249,7 +9249,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132014, y: -0.0011305324}
+  m_ConnectedAnchor: {x: 0.07213121, y: -0.0011278827}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9708,7 +9708,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4033.7678, y: 1987.3192}
+  m_ConnectedAnchor: {x: 5372.424, y: 2329.3677}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9792,15 +9792,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: POINTS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290773114
-  m_fontColor: {r: 0.47909287, g: 0, b: 0.754717, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9817,14 +9817,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.15
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10027,7 +10027,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.89100003, y: -0.35069665}
   m_AnchorMax: {x: 1, y: 0.86060673}
-  m_AnchoredPosition: {x: 0.60009766, y: -0.20007324}
+  m_AnchoredPosition: {x: 0.60009766, y: -0.20019531}
   m_SizeDelta: {x: 2.3998413, y: 0.4449005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1877365500
@@ -10084,7 +10084,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637151, y: 0.0011304391}
+  m_ConnectedAnchor: {x: 0.076370664, y: 0.0011304028}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -10162,7 +10162,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.067892686, y: 0.0011304325}
+  m_ConnectedAnchor: {x: 0.067892745, y: 0.0011278219}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -10219,10 +10219,10 @@ RectTransform:
   m_Father: {fileID: 1388986902}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.030000001, y: 0}
+  m_AnchorMin: {x: 0.08800001, y: 0}
   m_AnchorMax: {x: 0.96676844, y: 1}
-  m_AnchoredPosition: {x: -0.12600708, y: 0.2460022}
-  m_SizeDelta: {x: 0.5400009, y: -3.8888}
+  m_AnchoredPosition: {x: -0.25790405, y: -0.84920883}
+  m_SizeDelta: {x: 0.80370045, y: -1.6984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1884916968
 MonoBehaviour:
@@ -10246,15 +10246,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: TIME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290773114
-  m_fontColor: {r: 0.47909287, g: 0, b: 0.754717, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -10271,14 +10271,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.75
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10307,7 +10307,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0.22561646, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10524,7 +10524,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2107479099}
+  - {fileID: 691774152}
+  - {fileID: 2110926914}
+  - {fileID: 2118073831}
+  - {fileID: 655993206}
+  - {fileID: 1721582423}
   m_Father: {fileID: 1343848537}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10546,7 +10550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.75686276}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10637,7 +10641,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132014, y: -0.0011305324}
+  m_ConnectedAnchor: {x: 0.072132915, y: -0.0011279596}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -11034,7 +11038,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.10181105, y: -0.0011283554}
+  m_ConnectedAnchor: {x: 0.10181186, y: -0.0011309949}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -11411,10 +11415,10 @@ RectTransform:
   m_Father: {fileID: 527525250}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.06237037, y: 0.86714816}
-  m_AnchorMax: {x: 0.34359258, y: 0.9846667}
-  m_AnchoredPosition: {x: -0.5, y: 1.5}
-  m_SizeDelta: {x: -3.1812134, y: 3.6795654}
+  m_AnchorMin: {x: 0, y: 0.8767102}
+  m_AnchorMax: {x: 0.53087676, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -0.000072479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2036997493
 MonoBehaviour:
@@ -11429,7 +11433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.75686276}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11717,87 +11721,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.015594482, y: -0.2821045}
   m_SizeDelta: {x: 0, y: -0.46569824}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2107479098
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2107479099}
-  - component: {fileID: 2107479101}
-  - component: {fileID: 2107479100}
-  m_Layer: 0
-  m_Name: CenterPause
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2107479099
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107479098}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 691774152}
-  - {fileID: 2110926914}
-  - {fileID: 2118073831}
-  - {fileID: 655993206}
-  - {fileID: 1721582423}
-  m_Father: {fileID: 1897332525}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.10627369, y: 0.21800001}
-  m_AnchorMax: {x: 0.90033334, y: 0.78200006}
-  m_AnchoredPosition: {x: -3.5, y: 5.8552856}
-  m_SizeDelta: {x: -5.9241, y: 20.401901}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2107479100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107479098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.72156864, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2107479101
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107479098}
-  m_CullTransparentMesh: 1
 --- !u!1 &2110926913
 GameObject:
   m_ObjectHideFlags: 0
@@ -11828,13 +11751,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2107479099}
+  m_Father: {fileID: 1897332525}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0773033, y: 0.65519947}
-  m_AnchorMax: {x: 0.776, y: 0.78940165}
-  m_AnchoredPosition: {x: 0.80200195, y: -0.1000061}
-  m_SizeDelta: {x: -0.125, y: -0.692688}
+  m_AnchorMin: {x: 0.24642467, y: 0.68600005}
+  m_AnchorMax: {x: 0.7417261, y: 0.75613755}
+  m_AnchoredPosition: {x: -6.5, y: -2.5}
+  m_SizeDelta: {x: 12.720001, y: 4.747696}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2110926915
 MonoBehaviour:
@@ -11858,8 +11781,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Statystyki
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11883,7 +11806,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 131.8
+  m_fontSize: 129.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -11919,7 +11842,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 13.102814, y: 0, z: 0, w: 4.3676453}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11958,20 +11881,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118073830}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 336034835}
   - {fileID: 1476332533}
-  m_Father: {fileID: 2107479099}
+  m_Father: {fileID: 1897332525}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0773033, y: 0.5}
-  m_AnchorMax: {x: 0.9013484, y: 0.5944411}
-  m_AnchoredPosition: {x: 0.19900513, y: -1.5559998}
-  m_SizeDelta: {x: -0.39800072, y: 3.1120005}
+  m_AnchorMin: {x: 0.171, y: 0.550175}
+  m_AnchorMax: {x: 0.80375355, y: 0.614}
+  m_AnchoredPosition: {x: -0.2999878, y: -0.1000061}
+  m_SizeDelta: {x: 0.16666412, y: -0.28231812}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2118073832
 MonoBehaviour:
@@ -12065,7 +11988,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 4887.2617, y: 2088.087}
+  m_ConnectedAnchor: {x: 6427.509, y: 2430.1353}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
