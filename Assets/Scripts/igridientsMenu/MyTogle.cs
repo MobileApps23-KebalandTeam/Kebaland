@@ -52,17 +52,20 @@ public class MyTogle : MonoBehaviour
                 break;
         }
 
-        int leftItems = math.max(0,totalItems - toggleManager.toggleListZaakceptowanych.Count);
+        int leftItems = math.max(0, totalItems - toggleManager.toggleListZaakceptowanych.Count);
         licznik.licznikPoprzedni = leftItems;
         licznik.GetComponent<Text>().text = $"{leftItems}";
     }
 
     public void OnToggleValueChangedMeat() //metoda użyana przy kliku na toglle
     {
-        if (LevelChoice.GetStartedLevel() < LevelChoice.GetLevelToPass())
+        if (LevelChoice.GetStartedLevel() < LevelChoice.GetLevelToPass() || (LevelChoice.GetStartedLevel() == 0 &&
+                                                                             toggleManager.toggleListZaakceptowanych
+                                                                                 .Count > 0))
         {
             return;
         }
+
         if (LevelChoice.GetStartedLevel() == 0) //sprawdzamy czy to jest pierwszy wybur gracza
         {
             if (temat != toggleManager
