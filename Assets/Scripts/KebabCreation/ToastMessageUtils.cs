@@ -67,7 +67,7 @@ public class ToastMessageUtils : MonoBehaviour
         while (counter < duration)
         {
             counter += Time.deltaTime;
-            float alpha = Mathf.Lerp(a, b, counter / duration);
+            float alpha = Mathf.Min(Mathf.Lerp(a, b, counter / duration), 193);
 
             txt.color = new Color(orginalColor.r, orginalColor.g, orginalColor.b, alpha);
             image.color = new Color(imageColor.r, imageColor.g, imageColor.b, alpha);
