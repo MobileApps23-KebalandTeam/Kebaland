@@ -312,7 +312,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07425201, y: -0.0011293254}
+  m_ConnectedAnchor: {x: 0.07425263, y: -0.0011306589}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -547,7 +547,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.15
+  m_fontSize: 184.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -651,7 +651,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132036, y: -0.0011292268}
+  m_ConnectedAnchor: {x: 0.07213206, y: -0.0011279213}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -954,7 +954,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09118618, y: -0.00000024385596}
+  m_ConnectedAnchor: {x: 0.091185756, y: -0.00000024385483}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.65
+  m_fontSize: 200
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1577,7 +1577,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637111, y: 0.0011291153}
+  m_ConnectedAnchor: {x: 0.07637151, y: 0.0011304391}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1655,7 +1655,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058319, y: 0.000000034853386}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1862,7 +1862,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072100855, y: 0.000000031184655}
+  m_ConnectedAnchor: {x: 0.0721, y: 0.000000031184285}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1965,8 +1965,8 @@ MonoBehaviour:
   - {fileID: 65603081}
   - {fileID: 1267019261}
   m_Bounds:
-    m_Center: {x: -0.0050000027, y: 0.00000014901161, z: 0}
-    m_Extent: {x: 0.09500006, y: 0.48000026, z: 0}
+    m_Center: {x: -0.0050019026, y: 0.000000029802322, z: 0}
+    m_Extent: {x: 0.09500195, y: 0.4800002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -2573,7 +2573,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1394.1494, y: 913.4741}
+  m_ConnectedAnchor: {x: 6052.174, y: 2429.889}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -2635,7 +2635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 51a4687e906e4e04bac8ebba324713be, type: 3}
+  m_Texture: {fileID: 2800000, guid: 6754e68dca6a47e4c8b2df31651f9b31, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2724,7 +2724,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.101811446, y: -0.0011303284}
+  m_ConnectedAnchor: {x: 0.10181105, y: -0.0011283554}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3011,7 +3011,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485055, y: 0.0011304168}
+  m_ConnectedAnchor: {x: 0.08485036, y: 0.00112845}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3146,10 +3146,10 @@ RectTransform:
   m_Father: {fileID: 1332825570}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.83586913, y: 0.55600005}
-  m_AnchorMax: {x: 0.952, y: 0.804}
-  m_AnchoredPosition: {x: -0.5, y: -0.26999664}
-  m_SizeDelta: {x: 0.9999771, y: -1.5026016}
+  m_AnchorMin: {x: 0.83300006, y: 0.73200005}
+  m_AnchorMax: {x: 0.9506111, y: 0.97741485}
+  m_AnchoredPosition: {x: -1, y: 0.5}
+  m_SizeDelta: {x: -1.0000229, y: -0.5026016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &487171185
 MonoBehaviour:
@@ -3463,7 +3463,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058319, y: 0.000000034853386}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3541,7 +3541,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.067892715, y: 0.0011291272}
+  m_ConnectedAnchor: {x: 0.067891836, y: 0.0011303917}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -3782,7 +3782,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485056, y: 0.0011297638}
+  m_ConnectedAnchor: {x: 0.084851176, y: 0.0011310943}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4442,7 +4442,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637111, y: 0.0011291153}
+  m_ConnectedAnchor: {x: 0.076371565, y: 0.0011278278}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4586,7 +4586,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132036, y: -0.0011292268}
+  m_ConnectedAnchor: {x: 0.07213287, y: -0.0011305707}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4866,7 +4866,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072100855, y: 0.000000031184655}
+  m_ConnectedAnchor: {x: 0.0721, y: 0.000000031184285}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -4950,7 +4950,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132036, y: -0.0011292268}
+  m_ConnectedAnchor: {x: 0.072131164, y: -0.0011304938}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5845,7 +5845,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 86e84b02e20b9604d85e895aad1d1038, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2592a9c126592d04d86bb7ef08db99b4, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6103,7 +6103,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.072132036, y: -0.0011292268}
+  m_ConnectedAnchor: {x: 0.072132014, y: -0.0011305324}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6187,8 +6187,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: +1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
+  m_sharedMaterial: {fileID: -1891612388341557361, guid: e973034dfc756244a96cb7034b8dfd34, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6212,7 +6212,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6393,7 +6393,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.067892715, y: 0.0011291272}
+  m_ConnectedAnchor: {x: 0.067892745, y: 0.0011278219}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6688,7 +6688,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07425179, y: -0.001129316}
+  m_ConnectedAnchor: {x: 0.07425182, y: -0.0011280105}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -6844,7 +6844,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09118618, y: -0.00000024385596}
+  m_ConnectedAnchor: {x: 0.091186605, y: -0.0000002438571}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -7064,10 +7064,10 @@ RectTransform:
   m_Father: {fileID: 527525250}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.65500003}
-  m_AnchorMax: {x: 1, y: 0.8586596}
-  m_AnchoredPosition: {x: 0, y: -0.19995117}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.67300004}
+  m_AnchorMax: {x: 1, y: 0.8767102}
+  m_AnchoredPosition: {x: -1, y: -0.5}
+  m_SizeDelta: {x: 0, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1332825571
 MonoBehaviour:
@@ -7123,6 +7123,7 @@ MonoBehaviour:
   panelObj: {fileID: 487171183}
   manager: {fileID: 964997272}
   statistics: {fileID: 2036997495}
+  endGameScript: {fileID: 0}
 --- !u!1 &1334900380
 GameObject:
   m_ObjectHideFlags: 0
@@ -7196,8 +7197,8 @@ MonoBehaviour:
   - {fileID: 1900283995}
   - {fileID: 257188993}
   m_Bounds:
-    m_Center: {x: -0.004999779, y: 0.0000002682209, z: 0}
-    m_Extent: {x: 0.09500028, y: 0.48000038, z: 0}
+    m_Center: {x: -0.0050019026, y: 0.00000011920929, z: 0}
+    m_Extent: {x: 0.09500195, y: 0.48000056, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -7396,7 +7397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.07972315}
-  m_AnchoredPosition: {x: 0.20458984, y: -0.018096924}
+  m_AnchoredPosition: {x: 0.20458984, y: -0.018066406}
   m_SizeDelta: {x: 0.40918, y: 0.25150013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346779298
@@ -7903,10 +7904,10 @@ RectTransform:
   m_Father: {fileID: 1332825570}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.04454794, y: 0.19600001}
-  m_AnchorMax: {x: 0.70542467, y: 0.89732915}
-  m_AnchoredPosition: {x: 0.093322754, y: 0.59210205}
-  m_SizeDelta: {x: 0.57170105, y: -1.1314001}
+  m_AnchorMin: {x: 0.010500003, y: 0.27965924}
+  m_AnchorMax: {x: 0.6728333, y: 0.97741485}
+  m_AnchoredPosition: {x: 1, y: -1}
+  m_SizeDelta: {x: -1.428299, y: 0.86859894}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1421741292
 MonoBehaviour:
@@ -8163,8 +8164,8 @@ MonoBehaviour:
   - {fileID: 850997273}
   - {fileID: 892877020}
   m_Bounds:
-    m_Center: {x: -0.0050000027, y: 0.0000002682209, z: 0}
-    m_Extent: {x: 0.09500006, y: 0.48000014, z: 0}
+    m_Center: {x: -0.0050000027, y: 0.000000059604645, z: 0}
+    m_Extent: {x: 0.09500006, y: 0.4800005, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -8222,7 +8223,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.09118618, y: -0.00000024385596}
+  m_ConnectedAnchor: {x: 0.091186605, y: -0.0000002438571}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8300,7 +8301,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07425178, y: -0.0011299688}
+  m_ConnectedAnchor: {x: 0.07425182, y: -0.0011280105}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8546,7 +8547,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6754e68dca6a47e4c8b2df31651f9b31, type: 3}
+  m_Texture: {fileID: 2800000, guid: 51a4687e906e4e04bac8ebba324713be, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -8615,7 +8616,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08058319, y: 0.000000034853386}
+  m_ConnectedAnchor: {x: 0.08058341, y: 0.00000003485348}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -8980,7 +8981,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.10181145, y: -0.0011296754}
+  m_ConnectedAnchor: {x: 0.10181105, y: -0.0011283554}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9221,7 +9222,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07846258, y: -0.00000019549046}
+  m_ConnectedAnchor: {x: 0.07846194, y: -0.00000019548887}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9433,7 +9434,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.08485056, y: 0.0011297638}
+  m_ConnectedAnchor: {x: 0.08485036, y: 0.00112845}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9511,7 +9512,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07213182, y: -0.0011292169}
+  m_ConnectedAnchor: {x: 0.07213121, y: -0.0011278827}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -9970,7 +9971,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1032.9475, y: 812.9528}
+  m_ConnectedAnchor: {x: 5372.424, y: 2329.3677}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -10079,7 +10080,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10187,7 +10188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 771105af861f41748890d9eddfef463f, type: 3}
+  m_Texture: {fileID: 2800000, guid: 979711b707196b5478f491e4ea4b5f88, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -10346,7 +10347,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07637111, y: 0.0011291153}
+  m_ConnectedAnchor: {x: 0.076370664, y: 0.0011304028}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -10424,7 +10425,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.0678927, y: 0.0011297798}
+  m_ConnectedAnchor: {x: 0.067892745, y: 0.0011278219}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -10533,7 +10534,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10903,7 +10904,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.07213203, y: -0.0011298795}
+  m_ConnectedAnchor: {x: 0.072132915, y: -0.0011279596}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -11140,7 +11141,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 2592a9c126592d04d86bb7ef08db99b4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 86e84b02e20b9604d85e895aad1d1038, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -11228,7 +11229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 884a9a9f8b3a21d468d67a616a5d8c59, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0ffa4ffe6f81e14cbbfebaf8d68b2e4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11300,7 +11301,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.10181145, y: -0.0011296754}
+  m_ConnectedAnchor: {x: 0.10181186, y: -0.0011309949}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -12250,7 +12251,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1434.5398, y: 913.7204}
+  m_ConnectedAnchor: {x: 6427.509, y: 2430.1353}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0

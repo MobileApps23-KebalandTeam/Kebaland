@@ -22,13 +22,9 @@ public class IngredientsHolder : MonoBehaviour
         meat1 = meat1O;
         meat2 = meat2O;
         tomato = tomatoO;
-        tomato.transform.eulerAngles += _rotateVector;
         cucumber = cucumberO;
-        cucumber.transform.eulerAngles += _rotateVector;
         pepper = pepperO;
-        pepper.transform.eulerAngles += _rotateVector;
         lettuce = lettuceO;
-        lettuce.transform.eulerAngles += _rotateVector;
         sauce1 = sauce1O;
         sauce2 = sauce2O;
         sauce3 = sauce3O;

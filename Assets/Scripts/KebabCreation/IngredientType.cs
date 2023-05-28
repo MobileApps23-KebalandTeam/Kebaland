@@ -64,9 +64,9 @@ public static class IngredientTypeMethods
     {
         switch (type)
         {
-            case IngredientType.Tomato:
-                return "ExtraIngredient1";
             case IngredientType.Onion:
+                return "ExtraIngredient1";
+            case IngredientType.Tomato:
                 return "ExtraIngredient2";
             case IngredientType.Cucumber:
                 return "ExtraIngredient3";
@@ -100,27 +100,27 @@ public static class IngredientTypeMethods
             case IngredientType.Tomato:
                 return "Pomidor";
             case IngredientType.Cucumber:
-                return "Og�rek";
+                return "Ogórek";
             case IngredientType.Lettuce:
-                return "Sa�ata";
+                return "Sałata";
             case IngredientType.Onion:
                 return "Cebula";
             case IngredientType.Meat1:
                 return "Kurczak";
             case IngredientType.Meat2:
-                return "Wo�owina";
+                return "Wołowina";
             case IngredientType.Dough1:
-                return "Jasne ciasto";
+                return "Żółte ciasto";
             case IngredientType.Dough2:
-                return "��te ciasto";
+                return "Jasne ciasto";
             case IngredientType.Dough3:
                 return "Ciemne ciasto";
             case IngredientType.Sauce1:
-                return "Sos 1";
+                return "Musztarda";
             case IngredientType.Sauce2:
-                return "Sos 2";
+                return "Serowy";
             case IngredientType.Sauce3:
-                return "Sos 3";
+                return "Ketchup";
             default:
                 return "";
         }
