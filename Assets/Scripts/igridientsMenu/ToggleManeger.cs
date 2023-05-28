@@ -21,7 +21,7 @@ public class ToggleManeger : MonoBehaviour
 
     public void wykorzystane()
     {
-        Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@ " + toggleListAll.Count);
+        // Debug.Log("@@@@@@@@@@@@@@@@@@@@@@@@@ " + toggleListAll.Count);
         if (toggleListZaakceptowanych.Count > 0) {
 
             for (int i = 0; i < toggleListAll.Count; i++) // przechodzimy po tablice wszystkich toglle i sprawdzamy czy te toggle nie są zaakceptowane
@@ -32,8 +32,6 @@ public class ToggleManeger : MonoBehaviour
                     toggleListAll[i].Item1.enabled = false; // i robimy znów actywnymi
                     toggleListAll[i].Item3.enabled = true;
                 }
-
-
             }
 
         }

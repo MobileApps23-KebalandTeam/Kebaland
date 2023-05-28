@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using Core;
 
 //clasa dla przycisku Lecimy gotować 
 public class MyButton : MonoBehaviour
@@ -13,23 +14,7 @@ public class MyButton : MonoBehaviour
     public Awaria awaria;// zmienna awariji
     public int count = 0; // licznik podejść
     public bool animacja = false;//zmienna czy jest animacja
-
-
-    void Start()
-    {
-        if (LevelChoice.GetStartedLevel() == 0)//jeśli to drugie podejście 
-        {
-            licznik.licznikPoprzedni = 4;
-        }
-        else if (LevelChoice.GetStartedLevel() == 1) {
-            licznik.licznikPoprzedni = 2;
-        }
-        else if (LevelChoice.GetStartedLevel() > 1)
-        {
-            licznik.licznikPoprzedni = 1;
-        }
-        licznik.textComponent.text = $"{licznik.licznikPoprzedni}";
-    }
+    
 
     public void cklick()//metoda kliku
     {
@@ -49,9 +34,9 @@ public class MyButton : MonoBehaviour
         
 
     }
-    public IEnumerator ToggleInteraction()//wyloncza aktywność componentu toggle
+    public void ToggleInteraction()//wyloncza aktywność componentu toggle
     {
-        yield return new WaitForSeconds(0.2f); // Dodatkowe opóźnienie po zakończeniu przesuwania obrazka
+        // yield return new WaitForSeconds(0.2f); // Dodatkowe opóźnienie po zakończeniu przesuwania obrazka
                                                // Wywołujemy naszą metodę, która ma zacząć pracować po zakończeniu przesuwania obrazka
                                                //awaria.odblokowacAnimacja(); // nie tutaj bo nasze togle jeście nie dodane do toggleListZaakceptowanych i tzeba żeby odblokować już po zapisaniu
                                                // licznik.textComponent.text = $"{licznik.licznikPoprzedni}";//zmieniamy licznik
@@ -92,9 +77,10 @@ public class MyButton : MonoBehaviour
         IngredientsHolder.ClearTypes();
         foreach (IngredientType type in toggleManager.toggleListZaakceptowanych)
         {
+            Debug.Log(type);
             IngredientsHolder.AddType(type);
         }
+        ServiceLocator.Get<IngredientsService>().saveIngredients(toggleManager.toggleListZaakceptowanych);
         awaria.odblokowacAnimacja();//odblokujemy componenty
-
     }
 }

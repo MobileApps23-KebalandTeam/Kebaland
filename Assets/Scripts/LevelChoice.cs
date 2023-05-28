@@ -147,4 +147,8 @@ public class LevelChoice : MonoBehaviour
     {
         return _startedLevel;
     }
+    public static int GetLevelToPass()
+    {
+        return _currentLevelToPass;
+    }
 }
