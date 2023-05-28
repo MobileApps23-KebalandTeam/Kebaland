@@ -46,6 +46,7 @@ public class OrderList : MonoBehaviour
     public GameObject panelObj;
     public Manager manager;
     public StatisticsScript statistics;
+    public EndGameScript endGameScript;
 
     private static Dictionary<string, GameObject> kebabTypesMap = new Dictionary<string, GameObject>();
 
@@ -83,6 +84,12 @@ public class OrderList : MonoBehaviour
     void Update()
     {
         if (manager.IsEndGame()) return;
+
+        if (delayedOrders.Count == 0 && actList.Count == 0)
+        {
+            StatisticsScript.EndGame();
+            return;
+        }
 
         foreach (DelayedOrder delayedOrder in delayedOrders)
         {
@@ -289,7 +296,14 @@ public class OrderList : MonoBehaviour
                             }
                             else
                             {
-                                childChild.gameObject.GetComponentInChildren<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(images[ac]));
+                                if (ac >= act)
+                                {
+                                    childChild.gameObject.SetActive(false);
+                                }
+                                else
+                                {
+                                    childChild.gameObject.GetComponentInChildren<RawImage>().texture = Resources.Load<Texture>("Textures/" + IngredientTypeMethods.getBasicName(images[ac]));
+                                }
                             }
                         }
                         ac++;
