@@ -100,19 +100,19 @@ public static class IngredientTypeMethods
             case IngredientType.Tomato:
                 return "Pomidor";
             case IngredientType.Cucumber:
-                return "Ogórek";
+                return "Ogï¿½rek";
             case IngredientType.Lettuce:
-                return "Sa³ata";
-            case IngredientType.Pepper:
-                return "Papryka";
+                return "Saï¿½ata";
+            case IngredientType.Onion:
+                return "Cebula";
             case IngredientType.Meat1:
                 return "Kurczak";
             case IngredientType.Meat2:
-                return "Wo³owina";
+                return "Woï¿½owina";
             case IngredientType.Dough1:
                 return "Jasne ciasto";
             case IngredientType.Dough2:
-                return "¯ó³te ciasto";
+                return "ï¿½ï¿½te ciasto";
             case IngredientType.Dough3:
                 return "Ciemne ciasto";
             case IngredientType.Sauce1:

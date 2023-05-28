@@ -76,7 +76,7 @@ public class IngredientsHolder : MonoBehaviour
         {
             lettuce.SetActive(false);
         }
-        if (!types.Contains(IngredientType.Pepper))
+        if (!types.Contains(IngredientType.Onion))
         {
             pepper.SetActive(false);
         }

@@ -139,7 +139,7 @@ public class PlatePanel : MonoBehaviour
         public override IngredientType GetIngredientType()
         {
             if (type == 0) return IngredientType.Tomato;
-            if (type == 1) return IngredientType.Pepper;
+            if (type == 1) return IngredientType.Onion;
             if (type == 2) return IngredientType.Cucumber;
             if (type == 3) return IngredientType.Lettuce;
             return IngredientType.Default;
